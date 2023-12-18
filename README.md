@@ -4,7 +4,7 @@
 ## Introduction
 
 
-1.1 Problématique
+- 1.1 Problématique
 ```
 Le projet VitaHPlus vise à créer une plateforme de santé numérique pour simplifier l'accès aux services de santé, faciliter la prise de rendez-vous médicaux, et permettre un suivi personnalisé de la santé des utilisateurs.
 ```
