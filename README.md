@@ -2,37 +2,41 @@
 **Cahier de Charges pour le Projet VitaHPlus - Plateforme de Santé**
 
 ##Introduction
+
+
 1.1 Problématique
-
+```
 Le projet VitaHPlus vise à créer une plateforme de santé numérique pour simplifier l'accès aux services de santé, faciliter la prise de rendez-vous médicaux, et permettre un suivi personnalisé de la santé des utilisateurs.
-
-1.2 Objectif du Projet
+```
+-1.2 Objectif du Projet
 
 Le projet a pour objectif de concevoir et développer une plateforme de santé numérique offrant des fonctionnalités telles que la prise de rendez-vous en ligne, la consultation des informations médicales, la gestion des rendez-vous et des rappels de santé.
 
-1.3 Portée du Projet
+-1.3 Portée du Projet
 
 La portée du projet inclut les fonctionnalités essentielles telles que la prise de rendez-vous, la gestion des profils utilisateur, l'accès aux informations médicales, la gestion des rappels de santé, et d'autres fonctionnalités liées à la santé et au bien-être.
 
-##Fonctionnalités de la Plateforme
-2.1 Prise de Rendez-vous
+###Fonctionnalités de la Plateforme
+-2.1 Prise de Rendez-vous
 
 Mise en place d'un système de prise de rendez-vous en ligne pour les consultations médicales.
 Notification automatique de confirmation de rendez-vous par e-mail pour assurer la validité des rendez-vous.
-2.2 Gestion des Profils Utilisateur
+-2.2 Gestion des Profils Utilisateur
 
 Création de profils distincts pour les utilisateurs, les professionnels de la santé, et les établissements médicaux.
 Intégration d'une fonction de mise à jour des informations personnelles pour permettre aux utilisateurs de maintenir des profils à jour.
-2.3 Accès aux Informations Médicales
+-2.3 Accès aux Informations Médicales
 
 Permettre aux utilisateurs de consulter leurs informations médicales de manière sécurisée.
 Faciliter le partage d'informations médicales entre les patients et les professionnels de la santé avec des autorisations appropriées.
-2.4 Gestion des Rappels de Santé
+-2.4 Gestion des Rappels de Santé
 
 Mise en place d'un système de rappels automatiques pour les rendez-vous médicaux, les prises de médicaments, et autres rappels de santé.
 Personnalisation des rappels en fonction des besoins médicaux spécifiques de chaque utilisateur.
-Exigences Techniques
-3.1 Langages de Programmation
+
+###Exigences Techniques
+
+-3.1 Langages de Programmation
 
 Le développement de la plateforme se fera en utilisant les langages suivants :
 
@@ -40,10 +44,11 @@ HTML pour la structure des pages web.
 CSS pour le style et la mise en forme (Bootstrap/Tailwind).
 JavaScript pour les fonctionnalités interactives côté client.
 PHP pour le traitement côté serveur (Laravel).
-3.2 Base de Données
+-3.2 Base de Données
 
 Utilisation d'une base de données MySQL pour stocker de manière sécurisée les informations des utilisateurs, des rendez-vous, des informations médicales, et des rappels de santé.
 Mise en place d'un schéma de base de données bien structuré et optimisé pour assurer la gestion efficace des données.
+
 ##Histoires des Utilisateurs
 
 Pour les Utilisateurs:
