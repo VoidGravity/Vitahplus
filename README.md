@@ -34,7 +34,7 @@ Faciliter le partage d'informations médicales entre les patients et les profess
 Mise en place d'un système de rappels automatiques pour les rendez-vous médicaux, les prises de médicaments, et autres rappels de santé.
 Personnalisation des rappels en fonction des besoins médicaux spécifiques de chaque utilisateur.
 
-###Exigences Techniques
+### Exigences Techniques
 
 - 3.1 Langages de Programmation
 
@@ -49,7 +49,7 @@ PHP pour le traitement côté serveur (Laravel).
 Utilisation d'une base de données MySQL pour stocker de manière sécurisée les informations des utilisateurs, des rendez-vous, des informations médicales, et des rappels de santé.
 Mise en place d'un schéma de base de données bien structuré et optimisé pour assurer la gestion efficace des données.
 
-##Histoires des Utilisateurs
+## Histoires des Utilisateurs
 ````
 Pour les Utilisateurs:
 ````
