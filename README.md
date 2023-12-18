@@ -1,7 +1,7 @@
 # Vitahplus
 **Cahier de Charges pour le Projet VitaHPlus - Plateforme de Santé**
 
-Introduction
+##Introduction
 1.1 Problématique
 
 Le projet VitaHPlus vise à créer une plateforme de santé numérique pour simplifier l'accès aux services de santé, faciliter la prise de rendez-vous médicaux, et permettre un suivi personnalisé de la santé des utilisateurs.
@@ -14,7 +14,7 @@ Le projet a pour objectif de concevoir et développer une plateforme de santé n
 
 La portée du projet inclut les fonctionnalités essentielles telles que la prise de rendez-vous, la gestion des profils utilisateur, l'accès aux informations médicales, la gestion des rappels de santé, et d'autres fonctionnalités liées à la santé et au bien-être.
 
-Fonctionnalités de la Plateforme
+##Fonctionnalités de la Plateforme
 2.1 Prise de Rendez-vous
 
 Mise en place d'un système de prise de rendez-vous en ligne pour les consultations médicales.
@@ -44,13 +44,15 @@ PHP pour le traitement côté serveur (Laravel).
 
 Utilisation d'une base de données MySQL pour stocker de manière sécurisée les informations des utilisateurs, des rendez-vous, des informations médicales, et des rappels de santé.
 Mise en place d'un schéma de base de données bien structuré et optimisé pour assurer la gestion efficace des données.
-Histoires des Utilisateurs
+##Histoires des Utilisateurs
+
 Pour les Utilisateurs:
 
 En tant qu'utilisateur, je veux pouvoir prendre facilement des rendez-vous en ligne avec des professionnels de la santé.
 En tant qu'utilisateur, je souhaite recevoir une confirmation automatique de mon rendez-vous par e-mail pour assurer que ma réservation est complète et validée.
 En tant qu'utilisateur, je veux pouvoir accéder à mes informations médicales de manière sécurisée et intuitive.
 En tant qu'utilisateur, je souhaite recevoir des rappels personnalisés pour mes rendez-vous médicaux et mes prises de médicaments.
+
 Pour les Professionnels de la Santé:
 
 En tant que professionnel de la santé, je veux pouvoir gérer mes disponibilités et les rendez-vous des patients de manière efficace.
