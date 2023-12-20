@@ -68,3 +68,8 @@ Pour les Professionnels de la Santé:
 * En tant qu'établissement médical, je veux pouvoir gérer les profils des professionnels de la santé affiliés à notre institution.
 * En tant qu'établissement médical, je souhaite recevoir des rapports sur l'utilisation de la plateforme au niveau de l'établissement.
 * Ce cahier de charges définit les bases du projet VitaHPlus, en mettant l'accent sur la création d'une plateforme de santé numérique complète et conviviale.
+
+
+
+
+*Planification : https://trello.com/invite/b/vLKKodCh/ATTI2f5e4b59b3a93ada055732df2568efbc6943C0E9/vitahplus*
