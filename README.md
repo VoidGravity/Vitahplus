@@ -63,11 +63,16 @@ Pour les Professionnels de la Santé:
 * En tant que professionnel de la santé, je veux pouvoir gérer mes disponibilités et les rendez-vous des patients de manière efficace.
 * En tant que professionnel de la santé, je souhaite avoir accès aux informations médicales pertinentes des patients avec leur consentement.
 * En tant que professionnel de la santé, je veux recevoir des notifications pour les nouveaux rendez-vous et les mises à jour importantes.
-* Pour les Établissements Médicaux:
+  ````
+  Pour les Établissements Médicaux:
+  ````
 
 * En tant qu'établissement médical, je veux pouvoir gérer les profils des professionnels de la santé affiliés à notre institution.
 * En tant qu'établissement médical, je souhaite recevoir des rapports sur l'utilisation de la plateforme au niveau de l'établissement.
-* Ce cahier de charges définit les bases du projet VitaHPlus, en mettant l'accent sur la création d'une plateforme de santé numérique complète et conviviale.
+
+
+
+Ce cahier de charges définit les bases du projet VitaHPlus, en mettant l'accent sur la création d'une plateforme de santé numérique complète et conviviale.
 
 
 
