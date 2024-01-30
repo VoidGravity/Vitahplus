@@ -75,10 +75,10 @@ Pour les Professionnels de la Santé:
 
 * Diagrame des cas d'utilisation :
 
-  ![image](https://github.com/VoidGravity/Vitahplus/uml/diagrame_de_class.png)
+  ![image](https://github.com/VoidGravity/Vitahplus/blob/main/UML/diagrame_des_cas_dutilisations.png)
 
 * Diagrame de class :
-  ![image](https://github.com/VoidGravity/Vitahplus/uml/diagrame_des_cas_dutilisations.png)
+  ![image](https://github.com/VoidGravity/Vitahplus/blob/main/UML/diagrame_de_class.png)
 
 
 
