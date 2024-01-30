@@ -71,6 +71,17 @@ Pour les Professionnels de la Santé:
 * En tant qu'établissement médical, je souhaite recevoir des rapports sur l'utilisation de la plateforme au niveau de l'établissement.
 
 
+## UML
+
+* Diagrame des cas d'utilisation :
+
+  ![image](https://github.com/VoidGravity/Vitahplus/assets/140279269/b7ebba34-bf08-4f90-868a-c77bb7a4dc5c)
+
+* Diagrame de class :
+  ![image](https://github.com/VoidGravity/Vitahplus/assets/140279269/e0dcc22e-d59c-4811-b1be-b0ab2c853741)
+
+
+
 
 Ce cahier de charges définit les bases du projet VitaHPlus, en mettant l'accent sur la création d'une plateforme de santé numérique complète et conviviale.
 
