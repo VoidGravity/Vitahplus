@@ -12,7 +12,8 @@
     <!-- Page Title  -->
     <title>Invoice Print | DashLite Admin Template</title>
     <!-- StyleSheets  -->
-    @vite(['resources/css/app.css','resources/js/script.js','resources/js/bundle.js'])
+    <link rel="stylesheet" href="{{asset('css/dashlite.css')}}">
+
 
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.2.3">
 </head>

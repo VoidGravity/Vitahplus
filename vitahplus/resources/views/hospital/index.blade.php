@@ -2,7 +2,7 @@
 <html lang="zxx" class="js">
 
 <head>
-    <base href="../../">
+    {{-- <base href="../../"> --}}
     <meta charset="utf-8">
     <meta name="author" content="Softnio">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,10 +10,10 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Dashboard - Hospital Manegment | DashLite Admin Template</title>
+    <title>test</title>
     <!-- StyleSheets  -->
-    @vite(['resources/css/app.css','resources/js/script.js','resources/js/bundle.js'])
-
+    {{-- @vite(['resources/css/dashlite.css','resources/js/scripts.js','resources/js/bundle.js']) --}}
+    <link rel="stylesheet" href="{{asset('css/dashlite.css')}}">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.2.3">
 </head>
 
@@ -1752,9 +1752,10 @@
         </div><!-- .modla-dialog -->
     </div><!-- .modal -->
     <!-- JavaScript -->
-    {{-- <script src="./assets/js/bundle.js?ver=3.2.3"></script>
-    <script src="./assets/js/scripts.js?ver=3.2.3"></script> --}}
-    {{-- <script src="./assets/js/charts/gd-hospital.js?ver=3.2.3"></script> --}}
+    <script src="{{asset('js/bundle.js')}}"></script>
+    
+    <script src="{{asset('js/scripts.js')}}"></script>
+    <script src="{{asset('js/charts/gd-hospital.js')}}"></script>
 </body>
 
 </html>

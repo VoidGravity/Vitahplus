@@ -12,7 +12,8 @@
     <!-- Page Title  -->
     <title>Patient Details | DashLite Admin Template</title>
     <!-- StyleSheets  -->
-    @vite(['resources/css/app.css','resources/js/script.js','resources/js/bundle.js'])
+    <link rel="stylesheet" href="{{asset('css/dashlite.css')}}">
+
 
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.2.3">
 </head>
@@ -2383,8 +2384,9 @@
         </div><!-- .modal-dialog -->
     </div><!-- .modal -->
     <!-- JavaScript -->
-    <script src="./assets/js/bundle.js?ver=3.2.3"></script>
-    <script src="./assets/js/scripts.js?ver=3.2.3"></script>
+     <script src="{{asset('js/bundle.js')}}"></script>
+    
+    <script src="{{asset('js/scripts.js')}}"></script>
     <link rel="stylesheet" href="./assets/css/editors/quill.css?ver=3.2.3">
     <script src="./assets/js/libs/editors/quill.js?ver=3.2.3"></script>
     <script src="./assets/js/editors.js?ver=3.2.3"></script>

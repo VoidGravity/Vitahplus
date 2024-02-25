@@ -12,7 +12,8 @@
     <!-- Page Title  -->
     <title>Invoice List | DashLite Admin Template</title>
     <!-- StyleSheets  -->
-    @vite(['resources/css/app.css','resources/js/script.js','resources/js/bundle.js'])
+    <link rel="stylesheet" href="{{asset('css/dashlite.css')}}">
+
 
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.2.3">
 </head>
@@ -1554,8 +1555,9 @@
         </div><!-- .modla-dialog -->
     </div><!-- .modal -->
     <!-- JavaScript -->
-    <script src="./assets/js/bundle.js?ver=3.2.3"></script>
-    <script src="./assets/js/scripts.js?ver=3.2.3"></script>
+     <script src="{{asset('js/bundle.js')}}"></script>
+    
+    <script src="{{asset('js/scripts.js')}}"></script>
 </body>
 
 </html>
