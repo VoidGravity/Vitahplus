@@ -22,8 +22,8 @@
             <div class="nk-sidebar-bar">
                 <div class="nk-apps-brand">
                     <a href="html/index.html" class="logo-link">
-                        <img class="logo-light logo-img" src="./images/logo-small.png" srcset="./images/logo-small2x.png 2x" alt="logo">
-                        <img class="logo-dark logo-img" src="./images/logo-dark-small.png" srcset="./images/logo-dark-small2x.png 2x" alt="logo-dark">
+                        <img class="logo-light logo-img" src="{{asset('images/logo-small.png')}}" srcset="./images/logo-small2x.png 2x" alt="logo">
+                        <img class="logo-dark logo-img" src="{{asset('images/logo-dark-small.png')}}" srcset="./images/logo-dark-small2x.png 2x" alt="logo-dark">
                     </a>
                 </div>
                 <div class="nk-sidebar-element">
@@ -842,8 +842,8 @@
                             </div>
                             <div class="nk-header-brand d-xl-none">
                                 <a href="html/index.html" class="logo-link">
-                                    <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
-                                    <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                                    <img class="logo-light logo-img" src="{{asset('images/logo.png')}}" srcset="./images/logo2x.png 2x" alt="logo">
+                                    <img class="logo-dark logo-img" src="{{asset('images/logo-dark.png')}}" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
                                 </a>
                             </div><!-- .nk-header-brand -->
                             <div class="nk-header-search ml-3 ml-xl-0">
@@ -906,7 +906,7 @@
                                                     <li class="chat-item">
                                                         <a class="chat-link" href="html/pharmacy/support.html">
                                                             <div class="chat-media user-avatar">
-                                                                <img src="./images/avatar/b-sm.jpg" alt="">
+                                                                <img src="{{asset('images/avatar/b-sm.jpg')}}" alt="">
                                                             </div>
                                                             <div class="chat-info">
                                                                 <div class="chat-from">
@@ -923,7 +923,7 @@
                                                         <a class="chat-link" href="html/pharmacy/support.html">
                                                             <div class="chat-media user-avatar user-avatar-multiple">
                                                                 <div class="user-avatar">
-                                                                    <img src="./images/avatar/c-sm.jpg" alt="">
+                                                                    <img src="{{asset('images/avatar/c-sm.jpg')}}" alt="">
                                                                 </div>
                                                                 <div class="user-avatar">
                                                                     <span>AB</span>
@@ -946,7 +946,7 @@
                                                     <li class="chat-item">
                                                         <a class="chat-link" href="html/pharmacy/support.html">
                                                             <div class="chat-media user-avatar">
-                                                                <img src="./images/avatar/a-sm.jpg" alt="">
+                                                                <img src="{{asset('images/avatar/a-sm.jpg')}}" alt="">
                                                                 <span class="status dot dot-lg dot-success"></span>
                                                             </div>
                                                             <div class="chat-info">
@@ -1127,7 +1127,7 @@
                                         </div><!-- .invoice-actions -->
                                         <div class="invoice-wrap">
                                             <div class="invoice-brand text-center">
-                                                <img src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="">
+                                                <img src="{{asset('images/logo-dark.png')}}" srcset="./images/logo-dark2x.png 2x" alt="">
                                             </div>
                                             <div class="invoice-head">
                                                 <div class="invoice-contact">

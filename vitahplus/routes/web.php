@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontOfficeController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\AddCustomerController;
@@ -52,9 +54,18 @@ use App\Http\Controllers\BlankController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\EmailTemplatesController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
 
+Route::get('/frontOffice/index', [FrontOfficeController::class, 'showFrontOfficeIndex'])->name('frontOffice/index');
+Route::get('/frontOffice/about', [FrontOfficeController::class, 'showFrontOfficeAbout'])->name('frontOffice/about');
+Route::get('/frontOffice/service', [FrontOfficeController::class, 'showFrontOfficeService'])->name('frontOffice/service');
+Route::get('/frontOffice/price', [FrontOfficeController::class, 'showFrontOfficePrice'])->name('frontOffice/price');
+Route::get('/frontOffice/team', [FrontOfficeController::class, 'showFrontOfficeTeam'])->name('frontOffice/team');
+Route::get('/frontOffice/testimonial', [FrontOfficeController::class, 'showFrontOfficeTestimonial'])->name('frontOffice/testimonial');
+Route::get('/frontOffice/appointment', [FrontOfficeController::class, 'showFrontOfficeAppointment'])->name('frontOffice/appointment');
+Route::get('/frontOffice/contact', [FrontOfficeController::class, 'showFrontOfficeContact'])->name('frontOffice/contact');
+Route::get('/auth/login', [AuthController::class, 'showAuthLogin'])->name('auth/login');
+Route::post('/auth/login', [AuthController::class, 'login'])->name('auth/login');
+Route::get('/auth/register', [AuthController::class, 'showAuthRegister'])->name('auth/register');
 Route::get('/index', [IndexController::class, 'showIndex'])->name('index');
 Route::get('/user-profile', [UserProfileController::class, 'showUserProfile'])->name('user-profile');
 Route::get('/add-customer', [AddCustomerController::class, 'showAddCustomer'])->name('add-customer');
@@ -199,5 +210,3 @@ Route::get('/hospital/invoice-print', [HospitalController::class, 'showHospitalI
 Route::get('/hospital/settings-member', [HospitalController::class, 'showHospitalSettingsMember'])->name('hospital/settings-member');
 Route::get('/hospital/settings-email', [HospitalController::class, 'showHospitalSettingsEmail'])->name('hospital/settings-email');
 Route::get('/hospital/settings-security', [HospitalController::class, 'showHospitalSettingsSecurity'])->name('hospital/settings-security');
-Route::get('/login', [LoginController::class, 'showLogin'])->name('login');
-Route::get('/register', [RegisterController::class, 'showRegister'])->name('register');

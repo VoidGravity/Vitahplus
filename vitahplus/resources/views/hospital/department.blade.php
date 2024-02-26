@@ -24,8 +24,8 @@
             <div class="nk-sidebar-bar">
                 <div class="nk-apps-brand">
                     <a href="{{route('index')}}" class="logo-link">
-                        <img class="logo-light logo-img" src="./images/logo-small.png" srcset="./images/logo-small2x.png 2x" alt="logo">
-                        <img class="logo-dark logo-img" src="./images/logo-dark-small.png" srcset="./images/logo-dark-small2x.png 2x" alt="logo-dark">
+                        <img class="logo-light logo-img" src="{{asset('images/logo-small.png')}}" srcset="./images/logo-small2x.png 2x" alt="logo">
+                        <img class="logo-dark logo-img" src="{{asset('images/logo-dark-small.png')}}" srcset="./images/logo-dark-small2x.png 2x" alt="logo-dark">
                     </a>
                 </div>
                 <div class="nk-sidebar-element">
@@ -844,8 +844,8 @@
                             </div>
                             <div class="nk-header-brand d-xl-none">
                                 <a href="{{route('index')}}" class="logo-link">
-                                    <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x" alt="logo">
-                                    <img class="logo-dark logo-img" src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                                    <img class="logo-light logo-img" src="{{asset('images/logo.png')}}" srcset="./images/logo2x.png 2x" alt="logo">
+                                    <img class="logo-dark logo-img" src="{{asset('images/logo-dark.png')}}" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
                                 </a>
                             </div><!-- .nk-header-brand -->
                             <div class="nk-header-search ms-3 ms-xl-0">
@@ -911,7 +911,7 @@
                                                     <li class="chat-item">
                                                         <a class="chat-link" href="#">
                                                             <div class="chat-media user-avatar">
-                                                                <img src="./images/avatar/b-sm.jpg" alt="">
+                                                                <img src="{{asset('images/avatar/b-sm.jpg')}}" alt="">
                                                             </div>
                                                             <div class="chat-info">
                                                                 <div class="chat-from">
@@ -928,7 +928,7 @@
                                                         <a class="chat-link" href="#">
                                                             <div class="chat-media user-avatar user-avatar-multiple">
                                                                 <div class="user-avatar">
-                                                                    <img src="./images/avatar/c-sm.jpg" alt="">
+                                                                    <img src="{{asset('images/avatar/c-sm.jpg')}}" alt="">
                                                                 </div>
                                                                 <div class="user-avatar">
                                                                     <span>AB</span>
@@ -951,7 +951,7 @@
                                                     <li class="chat-item">
                                                         <a class="chat-link" href="#">
                                                             <div class="chat-media user-avatar">
-                                                                <img src="./images/avatar/a-sm.jpg" alt="">
+                                                                <img src="{{asset('images/avatar/a-sm.jpg')}}" alt="">
                                                                 <span class="status dot dot-lg dot-success"></span>
                                                             </div>
                                                             <div class="chat-info">
@@ -1066,32 +1066,32 @@
                                     <li class="dropdown language-dropdown d-none d-sm-block me-n1">
                                         <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
                                             <div class="quick-icon border border-light">
-                                                <img class="icon" src="./images/flags/english-sq.png" alt="">
+                                                <img class="icon" src="{{asset('images/flags/english-sq.png')}}" alt="">
                                             </div>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-s1">
                                             <ul class="language-list">
                                                 <li>
                                                     <a href="#" class="language-item">
-                                                        <img src="./images/flags/english.png" alt="" class="language-flag">
+                                                        <img src="{{asset('images/flags/english.png')}}" alt="" class="language-flag">
                                                         <span class="language-name">English</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#" class="language-item">
-                                                        <img src="./images/flags/spanish.png" alt="" class="language-flag">
+                                                        <img src="{{asset('images/flags/spanish.png')}}" alt="" class="language-flag">
                                                         <span class="language-name">Español</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#" class="language-item">
-                                                        <img src="./images/flags/french.png" alt="" class="language-flag">
+                                                        <img src="{{asset('images/flags/french.png')}}" alt="" class="language-flag">
                                                         <span class="language-name">Français</span>
                                                     </a>
                                                 </li>
                                                 <li>
                                                     <a href="#" class="language-item">
-                                                        <img src="./images/flags/turkey.png" alt="" class="language-flag">
+                                                        <img src="{{asset('images/flags/turkey.png')}}" alt="" class="language-flag">
                                                         <span class="language-name">Türkçe</span>
                                                     </a>
                                                 </li>
@@ -1322,7 +1322,7 @@
                                                         </div>
                                                         <div class="nk-tb-col">
                                                             <span class="tb-thumb">
-                                                                <img src="./images/hospital/a.png" alt="" class="thumb w-40px">
+                                                                <img src="{{asset('images/hospital/a.png')}}" alt="" class="thumb w-40px">
                                                             </span>
                                                         </div>
                                                         <div class="nk-tb-col">
@@ -1359,7 +1359,7 @@
                                                         </div>
                                                         <div class="nk-tb-col">
                                                             <span class="tb-thumb">
-                                                                <img src="./images/hospital/b.png" alt="" class="thumb w-40px">
+                                                                <img src="{{asset('images/hospital/b.png')}}" alt="" class="thumb w-40px">
                                                             </span>
                                                         </div>
                                                         <div class="nk-tb-col">
@@ -1396,7 +1396,7 @@
                                                         </div>
                                                         <div class="nk-tb-col">
                                                             <span class="tb-thumb">
-                                                                <img src="./images/hospital/c.png" alt="" class="thumb w-40px">
+                                                                <img src="{{asset('images/hospital/c.png')}}" alt="" class="thumb w-40px">
                                                             </span>
                                                         </div>
                                                         <div class="nk-tb-col">
@@ -1433,7 +1433,7 @@
                                                         </div>
                                                         <div class="nk-tb-col">
                                                             <span class="tb-thumb">
-                                                                <img src="./images/hospital/d.png" alt="" class="thumb w-40px">
+                                                                <img src="{{asset('images/hospital/d.png')}}" alt="" class="thumb w-40px">
                                                             </span>
                                                         </div>
                                                         <div class="nk-tb-col">
@@ -1470,7 +1470,7 @@
                                                         </div>
                                                         <div class="nk-tb-col">
                                                             <span class="tb-thumb">
-                                                                <img src="./images/hospital/e.png" alt="" class="thumb w-40px">
+                                                                <img src="{{asset('images/hospital/e.png')}}" alt="" class="thumb w-40px">
                                                             </span>
                                                         </div>
                                                         <div class="nk-tb-col">
@@ -1507,7 +1507,7 @@
                                                         </div>
                                                         <div class="nk-tb-col">
                                                             <span class="tb-thumb">
-                                                                <img src="./images/hospital/f.png" alt="" class="thumb w-40px">
+                                                                <img src="{{asset('images/hospital/f.png')}}" alt="" class="thumb w-40px">
                                                             </span>
                                                         </div>
                                                         <div class="nk-tb-col">
@@ -1544,7 +1544,7 @@
                                                         </div>
                                                         <div class="nk-tb-col">
                                                             <span class="tb-thumb">
-                                                                <img src="./images/hospital/g.png" alt="" class="thumb w-40px">
+                                                                <img src="{{asset('images/hospital/g.png')}}" alt="" class="thumb w-40px">
                                                             </span>
                                                         </div>
                                                         <div class="nk-tb-col">
@@ -1581,7 +1581,7 @@
                                                         </div>
                                                         <div class="nk-tb-col">
                                                             <span class="tb-thumb">
-                                                                <img src="./images/hospital/h.png" alt="" class="thumb w-40px">
+                                                                <img src="{{asset('images/hospital/h.png')}}" alt="" class="thumb w-40px">
                                                             </span>
                                                         </div>
                                                         <div class="nk-tb-col">
@@ -1618,7 +1618,7 @@
                                                         </div>
                                                         <div class="nk-tb-col">
                                                             <span class="tb-thumb">
-                                                                <img src="./images/hospital/i.png" alt="" class="thumb w-40px">
+                                                                <img src="{{asset('images/hospital/i.png')}}" alt="" class="thumb w-40px">
                                                             </span>
                                                         </div>
                                                         <div class="nk-tb-col">
@@ -1655,7 +1655,7 @@
                                                         </div>
                                                         <div class="nk-tb-col">
                                                             <span class="tb-thumb">
-                                                                <img src="./images/hospital/j.png" alt="" class="thumb w-40px">
+                                                                <img src="{{asset('images/hospital/j.png')}}" alt="" class="thumb w-40px">
                                                             </span>
                                                         </div>
                                                         <div class="nk-tb-col">
@@ -1692,7 +1692,7 @@
                                                         </div>
                                                         <div class="nk-tb-col">
                                                             <span class="tb-thumb">
-                                                                <img src="./images/hospital/k.png" alt="" class="thumb w-40px">
+                                                                <img src="{{asset('images/hospital/k.png')}}" alt="" class="thumb w-40px">
                                                             </span>
                                                         </div>
                                                         <div class="nk-tb-col">
@@ -1729,7 +1729,7 @@
                                                         </div>
                                                         <div class="nk-tb-col">
                                                             <span class="tb-thumb">
-                                                                <img src="./images/hospital/l.png" alt="" class="thumb w-40px">
+                                                                <img src="{{asset('images/hospital/l.png')}}" alt="" class="thumb w-40px">
                                                             </span>
                                                         </div>
                                                         <div class="nk-tb-col">
@@ -1828,109 +1828,109 @@
                         <ul class="country-list text-center gy-2">
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/arg.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/arg.png')}}" alt="" class="country-flag">
                                     <span class="country-name">Argentina</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/aus.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/aus.png')}}" alt="" class="country-flag">
                                     <span class="country-name">Australia</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/bangladesh.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/bangladesh.png')}}" alt="" class="country-flag">
                                     <span class="country-name">Bangladesh</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/canada.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/canada.png')}}" alt="" class="country-flag">
                                     <span class="country-name">Canada <small>(English)</small></span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/china.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/china.png')}}" alt="" class="country-flag">
                                     <span class="country-name">Centrafricaine</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/china.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/china.png')}}" alt="" class="country-flag">
                                     <span class="country-name">China</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/french.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/french.png')}}" alt="" class="country-flag">
                                     <span class="country-name">France</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/germany.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/germany.png')}}" alt="" class="country-flag">
                                     <span class="country-name">Germany</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/iran.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/iran.png')}}" alt="" class="country-flag">
                                     <span class="country-name">Iran</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/italy.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/italy.png')}}" alt="" class="country-flag">
                                     <span class="country-name">Italy</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/mexico.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/mexico.png')}}" alt="" class="country-flag">
                                     <span class="country-name">México</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/philipine.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/philipine.png')}}" alt="" class="country-flag">
                                     <span class="country-name">Philippines</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/portugal.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/portugal.png')}}" alt="" class="country-flag">
                                     <span class="country-name">Portugal</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/s-africa.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/s-africa.png')}}" alt="" class="country-flag">
                                     <span class="country-name">South Africa</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/spanish.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/spanish.png')}}" alt="" class="country-flag">
                                     <span class="country-name">Spain</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/switzerland.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/switzerland.png')}}" alt="" class="country-flag">
                                     <span class="country-name">Switzerland</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/uk.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/uk.png')}}" alt="" class="country-flag">
                                     <span class="country-name">United Kingdom</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="./images/flags/english.png" alt="" class="country-flag">
+                                    <img src="{{asset('images/flags/english.png')}}" alt="" class="country-flag">
                                     <span class="country-name">United State</span>
                                 </a>
                             </li>

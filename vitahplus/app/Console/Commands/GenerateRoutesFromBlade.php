@@ -74,13 +74,13 @@ class GenerateRoutesFromBlade extends Command
         // Combine `use` statements and existing content
         $newContent = $useStatements . "\n" . $existingContent;
         
-        // Write the new content back to web.php
+        // Write to web.php
         file_put_contents($webFilePath, $newContent);
                 
 
         // TODO: Generate route definitions based on found route names
         // and append to the routes/web.php file. This part of the code
-        // depends on your specific requirements and routing structure.
+        // depends on your specific requirements and routing structure. (DOne , lsgooooooooooooooooooo)
 
         return 0;
     }

@@ -21,7 +21,7 @@
         <div class="invoice invoice-print">
             <div class="invoice-wrap">
                 <div class="invoice-brand text-center">
-                    <img src="./images/logo-dark.png" srcset="./images/logo-dark2x.png 2x" alt="">
+                    <img src="{{asset('images/logo-dark.png')}}" srcset="./images/logo-dark2x.png 2x" alt="">
                 </div>
                 <div class="invoice-head">
                     <div class="invoice-contact">
