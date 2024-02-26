@@ -115,15 +115,29 @@ class AuthController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required'
+            'email' => 'required|email|unique:users,email', // Ensure the email is unique in the users table
+            'password' => 'required',
+            // Optionally add role validation if the role is part of the registration form
+            // 'role' => 'required|in:patient,doctor,admin', // Example validation rule
         ]);
+        
+        // Assuming a default role of 'patient' for new registrations
+        // If the role comes from the request, use $request->role instead
+        // dd($request->all());
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => hash::make($request->password)
+            'password' => Hash::make($request->password), // Use Hash facade correctly
+            'role' => 'patient', // Set the default role or use $request->role if provided and validated
         ]);
+        
+        // After successful registration, you might want to log the user in and redirect them
+        auth()->login($user);
+
+        // Redirect to a specific route after registration
+        return redirect()->route('hospital/index');
     }
+
     public function logout()
     {
         auth()->logout();

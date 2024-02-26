@@ -44,17 +44,18 @@
                                         </div>
                                     </div>
                                 </div><!-- .nk-block-head -->
-                                <form action="html/pages/auths/auth-success.html">
+                                <form action="{{route('auth/register')}}" method="POST">
+                                    @csrf
                                     <div class="form-group">
                                         <label class="form-label" for="name">Name</label>
                                         <div class="form-control-wrap">
-                                            <input type="text" class="form-control form-control-lg" id="name" placeholder="Enter your name">
+                                            <input  name="name" type="text" class="form-control form-control-lg" id="name" placeholder="Enter your name">
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="email">Email or Username</label>
                                         <div class="form-control-wrap">
-                                            <input type="text" class="form-control form-control-lg" id="email" placeholder="Enter your email address or username">
+                                            <input name="email" type="email" class="form-control form-control-lg" id="email" placeholder="Enter your email address or username">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -64,7 +65,7 @@
                                                 <em class="passcode-icon icon-show icon ni ni-eye"></em>
                                                 <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
                                             </a>
-                                            <input type="password" class="form-control form-control-lg" id="password" placeholder="Enter your passcode">
+                                            <input name="password" type="password" class="form-control form-control-lg" id="password" placeholder="Enter your passcode">
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -74,7 +75,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button class="btn btn-lg btn-primary btn-block">Register</button>
+                                        <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
                                     </div>
                                 </form><!-- form -->
                                 <div class="form-note-s2 pt-4"> Already have an account ? <a href="html/pages/auths/auth-login.html"><strong>Sign in instead</strong></a>

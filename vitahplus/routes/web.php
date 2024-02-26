@@ -66,6 +66,7 @@ Route::get('/frontOffice/contact', [FrontOfficeController::class, 'showFrontOffi
 Route::get('/auth/login', [AuthController::class, 'showAuthLogin'])->name('auth/login');
 Route::post('/auth/login', [AuthController::class, 'login'])->name('auth/login');
 Route::get('/auth/register', [AuthController::class, 'showAuthRegister'])->name('auth/register');
+Route::post('/auth/register', [AuthController::class, 'register'])->name('auth/register');
 Route::get('/index', [IndexController::class, 'showIndex'])->name('index');
 Route::get('/user-profile', [UserProfileController::class, 'showUserProfile'])->name('user-profile');
 Route::get('/add-customer', [AddCustomerController::class, 'showAddCustomer'])->name('add-customer');
