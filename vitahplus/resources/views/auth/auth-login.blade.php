@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="zxx" class="js">
-
+{{-- 
+    TODO: clean the code
+    --}}
 <head>
     <base href="../../../">
     <meta charset="utf-8">
