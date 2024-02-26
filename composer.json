@@ -1,0 +1,11 @@
+{
+    "require": {
+        "jenssegers/mongodb": "^2.3",
+        "mongodb/laravel-mongodb": "^3.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    }
+}
