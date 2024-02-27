@@ -64,6 +64,7 @@ Route::get('/frontOffice/testimonial', [FrontOfficeController::class, 'showFront
 Route::get('/frontOffice/appointment', [FrontOfficeController::class, 'showFrontOfficeAppointment'])->name('frontOffice/appointment');
 Route::get('/frontOffice/contact', [FrontOfficeController::class, 'showFrontOfficeContact'])->name('frontOffice/contact');
 Route::get('/auth/login', [AuthController::class, 'showAuthLogin'])->name('auth/login');
+Route::get('/auth/logout', [AuthController::class, 'logout'])->name('auth/logout');
 Route::post('/auth/login', [AuthController::class, 'login'])->name('auth/login');
 Route::get('/auth/register', [AuthController::class, 'showAuthRegister'])->name('auth/register');
 Route::post('/auth/register', [AuthController::class, 'register'])->name('auth/register');
