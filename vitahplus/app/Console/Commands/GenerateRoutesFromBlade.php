@@ -7,8 +7,8 @@ use Symfony\Component\Finder\Finder;
 use Illuminate\Support\Str;
 
 class GenerateRoutesFromBlade extends Command
-{
-    protected $signature = 'generate:routes-from-blade';
+    {
+    protected $signature = 'generate:routes';
     protected $description = 'Generate routes from blade files';
 
     public function __construct()
@@ -41,7 +41,17 @@ class GenerateRoutesFromBlade extends Command
         $controllerNames = [];
 
         foreach ($routeNames as $routeName) {
-            $controllerName = Str::studly(Str::before($routeName, '/'));
+            // if routeName has /
+            if (strpos($routeName, '/') !== false) {
+                $controllerName = Str::studly(Str::before($routeName, '/'));
+            } else {
+                $controllerName = Str::studly(Str::before($routeName, '-'));
+            }
+            
+
+            // $controllerName = Str::studly(Str::before(Str::after($routeName, '/'), '-'));
+
+            // $controllerName = Str::studly(Str::before($routeName, '/'));
             $methodName = 'show' . Str::studly(str_replace('/', '_', $routeName)); // Replace '/' with '_'
             $controllerClass = $controllerName . 'Controller';
         

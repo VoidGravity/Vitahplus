@@ -20,7 +20,6 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'role', // Role can be 'patient', 'doctor', 'admin', etc.
         'password',
     ];
     protected $connection = 'mysql';

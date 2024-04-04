@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Doctor extends Model
 {
     use HasFactory;
-    protected $connection = 'mongodb';
+    protected $connection = 'mysql';
 
 }

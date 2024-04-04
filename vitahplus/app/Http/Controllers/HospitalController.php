@@ -82,6 +82,66 @@ class HospitalController extends Controller
         //
     }
 
+    public function showHospitalUserProfile()
+    {
+        return view('hospital/user-profile');
+    }
+
+    public function showHospitalSettings()
+    {
+        return view('hospital/settings');
+    }
+
+    public function showHospitalSettingsAccountLog()
+    {
+        return view('hospital/settings-account-log');
+    }
+
+    public function showHospitalDoctorNurseAdd()
+    {
+        return view('hospital/doctor-nurse-add');
+    }
+
+    public function showHospitalInvoiceDetails()
+    {
+        return view('hospital/invoice-details');
+    }
+
+    public function showHospitalInvoiceList()
+    {
+        return view('hospital/invoice-list');
+    }
+
+    public function showHospitalInvoicePrint()
+    {
+        return view('hospital/invoice-print');
+    }
+
+    public function showHospitalPatientAdd()
+    {
+        return view('hospital/patient-add');
+    }
+
+    public function showHospitalPatientProfile()
+    {
+        return view('hospital/patient-profile');
+    }
+
+    public function showHospitalSettingsMember()
+    {
+        return view('hospital/settings-member');
+    }
+
+    public function showHospitalSettingsEmail()
+    {
+        return view('hospital/settings-email');
+    }
+
+    public function showHospitalSettingsSecurity()
+    {
+        return view('hospital/settings-security');
+    }
+
     public function showHospitalIndex()
     {
         return view('hospital/index');
@@ -92,24 +152,9 @@ class HospitalController extends Controller
         return view('hospital/appointment');
     }
 
-    public function showHospitalPatientAdd()
-    {
-        return view('hospital/patient-add');
-    }
-
     public function showHospitalPatientList()
     {
         return view('hospital/patient-list');
-    }
-
-    public function showHospitalPatientProfile()
-    {
-        return view('hospital/patient-profile');
-    }
-
-    public function showHospitalDoctorNurseAdd()
-    {
-        return view('hospital/doctor-nurse-add');
     }
 
     public function showHospitalDoctorNurseList()
@@ -125,16 +170,6 @@ class HospitalController extends Controller
     public function showHospitalExpenseList()
     {
         return view('hospital/expense-list');
-    }
-
-    public function showHospitalInvoiceList()
-    {
-        return view('hospital/invoice-list');
-    }
-
-    public function showHospitalInvoiceDetails()
-    {
-        return view('hospital/invoice-details');
     }
 
     public function showHospitalBirthReport()
@@ -170,40 +205,5 @@ class HospitalController extends Controller
     public function showHospitalDeathReport()
     {
         return view('hospital/death-report');
-    }
-
-    public function showHospitalUserProfile()
-    {
-        return view('hospital/user-profile');
-    }
-
-    public function showHospitalSettings()
-    {
-        return view('hospital/settings');
-    }
-
-    public function showHospitalSettingsAccountLog()
-    {
-        return view('hospital/settings-account-log');
-    }
-
-    public function showHospitalInvoicePrint()
-    {
-        return view('hospital/invoice-print');
-    }
-
-    public function showHospitalSettingsMember()
-    {
-        return view('hospital/settings-member');
-    }
-
-    public function showHospitalSettingsEmail()
-    {
-        return view('hospital/settings-email');
-    }
-
-    public function showHospitalSettingsSecurity()
-    {
-        return view('hospital/settings-security');
     }
 }

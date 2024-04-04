@@ -82,8 +82,13 @@ class CustomerController extends Controller
         //
     }
 
-    public function showCustomer()
+    public function showCustomerAdd()
     {
-        return view('customer');
+        return view('customer-add');
+    }
+
+    public function showCustomerLedger()
+    {
+        return view('customer-ledger');
     }
 }

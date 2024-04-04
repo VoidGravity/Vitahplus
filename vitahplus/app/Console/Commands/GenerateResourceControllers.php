@@ -8,7 +8,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class GenerateResourceControllers extends Command
 {
-    protected $signature = 'generate:resource-controllers';
+    protected $signature = 'generate:controller-r';
     protected $description = 'Generate resource controllers based on web routes';
 
     public function handle()

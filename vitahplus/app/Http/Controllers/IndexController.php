@@ -86,4 +86,19 @@ class IndexController extends Controller
     {
         return view('index');
     }
+
+    public function showIndexEcommerce()
+    {
+        return view('index-ecommerce');
+    }
+
+    public function showIndexSales()
+    {
+        return view('index-sales');
+    }
+
+    public function showIndexAnalytics()
+    {
+        return view('index-analytics');
+    }
 }

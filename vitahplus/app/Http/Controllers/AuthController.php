@@ -128,7 +128,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password), // Use Hash facade correctly
-            'role' => 'patient', // Set the default role or use $request->role if provided and validated
+            // 'role' => 'patient', // Set the default role or use $request->role if provided and validated
         ]);
         
         // After successful registration, you might want to log the user in and redirect them
@@ -138,7 +138,7 @@ class AuthController extends Controller
         return redirect()->route('hospital/index');
     }
 
-    public function logout()
+    public function showAuthLogout()
     {
         auth()->logout();
         return redirect()->route('auth/login');

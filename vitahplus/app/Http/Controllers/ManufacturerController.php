@@ -86,4 +86,14 @@ class ManufacturerController extends Controller
     {
         return view('manufacturer');
     }
+
+    public function showManufacturerLedger()
+    {
+        return view('manufacturer-ledger');
+    }
+
+    public function showManufacturerReturnAdd()
+    {
+        return view('manufacturer-return-add');
+    }
 }
