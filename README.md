@@ -19,20 +19,17 @@ La portée du projet inclut les fonctionnalités essentielles telles que la pris
 ### Fonctionnalités de la Plateforme
 - 2.1 Prise de Rendez-vous
 
-Mise en place d'un système de prise de rendez-vous en ligne pour les consultations médicales.
-Notification automatique de confirmation de rendez-vous par e-mail pour assurer la validité des rendez-vous.
+Mise en place d'un système de prise de rendez-vous en ligne pour les consultations médicales avec notification automatique de confirmation par e-mail.
 - 2.2 Gestion des Profils Utilisateur
 
-Création de profils distincts pour les utilisateurs, les professionnels de la santé, et les établissements médicaux.
-Intégration d'une fonction de mise à jour des informations personnelles pour permettre aux utilisateurs de maintenir des profils à jour.
+Création de profils distincts pour les utilisateurs, les professionnels de la santé et les établissements médicaux, avec une fonction de mise à jour des informations personnelles.
 - 2.3 Accès aux Informations Médicales
 
-Permettre aux utilisateurs de consulter leurs informations médicales de manière sécurisée.
-Faciliter le partage d'informations médicales entre les patients et les professionnels de la santé avec des autorisations appropriées.
+Permettre aux utilisateurs de consulter leurs informations médicales de manière sécurisée et de partager ces informations avec les professionnels de la santé avec des autorisations appropriées.
 - 2.4 Gestion des Rappels de Santé
 
-Mise en place d'un système de rappels automatiques pour les rendez-vous médicaux, les prises de médicaments, et autres rappels de santé.
-Personnalisation des rappels en fonction des besoins médicaux spécifiques de chaque utilisateur.
+Mise en place d'un système de rappels automatiques pour les rendez-vous médicaux, les prises de médicaments et autres rappels de santé, personnalisés en fonction des besoins médicaux spécifiques de chaque utilisateur.
+
 
 ### Exigences Techniques
 
