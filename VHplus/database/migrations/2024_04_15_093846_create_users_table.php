@@ -16,12 +16,16 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('Gender')->nullable();
+            $table->string('password')->nullable();
+            $table->boolean('Gender')->nullable();
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
-            $table->text('token')->nullable(); // Using text to ensure it can store long strings
-            $table->string('refreshToken')->nullable(); // If you expect a refresh token, otherwise you can leave this out
+            $table->text('token')->nullable(); 
+            $table->string('refreshToken')->nullable();
+            $table->unsignedBigInteger('doctors_id')->nullable();
+            $table->foreign('doctors_id')->references('id')->on('doctors');
+            $table->string('height')->nullable();
+            $table->string('weight')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -12,8 +12,7 @@
     <!-- Page Title  -->
     <title>Birth List | DashLite Admin Template</title>
     <!-- StyleSheets  -->
-    <link rel="stylesheet" href="{{asset('css/dashlite.css')}}">
-
+    <link rel="stylesheet" href="{{ asset('css/dashlite.css') }}">
 
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.2.3">
 </head>
@@ -27,7 +26,7 @@
             <!-- wrap @s -->
             <div class="nk-wrap ">
                 <!-- main header @s -->
-                                @include('inc.dash-navbar')
+                @include('inc.dash-navbar')
 
                 <!-- main header @e -->
                 <!-- content @s -->
@@ -39,7 +38,30 @@
                                     <div class="nk-block-between g-3">
                                         <div class="nk-block-head-content">
                                             <h3 class="nk-block-title page-title">Birth Report</h3>
+                                            <div>
+
+                                                @if (isset($success))
+                                                    <div class="example-alert">
+                                                        <div class="alert alert-success alert-icon"><em class="icon ni ni-check-circle"></em>
+                                                            {{ $success }}
+                                                        </div>
+                                                    </div>
+                                                @elseif (isset($error))
+                                                    <div class="example-alert">
+                                                        <div class="alert alert-danger alert-icon"><em class="icon ni ni-cross-circle"></em>
+                                                            {{ $error }}
+                                                        </div>
+                                                    </div>
+                                                @elseif (isset($warning))
+                                                    <div class="example-alert">
+                                                        <div class="alert alert-warning alert-icon"><em class="icon ni ni-alert-circle"></em>
+                                                            {{ $warning }}
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                            </div>
                                         </div>
+
                                         <div class="nk-block-head-content">
                                             <a data-bs-toggle="modal" href="#addBirth" class="btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
                                             <a data-bs-toggle="modal" href="#addBirth" class="btn btn-primary d-none d-md-inline-flex"><em class="icon ni ni-plus"></em><span>Add Birth Report</span></a>
@@ -121,10 +143,7 @@
                                                                                                     <div class="form-group">
                                                                                                         <label class="overline-title overline-title-alt">Date</label>
                                                                                                         <div class="form-control-wrap">
-                                                                                                            <div class="form-icon form-icon-right">
-                                                                                                                <em class="icon ni ni-calendar"></em>
-                                                                                                            </div>
-                                                                                                            <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
+                                                                                                            <input type="date" class="form-control">
                                                                                                         </div>
                                                                                                     </div>
                                                                                                 </div>
@@ -188,636 +207,320 @@
                                                                 <label class="custom-control-label" for="uid"></label>
                                                             </div>
                                                         </div>
-                                                        <div class="nk-tb-col"><span>Child Name</span></div>
+                                                        <div class="nk-tb-col"><span>Mother Name</span></div>
                                                         <div class="nk-tb-col tb-col-mb"><span class="sub-text">Gender</span></div>
-                                                        <div class="nk-tb-col tb-col-md"><span class="sub-text">Mother Name</span></div>
                                                         <div class="nk-tb-col tb-col-lg"><span class="sub-text">Father Name</span></div>
                                                         <div class="nk-tb-col"><span>Date</span></div>
                                                         <div class="nk-tb-col tb-col-md"><span class="sub-text">Report</span></div>
                                                     </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid1">
-                                                                <label class="custom-control-label" for="uid1"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-primary-dim">
-                                                                    <span>J</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">John Marshall</span>
+                                                    @foreach ($birthReports as $item)
+                                                        <div class="nk-tb-item">
+                                                            <div class="nk-tb-col nk-tb-col-check">
+                                                                <div class="custom-control custom-control-sm custom-checkbox notext">
+                                                                    <input type="checkbox" class="custom-control-input" id="uid1">
+                                                                    <label class="custom-control-label" for="uid1"></label>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span>Male</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Dabby Marshall</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Jack Marshall</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-date">18/12/2020 04:21 PM</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Normal Delivery.</span>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid2">
-                                                                <label class="custom-control-label" for="uid2"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-danger-dim">
-                                                                    <span>A</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Ashley Lawson</span>
+                                                            <div class="nk-tb-col">
+                                                                <div class="user-card">
+                                                                    <div class="user-avatar sm bg-primary-dim">
+                                                                        <span>
+                                                                            {{-- <div class="nk-tb-col tb-col-md"> --}}
+                                                                                <span>{{ substr($item->mother_name, 0, 1) }}</span>
+                                                                            {{-- </div> --}}
+                                                                        </span>
+                                                                    </div>
+                                                                    <div class="nk-tb-col tb-col-md">
+                                                                        <span>{{ $item->mother_name }}</span>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span>Male</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Jacky Lawson</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Clacrk Lawson</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-date">19/12/2020 02:55 PM</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Normal Delivery.</span>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid3">
-                                                                <label class="custom-control-label" for="uid3"></label>
+                                                            <div class="nk-tb-col tb-col-mb">
+                                                                <span>{{ $item->Gender == 1 ? 'Male' : 'Female' }}</span>
                                                             </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-danger-dim">
-                                                                    <span>K</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Kristen Hawkins</span>
-                                                                </div>
+
+                                                            <div class="nk-tb-col tb-col-lg">
+                                                                <span>{{ $item->father_name }}</span>
                                                             </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span>Male</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Jacky Hawkins</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>John Lawson</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-date">20/12/2020 03:01 AM</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Normal Delivery.</span>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid4">
-                                                                <label class="custom-control-label" for="uid4"></label>
+                                                            <div class="nk-tb-col">
+                                                                <span class="tb-date">{{ $item->date }}</span>
                                                             </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-purple-dim">
-                                                                    <span>T</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Tommy Vasquez</span>
-                                                                </div>
+                                                            <div class="nk-tb-col tb-col-md">
+                                                                <span>{{ $item->report }}</span>
                                                             </div>
+
                                                         </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span>Male</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Dabby Vasquez</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Nolan Vasquez</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-date">22/12/2020 04:10 AM</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Cesarean Section.</span>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid5">
-                                                                <label class="custom-control-label" for="uid5"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-teal-dim">
-                                                                    <span>A</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Alejandro Haynes</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span>Female</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Dobrah Haynes</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Zack Vasquez</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-date">23/12/2020 04:10 PM</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Normal Delivery.</span>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid6">
-                                                                <label class="custom-control-label" for="uid6"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-warning-dim">
-                                                                    <span>B</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Brooke Harmon</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span>Female</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Marry Harmon</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Nolan Harmon</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-date">24/12/2020 06:25 PM</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Normal Delivery.</span>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid7">
-                                                                <label class="custom-control-label" for="uid7"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-gray-dim">
-                                                                    <span>T</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Trevor Miller</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span>Male</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Jarry Harmon</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Dabid Harmon</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-date">25/12/2020 07:40 PM</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Normal Delivery.</span>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid8">
-                                                                <label class="custom-control-label" for="uid8"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-teal-dim">
-                                                                    <span>LF</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Lonnie Ferguson</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span>Female</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Jacky Ferguson</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Jhon Ferguson</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-date">25/12/2020 08:00 PM</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Cesarean Section.</span>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid9">
-                                                                <label class="custom-control-label" for="uid9"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-danger-dim">
-                                                                    <span>M</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Mack Kennedy</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span>Male</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Jarry Kennedy</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Zack Kennedy</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-date">26/12/2020 07:21 PM</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Cesarean Section.</span>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid10">
-                                                                <label class="custom-control-label" for="uid10"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-warning-dim">
-                                                                    <span>I</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Inez Wilkerson</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span>Male</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Margot Wilkerson</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Ezra Wilkerson</span>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <span class="tb-date">26/12/2020 07:30 PM</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span>Normal Delivery.</span>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                </div>
-                                            </div><!-- .card-inner -->
-                                            <div class="card-inner">
-                                                <ul class="pagination justify-content-center justify-content-md-start">
-                                                    <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                    <li class="page-item"><span class="page-link"><em class="icon ni ni-more-h"></em></span></li>
-                                                    <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                                </ul><!-- .pagination -->
-                                            </div><!-- .card-inner -->
-                                        </div><!-- .card-inner-group -->
-                                    </div><!-- .card -->
-                                </div><!-- .nk-block -->
+                                                    @endforeach
+                                                </div><!-- .card-inner -->
+                                                <div class="card-inner">
+                                                    <ul class="pagination justify-content-center justify-content-md-start">
+                                                        <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                        <li class="page-item"><span class="page-link"><em class="icon ni ni-more-h"></em></span></li>
+                                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">7</a></li>
+                                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                                    </ul><!-- .pagination -->
+                                                </div><!-- .card-inner -->
+                                            </div><!-- .card-inner-group -->
+                                        </div><!-- .card -->
+                                    </div><!-- .nk-block -->
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- content @e -->
                 </div>
-                <!-- content @e -->
+                <!-- wrap @e -->
             </div>
-            <!-- wrap @e -->
+            <!-- main @e -->
         </div>
-        <!-- main @e -->
-    </div>
-    <!-- app-root @e -->
-    <!-- select region modal -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="region">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
-                <div class="modal-body modal-body-md">
-                    <h5 class="title mb-4">Select Your Country</h5>
-                    <div class="nk-country-region">
-                        <ul class="country-list text-center gy-2">
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/arg.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Argentina</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/aus.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Australia</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/bangladesh.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Bangladesh</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/canada.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Canada <small>(English)</small></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/china.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Centrafricaine</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/china.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">China</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/french.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">France</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/germany.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Germany</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/iran.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Iran</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/italy.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Italy</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/mexico.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">México</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/philipine.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Philippines</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/portugal.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Portugal</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/s-africa.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">South Africa</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/spanish.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Spain</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/switzerland.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Switzerland</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/uk.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">United Kingdom</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/english.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">United State</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div><!-- .modal-content -->
-        </div><!-- .modla-dialog -->
-    </div><!-- .modal -->
-    <!-- Add Birth Report-->
-    <div class="modal fade" tabindex="-1" role="dialog" id="addBirth">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
-                <div class="modal-body modal-body-md">
-                    <h5 class="modal-title">Add Birth Report</h5>
-                    <form action="#" class="mt-4">
-                        <div class="row g-gs">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="childName">Child Name</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="childName" placeholder="Child Name">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Gender</label>
-                                    <div class="form-control-wrap">
-                                        <select class="form-select js-select2" data-placeholder="Select Gender">
-                                            <option value="">Select</option>
-                                            <option value="option_select_sex">Male</option>
-                                            <option value="option_select_sex">Female</option>
-                                            <option value="option_select_sex">Others</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="weight">Weight</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="weight" placeholder="Weight">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Birth Date</label>
-                                    <div class="form-control-wrap">
-                                        <div class="form-icon form-icon-right">
-                                            <em class="icon ni ni-calendar"></em>
-                                        </div>
-                                        <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Blood Group</label>
-                                    <div class="form-control-wrap">
-                                        <select class="form-select js-select2" data-placeholder="Select Group">
-                                            <option value="">Select</option>
-                                            <option value="option_select_blood">A+</option>
-                                            <option value="option_select_blood">A-</option>
-                                            <option value="option_select_blood">AB+</option>
-                                            <option value="option_select_blood">AB-</option>
-                                            <option value="option_select_blood">B+</option>
-                                            <option value="option_select_blood">B-</option>
-                                            <option value="option_select_blood">O+</option>
-                                            <option value="option_select_blood">O-</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div><!--col-->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Upload Photo</label>
-                                    <div class="form-control-wrap">
-                                        <div class="form-file">
-                                            <input type="file" multiple class="form-file-input" id="customFile">
-                                            <label class="form-file-label" for="customFile">Choose file</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!--col-->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="motherName">Mother Name</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="motherName" placeholder="Mother Name">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="patientId">Patient ID</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="patientId" placeholder="#P6985">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="fatherName">Father Name</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="fatherName" placeholder="Father Name">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="number">Mobile Number</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="number" placeholder="Mobile Number">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label class="form-label">Description</label>
-                                    <div class="form-control-wrap">
-                                        <div class="quill-basic">
-                                            <p>Hello World!</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!--col-->
-                            <div class="col-12">
-                                <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
-                                    <li>
-                                        <button data-bs-dismiss="modal" class="btn btn-primary">Add Birth Report</button>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="link link-light" data-bs-dismiss="modal">Cancel</a>
-                                    </li>
-                                </ul>
-                            </div><!-- .col -->
+        <!-- app-root @e -->
+        <!-- select region modal -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="region">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                    <div class="modal-body modal-body-md">
+                        <h5 class="title mb-4">Select Your Country</h5>
+                        <div class="nk-country-region">
+                            <ul class="country-list text-center gy-2">
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/arg.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Argentina</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/aus.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Australia</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/bangladesh.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Bangladesh</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/canada.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Canada <small>(English)</small></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/china.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Centrafricaine</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/china.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">China</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/french.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">France</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/germany.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Germany</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/iran.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Iran</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/italy.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Italy</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/mexico.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">México</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/philipine.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Philippines</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/portugal.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Portugal</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/s-africa.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">South Africa</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/spanish.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Spain</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/switzerland.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Switzerland</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/uk.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">United Kingdom</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/english.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">United State</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                    </form>
-                </div><!-- .modal-body -->
-            </div><!-- .modal-content -->
-        </div><!-- .modal-dialog -->
-    </div><!-- .modal -->
-    <!-- JavaScript -->
-     <script src="{{asset('js/bundle.js')}}"></script>
-    
-    <script src="{{asset('js/scripts.js')}}"></script>
-    <link rel="stylesheet" href="./assets/css/editors/quill.css?ver=3.2.3">
-    <script src="./assets/js/libs/editors/quill.js?ver=3.2.3"></script>
-    <script src="./assets/js/editors.js?ver=3.2.3"></script>
+                    </div>
+                </div><!-- .modal-content -->
+            </div><!-- .modla-dialog -->
+        </div><!-- .modal -->
+        <!-- Add Birth Report-->
+        <div class="modal fade" tabindex="-1" role="dialog" id="addBirth">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                    <div class="modal-body modal-body-md">
+                        <h5 class="modal-title">Add Birth Report</h5>
+                        <form action="{{ route('hospital/birth-report') }}" method="POST" class="mt-4">
+                            <div class="row g-gs">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="childName">Child Name</label>
+                                        <div class="form-control-wrap">
+                                            <input type="text" class="form-control" id="childName" placeholder="Child Name">
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Gender</label>
+                                        <div class="form-control-wrap">
+                                            <select name="Gender" class="form-select js-select2" data-placeholder="Select Gender">
+                                                <option value="">Select</option>
+                                                <option value="1">Male</option>
+                                                <option value="0">Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="weight">Weight</label>
+                                        <div class="form-control-wrap">
+                                            <input name="weight" type="text" class="form-control" id="weight" placeholder="Weight">
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="weight">Heigth</label>
+                                        <div class="form-control-wrap">
+                                            <input name="height" type="text" class="form-control" id="weight" placeholder="Weight">
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Birth Date</label>
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <div class="form-control-wrap">
+                                                    <input name="date" type="date" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">FRP Email</label>
+                                        {{-- Financially responsible party --}}
+                                        <div class="form-control-wrap">
+
+                                            <input name="email" type="text" class="form-control" placeholder="email@exemple.com">
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="motherName">Mother Name</label>
+                                        <div class="form-control-wrap">
+                                            <input name="mother_name" type="text" class="form-control" id="motherName" placeholder="Mother Name">
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="fatherName">Father Name</label>
+                                        <div class="form-control-wrap">
+                                            <input name="father_name" type="text" class="form-control" id="fatherName" placeholder="Father Name">
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="fatherName">Report</label>
+                                        <div class="form-control-wrap">
+                                            <select name="report" class="form-select" id="report" placeholder="Report">
+                                                <option value="">Select Report</option>
+                                                <option value="Cesarean Section">Cesarean Section</option>
+                                                <option value="Normal Delivery">Normal Delivery</option>
+                                                <option value="Complications">Complications</option>
+                                            </select>
+                                        </div>
+                                    </div><!-- .col -->
+
+                                    <div class="col-12">
+                                        <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+                                            <li>
+                                                <button type="submit" class="btn btn-primary">Add Birth Report</button>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="link link-light" data-bs-dismiss="modal">Cancel</a>
+                                            </li>
+                                        </ul>
+                                    </div><!-- .col -->
+                                </div>
+                        </form>
+                    </div><!-- .modal-body -->
+                </div><!-- .modal-content -->
+            </div><!-- .modal-dialog -->
+        </div><!-- .modal -->
+        <!-- JavaScript -->
+        <script src="{{ asset('js/bundle.js') }}"></script>
+
+        <script src="{{ asset('js/scripts.js') }}"></script>
+        <link rel="stylesheet" href="./assets/css/editors/quill.css?ver=3.2.3">
+        <script src="./assets/js/libs/editors/quill.js?ver=3.2.3"></script>
+        <script src="./assets/js/editors.js?ver=3.2.3"></script>
 </body>
 
 </html>

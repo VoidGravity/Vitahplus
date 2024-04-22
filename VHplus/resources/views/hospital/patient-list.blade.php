@@ -196,14 +196,12 @@
                                                             </div>
                                                         </div>
                                                         <div class="nk-tb-col"><span class="sub-text">Patient</span></div>
-                                                        <div class="nk-tb-col tb-col-sm"><span class="sub-text">ID</span></div>
-                                                        <div class="nk-tb-col tb-col-xxl"><span class="sub-text">Phone</span></div>
+                                                        <div class="nk-tb-col tb-col-xxl"><span class="sub-text">Email</span></div>
                                                         <div class="nk-tb-col tb-col-lg"><span class="sub-text">Gender</span></div>
-                                                        <div class="nk-tb-col tb-col-mb"><span class="sub-text">Report</span></div>
-                                                        <div class="nk-tb-col tb-col-md"><span class="sub-text">Consulant</span></div>
+                                                        <div class="nk-tb-col tb-col-mb"><span class="sub-text">height</span></div>
+                                                        <div class="nk-tb-col tb-col-md"><span class="sub-text">weight</span></div>
                                                         <div class="nk-tb-col tb-col-xxl"><span class="sub-text">Admit Date</span></div>
-                                                        <div class="nk-tb-col tb-col-xxl"><span class="sub-text">Bed</span></div>
-                                                        <div class="nk-tb-col tb-col-md"><span class="sub-text">Charges</span></div>
+                                                        <div class="nk-tb-col tb-col-xxl"><span class="sub-text">Reports</span></div>
                                                         <div class="nk-tb-col nk-tb-col-tools">
                                                             <ul class="nk-tb-actions gx-1 my-n1">
                                                                 <li>
@@ -221,6 +219,7 @@
                                                             </ul>
                                                         </div>
                                                     </div><!-- .nk-tb-item -->
+                                                    @foreach($Users as $item)
                                                     <div class="nk-tb-item">
                                                         <div class="nk-tb-col nk-tb-col-check">
                                                             <div class="custom-control custom-control-sm custom-checkbox notext">
@@ -235,39 +234,41 @@
                                                                         <span>AB</span>
                                                                     </div>
                                                                     <div class="user-info">
-                                                                        <span class="tb-lead">Abu Bin Ishtiyak</span>
-                                                                        <span>info@softnio.com</span>
+                                                                        <span class="tb-lead">{{$item->name}}</span>
                                                                     </div>
                                                                 </div>
                                                             </a>
                                                         </div>
                                                         <div class="nk-tb-col tb-col-sm">
                                                             <a href="#">
-                                                                <span class="fw-medium">#P6985</span>
+                                                                <span class="fw-medium">{{$item->email}}</span>
                                                             </a>
                                                         </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+811 847-4958</span>
-                                                        </div>
+                                                        
                                                         <div class="nk-tb-col tb-col-lg">
-                                                            <span>Male</span>
+                                                            <span>
+                                                                @if($item->Gender == 1)
+                                                                Male 
+                                                                @else
+                                                                Female
+                                                                @endif
+                                                            </span>
+                                                        </div>
+                                                      
+                                                        <div class="nk-tb-col tb-col-md">
+                                                            <span class="tb-lead">{{@$item->height}}</span>
+                                                        </div>
+                                                        
+                                                        <div class="nk-tb-col tb-col-xxl">
+                                                            <span>{{@$item->weight}}</span>
+                                                        </div>
+                                                        <div class="nk-tb-col tb-col-xxl">
+                                                            <span>{{@$item->created_at}}</span>
                                                         </div>
                                                         <div class="nk-tb-col tb-col-mb">
                                                             <ul class="list-inline list-download">
                                                                 <li>Reports<a href="#" class="popup"><em class="icon ni ni-download"></em></a></li>
                                                             </ul>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-lead">Ernesto Vargas</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>10/02/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>201-Cabin-3rd Floor</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-amount">350.99 <span class="currency">USD</span></span>
                                                         </div>
                                                         <div class="nk-tb-col nk-tb-col-tools">
                                                             <ul class="nk-tb-actions gx-1">
@@ -286,8 +287,8 @@
                                                                         <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                                         <div class="dropdown-menu dropdown-menu-end">
                                                                             <ul class="link-list-opt no-bdr">
-                                                                                <li><a href="{{route('hospital/patient-profile')}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                                <li><a data-bs-toggle="modal" href="#editInPatient"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
+                                                                                <li><a href="{{ url('hospital/patient-profile', ['id' => $item->id]) }}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
+                                                                                {{-- <li><a data-bs-toggle="modal" href="#editInPatient"><em class="icon ni ni-edit"></em><span>Edit</span></a></li> --}}
                                                                             </ul>
                                                                         </div>
                                                                     </div>
@@ -295,672 +296,8 @@
                                                             </ul>
                                                         </div>
                                                     </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid2">
-                                                                <label class="custom-control-label" for="uid2"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <a href="{{route('hospital/patient-profile')}}">
-                                                                <div class="user-card">
-                                                                    <div class="user-avatar">
-                                                                        <img src="{{asset('images/avatar/a-sm.jpg')}}" alt="">
-                                                                    </div>
-                                                                    <div class="user-info">
-                                                                        <span class="tb-lead">Ashley Lawson</span>
-                                                                        <span>ashley@softnio.com</span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <a href="#">
-                                                                <span class="fw-medium">#P6986</span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+124 394-1787</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Male</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <ul class="list-inline list-download">
-                                                                <li>Reports<a href="#" class="popup"><em class="icon ni ni-download"></em></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-lead">Janet Snyder</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>07/02/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>102-Mward-2nd Floor</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-amount">80.99 <span class="currency">USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Send Email">
-                                                                        <em class="icon ni ni-mail-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Move To Discharged">
-                                                                        <em class="icon ni ni-curve-up-right"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a href="{{route('hospital/patient-profile')}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                                <li><a data-bs-toggle="modal" href="#editInPatient"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid3">
-                                                                <label class="custom-control-label" for="uid3"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <a href="{{route('hospital/patient-profile')}}">
-                                                                <div class="user-card">
-                                                                    <div class="user-avatar bg-info">
-                                                                        <span>JL</span>
-                                                                    </div>
-                                                                    <div class="user-info">
-                                                                        <span class="tb-lead">Joe Larson</span>
-                                                                        <span>larson@example.com</span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <a href="#">
-                                                                <span class="fw-medium">#P6987</span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+168 603-2320</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Female</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <ul class="list-inline list-download">
-                                                                <li>Reports<a href="#" class="popup"><em class="icon ni ni-download"></em></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-lead">Amelia Grant</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>04/02/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>103-Fward-2nd Floor</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-amount">85.00 <span class="currency">USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Send Email">
-                                                                        <em class="icon ni ni-mail-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Move To Discharged">
-                                                                        <em class="icon ni ni-curve-up-right"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a href="{{route('hospital/patient-profile')}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                                <li><a data-bs-toggle="modal" href="#editInPatient"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid4">
-                                                                <label class="custom-control-label" for="uid4"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <a href="{{route('hospital/patient-profile')}}">
-                                                                <div class="user-card">
-                                                                    <div class="user-avatar bg-danger">
-                                                                        <span>JM</span>
-                                                                    </div>
-                                                                    <div class="user-info">
-                                                                        <span class="tb-lead">Jane Montgomery</span>
-                                                                        <span>jane84@example.com</span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <a href="#">
-                                                                <span class="fw-medium">#P6988</span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+439 271-5360</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Female</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <ul class="list-inline list-download">
-                                                                <li>Reports<a href="#" class="popup"><em class="icon ni ni-download"></em></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-lead">Amelia Grant</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>04/03/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>403-Cabin-4th Floor</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-amount">685.50 <span class="currency">USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Send Email">
-                                                                        <em class="icon ni ni-mail-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Move To Discharged">
-                                                                        <em class="icon ni ni-curve-up-right"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a href="{{route('hospital/patient-profile')}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                                <li><a data-bs-toggle="modal" href="#editInPatient"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid5">
-                                                                <label class="custom-control-label" for="uid5"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <a href="{{route('hospital/patient-profile')}}">
-                                                                <div class="user-card">
-                                                                    <div class="user-avatar">
-                                                                        <img src="{{asset('images/avatar/b-sm.jpg')}}" alt="">
-                                                                    </div>
-                                                                    <div class="user-info">
-                                                                        <span class="tb-lead">Frances Burns</span>
-                                                                        <span>frances@example.com</span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <a href="#">
-                                                                <span class="fw-medium">#P6989</span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+639 130-3150</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Male</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <ul class="list-inline list-download">
-                                                                <li>Reports<a href="#" class="popup"><em class="icon ni ni-download"></em></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-lead">Ernesto Vargas</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>02/03/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>402-Cabin-4th Floor</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-amount">585.50 <span class="currency">USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Send Email">
-                                                                        <em class="icon ni ni-mail-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Move To Discharged">
-                                                                        <em class="icon ni ni-curve-up-right"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a href="{{route('hospital/patient-profile')}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                                <li><a data-bs-toggle="modal" href="#editInPatient"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid6">
-                                                                <label class="custom-control-label" for="uid6"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <a href="{{route('hospital/patient-profile')}}">
-                                                                <div class="user-card">
-                                                                    <div class="user-avatar">
-                                                                        <img src="{{asset('images/avatar/c-sm.jpg')}}" alt="">
-                                                                    </div>
-                                                                    <div class="user-info">
-                                                                        <span class="tb-lead">Alan Butler</span>
-                                                                        <span>butler@example.com</span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <a href="#">
-                                                                <span class="fw-medium">#P6990</span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+963 309-1706</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Female</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <ul class="list-inline list-download">
-                                                                <li>Reports<a href="#" class="popup"><em class="icon ni ni-download"></em></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-lead">Janet Snyder</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>01/03/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>102-Fward-4th Floor</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-amount">185.05 <span class="currency">USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Send Email">
-                                                                        <em class="icon ni ni-mail-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Move To Discharged">
-                                                                        <em class="icon ni ni-curve-up-right"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a href="{{route('hospital/patient-profile')}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                                <li><a data-bs-toggle="modal" href="#editInPatient"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid7">
-                                                                <label class="custom-control-label" for="uid7"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <a href="{{route('hospital/patient-profile')}}">
-                                                                <div class="user-card">
-                                                                    <div class="user-avatar bg-warning">
-                                                                        <span>VL</span>
-                                                                    </div>
-                                                                    <div class="user-info">
-                                                                        <span class="tb-lead">Victoria Lynch</span>
-                                                                        <span>victoria@example.com</span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <a href="#">
-                                                                <span class="fw-medium">#P6991</span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+811 985-4846</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Female</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <ul class="list-inline list-download">
-                                                                <li>Reports<a href="#" class="popup"><em class="icon ni ni-download"></em></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-lead">Amelia Grant</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>01/02/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>101-Fward-3rd Floor</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-amount">385.59 <span class="currency">USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Send Email">
-                                                                        <em class="icon ni ni-mail-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Move To Discharged">
-                                                                        <em class="icon ni ni-curve-up-right"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a href="{{route('hospital/patient-profile')}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                                <li><a data-bs-toggle="modal" href="#editInPatient"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid8">
-                                                                <label class="custom-control-label" for="uid8"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <a href="{{route('hospital/patient-profile')}}">
-                                                                <div class="user-card">
-                                                                    <div class="user-avatar bg-success">
-                                                                        <span>PN</span>
-                                                                    </div>
-                                                                    <div class="user-info">
-                                                                        <span class="tb-lead">Patrick Newman</span>
-                                                                        <span>patrick@example.com</span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <a href="#">
-                                                                <span class="fw-medium">#P6992</span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+942 238-4474</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Male</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <ul class="list-inline list-download">
-                                                                <li>Reports<a href="#" class="popup"><em class="icon ni ni-download"></em></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-lead">Debra Grant</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>01/02/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>501-Mward-5th Floor</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-amount">201.99 <span class="currency">USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Send Email">
-                                                                        <em class="icon ni ni-mail-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Move To Discharged">
-                                                                        <em class="icon ni ni-curve-up-right"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a href="{{route('hospital/patient-profile')}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                                <li><a data-bs-toggle="modal" href="#editInPatient"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid9">
-                                                                <label class="custom-control-label" for="uid9"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <a href="{{route('hospital/patient-profile')}}">
-                                                                <div class="user-card">
-                                                                    <div class="user-avatar">
-                                                                        <img src="{{asset('images/avatar/d-sm.jpg')}}" alt="">
-                                                                    </div>
-                                                                    <div class="user-info">
-                                                                        <span class="tb-lead">Jane Harris</span>
-                                                                        <span>harris@example.com</span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <a href="#">
-                                                                <span class="fw-medium">#P6993</span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+123 447-2384</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Female</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <ul class="list-inline list-download">
-                                                                <li>Reports<a href="#" class="popup"><em class="icon ni ni-download"></em></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-lead">Snyder Debra</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>01/02/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>502-Fward-5th Floor</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-amount">185.95 <span class="currency">USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Send Email">
-                                                                        <em class="icon ni ni-mail-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Move To Discharged">
-                                                                        <em class="icon ni ni-curve-up-right"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a href="{{route('hospital/patient-profile')}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                                <li><a data-bs-toggle="modal" href="#editInPatient"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid10">
-                                                                <label class="custom-control-label" for="uid10"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <a href="{{route('hospital/patient-profile')}}">
-                                                                <div class="user-card">
-                                                                    <div class="user-avatar bg-purple">
-                                                                        <span>EW</span>
-                                                                    </div>
-                                                                    <div class="user-info">
-                                                                        <span class="tb-lead">Emma Walker</span>
-                                                                        <span>walker@example.com</span>
-                                                                    </div>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-sm">
-                                                            <a href="#">
-                                                                <span class="fw-medium">#P6994</span>
-                                                            </a>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+463 471-7173</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>Female</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <ul class="list-inline list-download">
-                                                                <li>Reports<a href="#" class="popup"><em class="icon ni ni-download"></em></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-lead">Ernesto Vargas</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>10/03/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>505-Fward-5th Floor</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-amount">352.55 <span class="currency">USD</span></span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Send Email">
-                                                                        <em class="icon ni ni-mail-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Move To Discharged">
-                                                                        <em class="icon ni ni-curve-up-right"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a href="{{route('hospital/patient-profile')}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                                <li><a data-bs-toggle="modal" href="#editInPatient"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
+                                                    @endforeach
+                                                    
                                                 </div><!-- .nk-tb-list -->
                                             </div><!-- .card-inner -->
                                             <div class="card-inner">
@@ -1151,7 +488,7 @@
                 <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
                 <div class="modal-body modal-body-md">
                     <h5 class="modal-title">Update In Patient</h5>
-                    <form action="#" class="mt-4">
+                    {{-- <form action="#" class="mt-4">
                         <div class="row g-gs">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -1271,7 +608,7 @@
                                 </ul>
                             </div><!-- .col -->
                         </div>
-                    </form>
+                    </form> --}}
                 </div><!-- .modal-body -->
             </div><!-- .modal-content -->
         </div><!-- .modal-dialog -->

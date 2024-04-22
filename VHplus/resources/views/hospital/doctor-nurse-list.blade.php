@@ -12,8 +12,7 @@
     <!-- Page Title  -->
     <title>Doctors / Nurse List | DashLite Admin Template</title>
     <!-- StyleSheets  -->
-    <link rel="stylesheet" href="{{asset('css/dashlite.css')}}">
-
+    <link rel="stylesheet" href="{{ asset('css/dashlite.css') }}">
 
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.2.3">
 </head>
@@ -27,7 +26,7 @@
             <!-- wrap @s -->
             <div class="nk-wrap ">
                 <!-- main header @s -->
-                                @include('inc.dash-navbar')
+                @include('inc.dash-navbar')
 
                 <!-- main header @e -->
                 <!-- content @s -->
@@ -43,318 +42,196 @@
                                         <div class="nk-block-head-content">
                                             <ul class="nk-block-tools g-3">
                                                 <li class="nk-block-tools-opt">
-                                                    <a href="{{route('hospital/doctor-nurse-add')}}" class="btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
-                                                    <a href="{{route('hospital/doctor-nurse-add')}}" class="btn btn-primary d-none d-md-inline-flex"><em class="icon ni ni-plus"></em><span>Add Doctor / Nurse</span></a>
+                                                    <a href="{{ route('hospital/doctor-nurse-add') }}" class="btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
+                                                    <a href="{{ route('hospital/doctor-nurse-add') }}" class="btn btn-primary d-none d-md-inline-flex"><em class="icon ni ni-plus"></em><span>Add Doctor / Nurse</span></a>
                                                 </li>
                                             </ul>
                                         </div><!-- .nk-block-head-content -->
                                     </div><!-- .nk-block-between -->
                                 </div><!-- .nk-block-head -->
                                 <div class="row g-gs">
-                                    <div class="col-sm-6 col-lg-4 col-xxl-3">
-                                        <div class="card card-bordered">
-                                            <div class="card-inner">
-                                                <div class="team">
-                                                    <div class="team-options">
-                                                        <div class="drodown">
-                                                            <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <ul class="link-list-opt no-bdr">
-                                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                    <li><a href="#"><em class="icon ni ni-mail"></em><span>Send Email</span></a></li>
-                                                                </ul>
+                                    {{-- card --}}
+                                    @foreach ($doctorNurse as $item)
+                                        <div class="col-sm-6 col-lg-4 col-xxl-4">
+                                            <div class="modal fade" tabindex="-1" role="dialog" id="editDoctor{{ @$item->id }}">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <a href="" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                                                        <div class="modal-body modal-body-md">
+                                                            <h5 class="modal-title">Update Department</h5>
+                                                            <div class="card-inner">
+                                                                <form class="row gy-4" method="POST" action="{{url('/hospital/doctor-nurse-add/update')}}" enctype="multipart/form-data">
+                                                                    @csrf
+                                                                    <input name="id" type="hidden" value="{{$item->id}}">
+                                                                    <div class="col-xxl-3 col-md-4">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Gender</label>
+                                                                            <div class="form-control-wrap">
+                                                                                <select name="gender" class="form-select js-select2" data-placeholder="Select Gender">
+                                                                                    <option value="">Select Gender</option>
+                                                                                    <option value="1">Male</option>
+                                                                                    <option value="0">Female</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><!--col-->
+
+                                                                    <div class="col-xxl-3 col-md-4">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Address</label>
+                                                                            <div class="form-control-wrap">
+                                                                                <input value="{{ $item->Address }}" name="Address" type="text" class="form-control" id="address" placeholder="Address">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><!--col-->
+                                                                    <div class="col-xxl-3 col-md-4">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Rank</label>
+                                                                            <div class="form-control-wrap">
+                                                                                <input value="{{ $item->rank }}" name="rank" type="text" class="form-control" id="Rank" placeholder="Rank">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><!--col-->
+                                                                    <div class="col-xxl-3 col-md-4">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Salary</label>
+                                                                            <div class="form-control-wrap">
+                                                                                <input value="{{ $item->salary }}" name="salary" type="text" class="form-control" id="Salary" placeholder="Salary">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><!--col-->
+
+                                                                    <div class="col-xxl-3 col-md-4">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Department</label>
+                                                                            <div class="form-control-wrap">
+                                                                                <select name="department_id" class="form-select js-select2" data-placeholder="Select Department">
+                                                                                    <option value="">Select</option>
+                                                                                    @foreach ($departments as $department)
+                                                                                        <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                                                                    @endforeach
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><!--col-->
+                                                                    <div class="col-xxl-3 col-md-4">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Specialty</label>
+                                                                            <div class="form-control-wrap">
+                                                                                <select name="speciality_id" class="form-select js-select2" data-placeholder="Select Department">
+                                                                                    <option value="">Select</option>
+                                                                                    @foreach ($speciality as $specialities)
+                                                                                        <option value="{{ $specialities->id }}">{{ $specialities->name }}</option>
+                                                                                    @endforeach
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><!--col-->
+                                                                    <div class="col-xxl-3 col-md-4">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Status</label>
+                                                                            <div class="form-control-wrap">
+                                                                                <select name="status" class="form-select js-select2">
+                                                                                    <option value="">Status</option>
+                                                                                    <option value="Inactive">Inactive</option>
+                                                                                    <option value="Active">Active</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><!--col-->
+                                                                    <div class="d-flex justify-content-between">
+                                                                        <div class="col-xxl-5 col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label">National ID</label>
+                                                                                <div class="form-control-wrap">
+                                                                                    <div class="form-file">
+                                                                                        <input name="national_id" type="file" multiple class="form-file-input" id="nid">
+                                                                                        <label class="form-file-label" for="nid">Choose file</label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div><!--col-->
+                                                                        <div class="col-xxl-5 col-md-4">
+                                                                            <div class="form-group">
+                                                                                <label class="form-label">Upload Photo</label>
+                                                                                <div class="form-control-wrap">
+                                                                                    <div class="form-file">
+                                                                                        <input type="file" name="Doctor_image" multiple class="form-file-input" id="customFile">
+                                                                                        <label class="form-file-label" for="customFile">Choose file</label>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div><!--col-->
+                                                                        
+
+                                                                    </div>
+                                                                    <div class="col-xxl-12 col-md-4">
+                                                                        <div class="form-group">
+                                                                            <label class="form-label">Certificates</label>
+                                                                            <div class="form-control-wrap">
+                                                                                <div class="form-file">
+                                                                                    <input name="certificate" type="file" multiple class="form-file-input" id="certificates">
+                                                                                    <label class="form-file-label" for="certificates">Choose files</label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div><!--col-->
+
+                                                                    <div class="col-12">
+                                                                        <div class="form-group">
+                                                                            <button type="submit" class="btn btn-primary">Edit Doctor/Nurse</button>
+                                                                        </div>
+                                                                    </div><!--col-->
+                                                                </form><!--row-->
+                                                            </div><!-- .card-inner-group -->
+                                                        </div><!-- .modal-body -->
+                                                    </div><!-- .modal-content -->
+                                                </div><!-- .modal-dialog -->
+                                            </div><!-- .modal -->
+
+                                            <div class="card card-bordered">
+                                                <div class="card-inner">
+                                                    <div class="team">
+                                                        <div class="team-options">
+                                                            <div class="drodown">
+                                                                <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                                <div class="dropdown-menu dropdown-menu-end">
+                                                                    <ul class="link-list-opt no-bdr">
+                                                                        {{--  --}}
+                                                                        <li><a data-bs-toggle="modal" href="#editDoctor{{ @$item->id }}"> <em class="icon ni ni-edit"></em><span>Edit</span></a></li>
+
+                                                                        <li><a href="{{ url('/hospital/doctor-nurse-add', ['id' => @$item->id]) }}"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
+                                                                        {{--  --}}
+
+                                                                    </ul>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="user-card user-card-s2">
-                                                        <div class="user-avatar lg bg-primary">
-                                                            <img src="{{asset('images/avatar/c-sm.jpg')}}" alt="">
-                                                        </div>
-                                                        <div class="user-info">
-                                                            <h6>Victoria Lynch </h6>
-                                                            <span class="badge rounded-pill bg-primary">Doctor</span>
-                                                            <span class="sub-text">FCPS</span>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="team-info">
-                                                        <li><span>Department</span><span>Gastroenterology</span></li>
-                                                        <li><span>Join Date</span><span>24 Jun 2015</span></li>
-                                                        <li><span>Contact</span><span>+88 01713-123656</span></li>
-                                                        <li><span>Email</span><span>info@softnio.com</span></li>
-                                                    </ul>
-                                                    <div class="team-view">
-                                                        <a href="#" class="btn btn-block btn-dim btn-primary"><span>View Profile</span></a>
-                                                    </div>
-                                                </div><!-- .team -->
-                                            </div><!-- .card-inner -->
-                                        </div><!-- .card -->
-                                    </div><!-- .col -->
-                                    <div class="col-sm-6 col-lg-4 col-xxl-3">
-                                        <div class="card card-bordered">
-                                            <div class="card-inner">
-                                                <div class="team">
-                                                    <div class="team-options">
-                                                        <div class="drodown">
-                                                            <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <ul class="link-list-opt no-bdr">
-                                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                    <li><a href="#"><em class="icon ni ni-mail"></em><span>Send Email</span></a></li>
-                                                                </ul>
+                                                        <div class="user-card user-card-s2">
+                                                            <div class="user-avatar lg bg-primary">
+                                                                <img src="{{ asset('images/avatar/c-sm.jpg') }}" alt="">
+                                                            </div>
+                                                            <div class="user-info">
+                                                                <h6>{{@$item->user->name}}</h6>
+                                                                <span class="badge rounded-pill bg-primary">Doctor</span>
+                                                                {{-- <span class="sub-text">FCPS</span> --}}
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="user-card user-card-s2">
-                                                        <div class="user-avatar lg bg-primary">
-                                                            <span>AB</span>
+                                                        <ul class="team-info">
+                                                            <li><span>Department</span><span>{{$item->department->name}}</span></li>
+                                                            <li><span>Join Date</span><span>{{$item->created_at}}</span></li>
+                                                            <li><span>Speciality</span><span>{{$item->speciality->name}}</span></li>
+                                                            <li><span>Email</span><span>{{@$item->user->email}}</span></li>
+                                                        </ul>
+                                                        <div class="team-view">
+                                                            <a href="#" class="btn btn-block btn-dim btn-primary"><span>Send Email</span></a>
                                                         </div>
-                                                        <div class="user-info">
-                                                            <h6>Abu Bin Ishtiyak</h6>
-                                                            <span class="badge rounded-pill bg-primary">Doctor</span>
-                                                            <span class="sub-text">MBBS, FCPS</span>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="team-info">
-                                                        <li><span>Department</span><span>Medicine</span></li>
-                                                        <li><span>Join Date</span><span>24 Jun 2015</span></li>
-                                                        <li><span>Contact</span><span>+88 01713-123656</span></li>
-                                                        <li><span>Email</span><span>info@softnio.com</span></li>
-                                                    </ul>
-                                                    <div class="team-view">
-                                                        <a href="#" class="btn btn-block btn-dim btn-primary"><span>View Profile</span></a>
-                                                    </div>
-                                                </div><!-- .team -->
-                                            </div><!-- .card-inner -->
-                                        </div><!-- .card -->
-                                    </div><!-- .col -->
-                                    <div class="col-sm-6 col-lg-4 col-xxl-3">
-                                        <div class="card card-bordered">
-                                            <div class="card-inner">
-                                                <div class="team">
-                                                    <div class="team-options">
-                                                        <div class="drodown">
-                                                            <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <ul class="link-list-opt no-bdr">
-                                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                    <li><a href="#"><em class="icon ni ni-mail"></em><span>Send Email</span></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="user-card user-card-s2">
-                                                        <div class="user-avatar lg bg-primary">
-                                                            <img src="{{asset('images/avatar/a-sm.jpg')}}" alt="">
-                                                        </div>
-                                                        <div class="user-info">
-                                                            <h6>Ashley Lawson</h6>
-                                                            <span class="badge rounded-pill bg-primary">Doctor</span>
-                                                            <span class="sub-text">MBBS, FCPS, Surgon</span>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="team-info">
-                                                        <li><span>Department</span><span>Orthopaedics</span></li>
-                                                        <li><span>Join Date</span><span>24 Jun 2015</span></li>
-                                                        <li><span>Contact</span><span>+88 01713-123656</span></li>
-                                                        <li><span>Email</span><span>info@softnio.com</span></li>
-                                                    </ul>
-                                                    <div class="team-view">
-                                                        <a href="#" class="btn btn-block btn-dim btn-primary"><span>View Profile</span></a>
-                                                    </div>
-                                                </div><!-- .team -->
-                                            </div><!-- .card-inner -->
-                                        </div><!-- .card -->
-                                    </div><!-- .col -->
-                                    <div class="col-sm-6 col-lg-4 col-xxl-3">
-                                        <div class="card card-bordered">
-                                            <div class="card-inner">
-                                                <div class="team">
-                                                    <div class="team-options">
-                                                        <div class="drodown">
-                                                            <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <ul class="link-list-opt no-bdr">
-                                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                    <li><a href="#"><em class="icon ni ni-mail"></em><span>Send Email</span></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="user-card user-card-s2">
-                                                        <div class="user-avatar lg bg-info-dim">
-                                                            <span>JL</span>
-                                                        </div>
-                                                        <div class="user-info">
-                                                            <h6>Joe Larson</h6>
-                                                            <span class="badge rounded-pill badge-dim bg-info">Nurse</span>
-                                                            <span class="sub-text">Head Nurse</span>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="team-info">
-                                                        <li><span>Shift</span><span>Morning</span></li>
-                                                        <li><span>Join Date</span><span>24 Jun 2015</span></li>
-                                                        <li><span>Contact</span><span>+88 01713-123656</span></li>
-                                                        <li><span>Email</span><span>info@softnio.com</span></li>
-                                                    </ul>
-                                                    <div class="team-view">
-                                                        <a href="#" class="btn btn-block btn-dim btn-primary"><span>View Profile</span></a>
-                                                    </div>
-                                                </div><!-- .team -->
-                                            </div><!-- .card-inner -->
-                                        </div><!-- .card -->
-                                    </div><!-- .col -->
-                                    <div class="col-sm-6 col-lg-4 col-xxl-3">
-                                        <div class="card card-bordered">
-                                            <div class="card-inner">
-                                                <div class="team">
-                                                    <div class="team-options">
-                                                        <div class="drodown">
-                                                            <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <ul class="link-list-opt no-bdr">
-                                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                    <li><a href="#"><em class="icon ni ni-mail"></em><span>Send Email</span></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="user-card user-card-s2">
-                                                        <div class="user-avatar lg bg-danger-dim">
-                                                            <span>JM</span>
-                                                        </div>
-                                                        <div class="user-info">
-                                                            <h6>Jane Montgomery</h6>
-                                                            <span class="badge rounded-pill badge-dim bg-info">Nurse</span>
-                                                            <span class="sub-text">Clinical Nurse</span>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="team-info">
-                                                        <li><span>Shift</span><span>Night</span></li>
-                                                        <li><span>Join Date</span><span>24 Jun 2015</span></li>
-                                                        <li><span>Contact</span><span>+88 01713-123656</span></li>
-                                                        <li><span>Email</span><span>info@softnio.com</span></li>
-                                                    </ul>
-                                                    <div class="team-view">
-                                                        <a href="#" class="btn btn-block btn-dim btn-primary"><span>View Profile</span></a>
-                                                    </div>
-                                                </div><!-- .team -->
-                                            </div><!-- .card-inner -->
-                                        </div><!-- .card -->
-                                    </div><!-- .col -->
-                                    <div class="col-sm-6 col-lg-4 col-xxl-3">
-                                        <div class="card card-bordered">
-                                            <div class="card-inner">
-                                                <div class="team">
-                                                    <div class="team-options">
-                                                        <div class="drodown">
-                                                            <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <ul class="link-list-opt no-bdr">
-                                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                    <li><a href="#"><em class="icon ni ni-mail"></em><span>Send Email</span></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="user-card user-card-s2">
-                                                        <div class="user-avatar lg bg-primary">
-                                                            <img src="{{asset('images/avatar/b-sm.jpg')}}" alt="">
-                                                        </div>
-                                                        <div class="user-info">
-                                                            <h6>Patrick Newman</h6>
-                                                            <span class="badge rounded-pill bg-primary">Doctor</span>
-                                                            <span class="sub-text">MBBS</span>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="team-info">
-                                                        <li><span>Department</span><span>Medicine</span></li>
-                                                        <li><span>Join Date</span><span>24 Jun 2015</span></li>
-                                                        <li><span>Contact</span><span>+88 01713-123656</span></li>
-                                                        <li><span>Email</span><span>info@softnio.com</span></li>
-                                                    </ul>
-                                                    <div class="team-view">
-                                                        <a href="#" class="btn btn-block btn-dim btn-primary"><span>View Profile</span></a>
-                                                    </div>
-                                                </div><!-- .team -->
-                                            </div><!-- .card-inner -->
-                                        </div><!-- .card -->
-                                    </div><!-- .col -->
-                                    <div class="col-sm-6 col-lg-4 col-xxl-3">
-                                        <div class="card card-bordered">
-                                            <div class="card-inner">
-                                                <div class="team">
-                                                    <div class="team-options">
-                                                        <div class="drodown">
-                                                            <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <ul class="link-list-opt no-bdr">
-                                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                    <li><a href="#"><em class="icon ni ni-mail"></em><span>Send Email</span></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="user-card user-card-s2">
-                                                        <div class="user-avatar lg bg-primary">
-                                                            <img src="{{asset('images/avatar/d-sm.jpg')}}" alt="">
-                                                        </div>
-                                                        <div class="user-info">
-                                                            <h6>Jane Harris</h6>
-                                                            <span class="badge rounded-pill badge-dim bg-info">Nurse</span>
-                                                            <span class="sub-text">Assistant Nurse</span>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="team-info">
-                                                        <li><span>Shift</span><span>Evening</span></li>
-                                                        <li><span>Join Date</span><span>24 Jun 2015</span></li>
-                                                        <li><span>Contact</span><span>+88 01713-123656</span></li>
-                                                        <li><span>Email</span><span>info@softnio.com</span></li>
-                                                    </ul>
-                                                    <div class="team-view">
-                                                        <a href="#" class="btn btn-block btn-dim btn-primary"><span>View Profile</span></a>
-                                                    </div>
-                                                </div><!-- .team -->
-                                            </div><!-- .card-inner -->
-                                        </div><!-- .card -->
-                                    </div><!-- .col -->
-                                    <div class="col-sm-6 col-lg-4 col-xxl-3">
-                                        <div class="card card-bordered">
-                                            <div class="card-inner">
-                                                <div class="team">
-                                                    <div class="team-options">
-                                                        <div class="drodown">
-                                                            <a href="#" class="dropdown-toggle btn btn-sm btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <ul class="link-list-opt no-bdr">
-                                                                    <li><a href="#"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
-                                                                    <li><a href="#"><em class="icon ni ni-mail"></em><span>Send Email</span></a></li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="user-card user-card-s2">
-                                                        <div class="user-avatar lg bg-primary-dim">
-                                                            <span>FB</span>
-                                                        </div>
-                                                        <div class="user-info">
-                                                            <h6>Frances Burns</h6>
-                                                            <span class="badge rounded-pill badge-dim bg-info">Nurse</span>
-                                                            <span class="sub-text">Assistant Nurse</span>
-                                                        </div>
-                                                    </div>
-                                                    <ul class="team-info">
-                                                        <li><span>Shift</span><span>Evening</span></li>
-                                                        <li><span>Join Date</span><span>24 Jun 2015</span></li>
-                                                        <li><span>Contact</span><span>+88 01713-123656</span></li>
-                                                        <li><span>Email</span><span>info@softnio.com</span></li>
-                                                    </ul>
-                                                    <div class="team-view">
-                                                        <a href="#" class="btn btn-block btn-dim btn-primary"><span>View Profile</span></a>
-                                                    </div>
-                                                </div><!-- .team -->
-                                            </div><!-- .card-inner -->
-                                        </div><!-- .card -->
-                                    </div><!-- .col -->
+                                                    </div><!-- .team -->
+                                                </div><!-- .card-inner -->
+                                            </div><!-- .card -->
+                                        </div><!-- .col -->
+                                    @endforeach
+                                    {{-- card end --}}
                                 </div>
                             </div>
                         </div>
@@ -378,109 +255,109 @@
                         <ul class="country-list text-center gy-2">
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/arg.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/arg.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Argentina</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/aus.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/aus.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Australia</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/bangladesh.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/bangladesh.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Bangladesh</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/canada.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/canada.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Canada <small>(English)</small></span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/china.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/china.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Centrafricaine</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/china.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/china.png') }}" alt="" class="country-flag">
                                     <span class="country-name">China</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/french.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/french.png') }}" alt="" class="country-flag">
                                     <span class="country-name">France</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/germany.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/germany.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Germany</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/iran.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/iran.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Iran</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/italy.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/italy.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Italy</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/mexico.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/mexico.png') }}" alt="" class="country-flag">
                                     <span class="country-name">México</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/philipine.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/philipine.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Philippines</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/portugal.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/portugal.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Portugal</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/s-africa.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/s-africa.png') }}" alt="" class="country-flag">
                                     <span class="country-name">South Africa</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/spanish.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/spanish.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Spain</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/switzerland.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/switzerland.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Switzerland</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/uk.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/uk.png') }}" alt="" class="country-flag">
                                     <span class="country-name">United Kingdom</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/english.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/english.png') }}" alt="" class="country-flag">
                                     <span class="country-name">United State</span>
                                 </a>
                             </li>
@@ -491,9 +368,9 @@
         </div><!-- .modla-dialog -->
     </div><!-- .modal -->
     <!-- JavaScript -->
-     <script src="{{asset('js/bundle.js')}}"></script>
-    
-    <script src="{{asset('js/scripts.js')}}"></script>
+    <script src="{{ asset('js/bundle.js') }}"></script>
+
+    <script src="{{ asset('js/scripts.js') }}"></script>
 </body>
 
 </html>

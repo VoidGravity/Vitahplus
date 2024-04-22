@@ -8,10 +8,31 @@ use Illuminate\Database\Eloquent\Model;
 class Doctors extends Model
 {
     use HasFactory;
-    //relation ship with user
+
+
+    protected $fillable = [
+        'rank',
+        'salary',
+        'Address',
+        'speciality_id',
+        'department_id',
+        'Doctor_image',
+        'national_id',
+        'certificate',
+        'status',
+    ];
+
+    //relation ship with user has one 
     public function user()
     {
-        //bellong to one user
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class);
+    }
+    public function department()
+    {
+        return $this->belongsTo(Department::class);
+    }
+    public function speciality()
+    {
+        return $this->belongsTo(Speciality::class);
     }
 }

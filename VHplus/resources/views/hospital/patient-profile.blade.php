@@ -37,7 +37,7 @@
                             <div class="nk-content-body">
                                 <div class="nk-block-head">
                                     <div class="nk-block-head-content">
-                                        <h3 class="nk-block-title page-title">Patinent/ <strong class="text-primary small">Abu Bin Ishtiyak</strong></h3>
+                                        <h3 class="nk-block-title page-title">Patinent/ <strong class="text-primary small">{{$patient->name}}</strong></h3>
                                     </div>
                                 </div>
                                 <div class="nk-block nk-block-lg">
@@ -80,54 +80,55 @@
                                                                     <div class="profile-ud-item">
                                                                         <div class="profile-ud wider">
                                                                             <span class="profile-ud-label">Name</span>
-                                                                            <span class="profile-ud-value">Abu Bin Ishtiyak</span>
+                                                                            <span class="profile-ud-value">{{$patient->name}}</span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="profile-ud-item">
                                                                         <div class="profile-ud wider">
                                                                             <span class="profile-ud-label">Gender</span>
-                                                                            <span class="profile-ud-value">Male</span>
+                                                                            <span class="profile-ud-value">
+                                                                                @if ($patient->Gender = 1)
+                                                                                Male 
+                                                                                @else
+                                                                                Female 
+                                                                                @endif
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div class="profile-ud-item">
+                                                                        <div class="profile-ud wider">
+                                                                            <span class="profile-ud-label">Height</span>
+                                                                            <span class="profile-ud-value">{{$patient->height}}</span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="profile-ud-item">
                                                                         <div class="profile-ud wider">
-                                                                            <span class="profile-ud-label">Age</span>
-                                                                            <span class="profile-ud-value">41 years 0 months 3 days</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="profile-ud-item">
-                                                                        <div class="profile-ud wider">
-                                                                            <span class="profile-ud-label">Mobile</span>
-                                                                            <span class="profile-ud-value">+811 847-4958</span>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="profile-ud-item">
-                                                                        <div class="profile-ud wider">
-                                                                            <span class="profile-ud-label">Date of Birth</span>
-                                                                            <span class="profile-ud-value">10 Aug, 1980</span>
+                                                                            <span class="profile-ud-label">weight</span>
+                                                                            <span class="profile-ud-value">{{$patient->weight}}</span>
                                                                         </div>
                                                                     </div>
                                                                     <div class="profile-ud-item">
                                                                         <div class="profile-ud wider">
                                                                             <span class="profile-ud-label">Patient ID</span>
-                                                                            <span class="profile-ud-value">#P7085</span>
+                                                                            <span class="profile-ud-value">#{{$patient->id}}</span>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="profile-ud-item">
+                                                                    {{-- <div class="profile-ud-item">
                                                                         <div class="profile-ud wider">
                                                                             <span class="profile-ud-label">Bed</span>
                                                                             <span class="profile-ud-value">104 - VIP Ward - 1st Floor</span>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> --}}
                                                                     <div class="profile-ud-item">
                                                                         <div class="profile-ud wider">
                                                                             <span class="profile-ud-label">Email Address</span>
-                                                                            <span class="profile-ud-value">info@softnio.com</span>
+                                                                            <span class="profile-ud-value">{{$patient->email}}</span>
                                                                         </div>
                                                                     </div>
                                                                 </div><!-- .profile-ud-list -->
                                                             </div><!-- .nk-block -->
-                                                            <div class="nk-block">
+                                                            {{-- <div class="nk-block">
                                                                 <div class="nk-block-head nk-block-head-line">
                                                                     <h6 class="title overline-title text-base">Additional Information</h6>
                                                                 </div><!-- .nk-block-head -->
@@ -157,9 +158,9 @@
                                                                         </div>
                                                                     </div>
                                                                 </div><!-- .profile-ud-list -->
-                                                            </div><!-- .nk-block -->
-                                                            <div class="nk-divider divider md"></div>
-                                                            <div class="nk-block">
+                                                            </div><!-- .nk-block --> --}}
+                                                            {{-- <div class="nk-divider divider md"></div> --}}
+                                                            {{-- <div class="nk-block">
                                                                 <div class="nk-block-head nk-block-head-sm nk-block-between">
                                                                     <h5 class="title">Doctors Note</h5>
                                                                     <a href="#" class="link link-sm">+ Add Note</a>
@@ -188,7 +189,7 @@
                                                                         </div>
                                                                     </div><!-- .bq-note-item -->
                                                                 </div><!-- .bq-note -->
-                                                            </div><!-- .nk-block -->
+                                                            </div><!-- .nk-block --> --}}
                                                         </div><!-- tab pane -->
                                                         <div class="tab-pane" id="tabItem2">
                                                             <div class="nk-block nk-block-between">
@@ -610,19 +611,19 @@
                                                             </div>
                                                             <div class="user-info">
                                                                 <div class="badge bg-outline-light rounded-pill ucap">Patinet</div>
-                                                                <h5>Abu Bin Ishtiyak</h5>
-                                                                <span class="sub-text">info@softnio.com</span>
+                                                                <h5>{{$patient->name}}</h5>
+                                                                <span class="sub-text">{{$patient->email}}</span>
                                                             </div>
                                                         </div>
                                                     </div><!-- .card-inner -->
-                                                    <div class="card-inner card-inner-sm">
+                                                    {{-- <div class="card-inner card-inner-sm">
                                                         <ul class="btn-toolbar justify-center gx-1">
                                                             <li><a href="#" class="btn btn-trigger btn-icon"><em class="icon ni ni-shield-off"></em></a></li>
                                                             <li><a href="#" class="btn btn-trigger btn-icon"><em class="icon ni ni-mail"></em></a></li>
                                                             <li><a href="#" class="btn btn-trigger btn-icon"><em class="icon ni ni-download-cloud"></em></a></li>
                                                             <li><a href="#" class="btn btn-trigger btn-icon"><em class="icon ni ni-bookmark"></em></a></li>
                                                         </ul>
-                                                    </div><!-- .card-inner -->
+                                                    </div><!-- .card-inner --> --}}
                                                     <div class="card-inner">
                                                         <div class="row text-center">
                                                             <div class="col-4">
@@ -650,23 +651,23 @@
                                                         <div class="row g-3">
                                                             <div class="col-6">
                                                                 <span class="sub-text">Patient ID:</span>
-                                                                <span>#P7085</span>
+                                                                <span>#{{$patient->id}}</span>
                                                             </div>
                                                             <div class="col-6">
                                                                 <span class="sub-text">Admit Date</span>
-                                                                <span>15 Feb, 2019 01:02 PM</span>
+                                                                <span>{{$patient->created_at}}</span>
                                                             </div>
-                                                            <div class="col-6">
+                                                            {{-- <div class="col-6">
                                                                 <span class="sub-text">Condition</span>
                                                                 <span class="lead-text text-success">Normal</span>
                                                             </div>
                                                             <div class="col-6">
                                                                 <span class="sub-text">Discharged Date</span>
                                                                 <span>16 Feb, 2019</span>
-                                                            </div>
+                                                            </div> --}}
                                                         </div>
                                                     </div><!-- .card-inner -->
-                                                    <div class="card-inner">
+                                                    {{-- <div class="card-inner">
                                                         <h6 class="overline-title-alt mb-3">Groups</h6>
                                                         <ul class="g-1">
                                                             <li class="btn-group">
@@ -682,7 +683,7 @@
                                                                 <a class="btn btn-xs btn-icon btn-light btn-dim" href="#"><em class="icon ni ni-cross"></em></a>
                                                             </li>
                                                         </ul>
-                                                    </div><!-- .card-inner -->
+                                                    </div><!-- .card-inner --> --}}
                                                 </div><!-- .card-inner -->
                                             </div><!-- .card-aside -->
                                         </div><!-- .card-aside-wrap -->

@@ -47,7 +47,7 @@
                                 </div><!-- .nk-block-head -->
                                 <div class="nk-block">
                                     <div class="card card-bordered">
-                                        <div class="card-inner-group">
+                                        <form method="POST" action="" class="card-inner-group">
                                             <div class="card-inner">
                                                 <div class="nk-block-head">
                                                     <div class="nk-block-head-content">
@@ -61,69 +61,34 @@
                                                             <div class="form-group">
                                                                 <label class="form-label" for="full-name">Full Name</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="full-name" placeholder="Full Name">
+                                                                    <input  name="name" type="text" class="form-control" id="full-name" placeholder="Full Name">
                                                                 </div>
                                                             </div>
                                                         </div><!--col-->
-                                                        <div class="col-xxl-3 col-md-4">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Date of Birth</label>
-                                                                <div class="form-control-wrap">
-                                                                    <div class="form-icon form-icon-right">
-                                                                        <em class="icon ni ni-calendar"></em>
-                                                                    </div>
-                                                                    <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
-                                                                </div>
-                                                            </div>
-                                                        </div><!--col-->
+                                                       
                                                         <div class="col-xxl-3 col-md-4">
                                                             <div class="form-group">
                                                                 <label class="form-label">Gender</label>
                                                                 <div class="form-control-wrap">
-                                                                    <select class="form-select js-select2" data-placeholder="Select Gender">
+                                                                    <select name="Gender" class="form-select js-select2" data-placeholder="Select Gender">
                                                                         <option value="">Select Gender</option>
-                                                                        <option value="option_select_gender">Male</option>
-                                                                        <option value="option_select_gender">Female</option>
-                                                                        <option value="option_select_gender">Other</option>
+                                                                        <option value="1">Male</option>
+                                                                        <option value="0">Female</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
                                                         </div><!--col-->
-                                                        <div class="col-xxl-3 col-md-4">
-                                                            <div class="form-group">
-                                                                <label class="form-label" for="phone-no">Phone</label>
-                                                                <div class="form-control-wrap">
-                                                                    <input type="number" class="form-control" id="phone-no" placeholder="Phone no">
-                                                                </div>
-                                                            </div>
-                                                        </div><!--col-->
+                                                        
                                                         <div class="col-xxl-3 col-md-4">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="email">Email</label>
                                                                 <div class="form-control-wrap">
-                                                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                                                    <input name="email" type="email" class="form-control" id="email" placeholder="Email">
                                                                 </div>
                                                             </div>
                                                         </div><!--col-->
-                                                        <div class="col-xxl-3 col-md-4">
-                                                            <div class="form-group">
-                                                                <label class="form-label">National ID</label>
-                                                                <div class="form-control-wrap">
-                                                                    <div class="form-file">
-                                                                        <input type="file" multiple class="form-file-input" id="nid">
-                                                                        <label class="form-file-label" for="nid">Choose file</label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--col-->
-                                                        <div class="col-xxl-5 col-md-8">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Adddress</label>
-                                                                <div class="form-control-wrap">
-                                                                    <input type="text" class="form-control" id="address" placeholder="Address">
-                                                                </div>
-                                                            </div>
-                                                        </div><!--col-->
+                                                      
+                                                      
                                                     </div><!--row-->
                                                 </div>
                                             </div><!-- .card-inner -->
@@ -136,58 +101,33 @@
                                                 </div>
                                                 <div class="nk-block">
                                                     <div class="row gy-4">
-                                                        <div class="col-xxl-3 col-md-4">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Blood Group</label>
-                                                                <div class="form-control-wrap">
-                                                                    <select class="form-select js-select2" data-placeholder="Select Group">
-                                                                        <option value="">Select</option>
-                                                                        <option value="option_select_blood">A+</option>
-                                                                        <option value="option_select_blood">A-</option>
-                                                                        <option value="option_select_blood">AB+</option>
-                                                                        <option value="option_select_blood">AB-</option>
-                                                                        <option value="option_select_blood">B+</option>
-                                                                        <option value="option_select_blood">B-</option>
-                                                                        <option value="option_select_blood">O+</option>
-                                                                        <option value="option_select_blood">O-</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--col-->
+                                                        
                                                         <div class="col-xxl-3 col-md-4">
                                                             <div class="form-group">
                                                                 <label class="form-label">Height</label>
-                                                                <input type="text" class="form-control" id="height" placeholder="Height">
+                                                                <input name="height" type="text" class="form-control" id="height" placeholder="Height">
                                                             </div>
                                                         </div><!--col-->
                                                         <div class="col-xxl-3 col-md-4">
                                                             <div class="form-group">
                                                                 <label class="form-label">Weight</label>
-                                                                <input type="text" class="form-control" id="weight" placeholder="Weight">
-                                                            </div>
-                                                        </div><!--col-->
-                                                        <div class="col-xxl-3 col-md-4">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Blood Pressure</label>
-                                                                <input type="text" class="form-control" id="bp" placeholder="Blood Pressure">
-                                                            </div>
-                                                        </div><!--col-->
-                                                        <div class="col-xxl-3 col-md-4">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Pulse</label>
-                                                                <input type="text" class="form-control" id="pulse" placeholder="Pulse">
-                                                            </div>
-                                                        </div><!--col-->
-                                                        <div class="col-xxl-3 col-md-4">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Temperature</label>
-                                                                <input type="text" class="form-control" id="temperature" placeholder="Temperature">
+                                                                <input name="weight" type="text" class="form-control" id="weight" placeholder="Weight">
                                                             </div>
                                                         </div><!--col-->
                                                     </div><!--row-->
                                                 </div>
-                                            </div><!-- .card-inner -->
-                                            <div class="card-inner">
+                                                <br>
+                                                <div class="d-flex justify-content-end">
+
+                                                        <div class="form-group">
+                                                            <button type="submit" class="btn btn-primary">Add Doctor/Nurse</button>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                            <!-- .card-inner -->
+                                            {{-- <div class="card-inner">
                                                 <div class="nk-block-head">
                                                     <div class="nk-block-head-content">
                                                         <h5 class="title nk-block-title">Madical Condition</h5>
@@ -335,16 +275,7 @@
                                                                 </div>
                                                             </div>
                                                         </div><!--col-->
-                                                        <div class="col-12">
-                                                            <div class="form-group">
-                                                                <label class="form-label">Symptoms Description</label>
-                                                                <div class="form-control-wrap">
-                                                                    <div class="quill-basic">
-                                                                        <p>Please describe little bit!</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div><!--col-->
+                                                        
                                                         <div class="col-12">
                                                             <div class="form-group">
                                                                 <button type="submit" class="btn btn-primary">Add Patient</button>
@@ -352,7 +283,8 @@
                                                         </div><!--col-->
                                                     </div><!--row-->
                                                 </div>
-                                            </div><!-- .card-inner -->
+                                            </div><!-- .card-inner --> --}}
+                                            
                                         </div>
                                     </div><!-- .card -->
                                 </div><!-- .nk-block -->

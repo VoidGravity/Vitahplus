@@ -14,11 +14,17 @@ return new class extends Migration
         Schema::create('doctors', function (Blueprint $table) {
 
             $table->id();
-            $table->string('speciality');
             $table->string('rank');
             $table->string('salary');
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('Address');
+            $table->unsignedBigInteger('speciality_id');
+            $table->foreign('speciality_id')->references('id')->on('specialities');
+            $table->unsignedBigInteger('department_id');
+            $table->foreign('department_id')->references('id')->on('departments');
+            $table->string('Doctor_image')->nullable();
+            $table->string('national_id')->nullable();
+            $table->string('certificate')->nullable();
+            $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
     }

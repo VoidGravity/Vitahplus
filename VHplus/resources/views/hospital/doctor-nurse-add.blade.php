@@ -40,130 +40,110 @@
                                         <div class="nk-block-head-content">
                                             <h3 class="nk-block-title page-title">Add Doctor/Nurse</h3>
                                         </div><!-- .nk-block-head-content -->
+                                        <div>
+                                            @if(session('success'))
+                                            <div class="alert alert-success" role="alert">
+                                                {{session('success')}}
+                                            </div>
+                                            @elseif(session('fail'))
+                                            <div class="alert alert-danger" role="alert">
+                                                {{session('fail')}}
+                                            </div>
+                                            @elseif(session('fail'))
+                                            <div class="alert alert-danger" role="alert">
+                                                {{session('error')}}
+                                            </div>
+                                            @endif
+                                            
+                                        </div>
                                     </div><!-- .nk-block-between -->
                                 </div><!-- .nk-block-head -->
                                 <div class="nk-block">
                                     <div class="card card-bordered">
                                         <div class="card-inner">
-                                            <div class="row gy-4">
-                                                <div class="col-xxl-3 col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="form-label" for="first-name">First Name</label>
-                                                        <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="first-name" placeholder="First Name" required>
-                                                        </div>
-                                                    </div>
-                                                </div><!--col-->
-                                                <div class="col-xxl-3 col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="form-label" for="last-name">Last Name</label>
-                                                        <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="last-name" placeholder="Last Name">
-                                                        </div>
-                                                    </div>
-                                                </div><!--col-->
+                                            <form class="row gy-4" method="POST" action="" enctype="multipart/form-data">
+                                                
                                                 <div class="col-xxl-3 col-md-4">
                                                     <div class="form-group">
                                                         <label class="form-label">Gender</label>
                                                         <div class="form-control-wrap">
-                                                            <select class="form-select js-select2" data-placeholder="Select Gender">
+                                                            <select name="gender" class="form-select js-select2" data-placeholder="Select Gender">
                                                                 <option value="">Select Gender</option>
-                                                                <option value="option_select_gender">Male</option>
-                                                                <option value="option_select_gender">Female</option>
-                                                                <option value="option_select_gender">Other</option>
+                                                                <option value="1">Male</option>
+                                                                <option value="0">Female</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </div><!--col-->
+                                               
+                                                
+                                                
                                                 <div class="col-xxl-3 col-md-4">
                                                     <div class="form-group">
-                                                        <label class="form-label">Date of Birth</label>
+                                                        <label class="form-label">Address</label>
                                                         <div class="form-control-wrap">
-                                                            <div class="form-icon form-icon-right">
-                                                                <em class="icon ni ni-calendar"></em>
-                                                            </div>
-                                                            <input type="text" class="form-control date-picker-alt" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd">
+                                                            <input name="Address" type="text" class="form-control" id="address" placeholder="Address">
                                                         </div>
                                                     </div>
                                                 </div><!--col-->
                                                 <div class="col-xxl-3 col-md-4">
                                                     <div class="form-group">
-                                                        <label class="form-label" for="phone-no">Phone</label>
+                                                        <label class="form-label">Rank</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="number" class="form-control" id="phone-no" placeholder="Phone no">
+                                                            <input name="rank" type="text" class="form-control" id="Rank" placeholder="Rank">
                                                         </div>
                                                     </div>
                                                 </div><!--col-->
                                                 <div class="col-xxl-3 col-md-4">
                                                     <div class="form-group">
-                                                        <label class="form-label" for="email">Email</label>
+                                                        <label class="form-label">Salary</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="email" class="form-control" id="email" placeholder="Email">
+                                                            <input name="salary" type="text" class="form-control" id="Salary" placeholder="Salary">
                                                         </div>
                                                     </div>
                                                 </div><!--col-->
                                                 <div class="col-xxl-3 col-md-4">
                                                     <div class="form-group">
-                                                        <label class="form-label" for="password">Password</label>
+                                                        <label class="form-label">User Email</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="password" class="form-control" id="password" placeholder="Password">
+                                                            <input name="UserEmail" type="text" class="form-control" id="UserEmail" placeholder="exemple@gmail.com">
                                                         </div>
                                                     </div>
                                                 </div><!--col-->
-                                                <div class="col-xxl-3 col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Adddress</label>
-                                                        <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="address" placeholder="Address">
-                                                        </div>
-                                                    </div>
-                                                </div><!--col-->
-                                                <div class="col-xxl-3 col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Designation</label>
-                                                        <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="designation" placeholder="Designation">
-                                                        </div>
-                                                    </div>
-                                                </div><!--col-->
+                                               
                                                 <div class="col-xxl-3 col-md-4">
                                                     <div class="form-group">
                                                         <label class="form-label">Department</label>
                                                         <div class="form-control-wrap">
-                                                            <select class="form-select js-select2" data-placeholder="Select Department">
+                                                            <select name="department_id" class="form-select js-select2" data-placeholder="Select Department">
                                                                 <option value="">Select</option>
-                                                                <option value="default_option">Allergy and immunology</option>
-                                                                <option value="option_select_department">Anesthesiology</option>
-                                                                <option value="option_select_department">Cardiology</option>
-                                                                <option value="option_select_department">Dermatology</option>
-                                                                <option value="option_select_department">Diagnostic radiology</option>
-                                                                <option value="option_select_department">Emergency medicine</option>
-                                                                <option value="option_select_department">Neurology</option>
-                                                                <option value="option_select_department">Obstetrics and gynecology</option>
-                                                                <option value="option_select_department">Ophthalmology</option>
-                                                                <option value="option_select_department">Pathology</option>
-                                                                <option value="option_select_department">Pediatrics</option>
-                                                                <option value="option_select_department">Psychiatry</option>
-                                                                <option value="option_select_department">Surgery</option>
-                                                                <option value="option_select_department">Urology</option>
+                                                                @foreach($departments as $department)
+                                                                <option value="{{$department->id}}">{{$department->name}}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </div><!--col-->
                                                 <div class="col-xxl-3 col-md-4">
                                                     <div class="form-group">
-                                                        <label class="form-label">Specialist</label>
+                                                        <label class="form-label">Specialty</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="specialist" placeholder="Specialist">
+                                                            <select name="speciality_id" class="form-select js-select2" data-placeholder="Select Department">
+                                                                <option value="">Select</option>
+                                                                @foreach($speciality as $specialities)
+                                                                <option value="{{$specialities->id}}">{{$specialities->name}}</option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div><!--col-->
+                                               
                                                 <div class="col-xxl-3 col-md-4">
                                                     <div class="form-group">
                                                         <label class="form-label">Upload Photo</label>
                                                         <div class="form-control-wrap">
                                                             <div class="form-file">
-                                                                <input type="file" multiple class="form-file-input" id="customFile">
+                                                                <input type="file" name="Doctor_image" multiple class="form-file-input" id="customFile">
                                                                 <label class="form-file-label" for="customFile">Choose file</label>
                                                             </div>
                                                         </div>
@@ -174,7 +154,7 @@
                                                         <label class="form-label">National ID</label>
                                                         <div class="form-control-wrap">
                                                             <div class="form-file">
-                                                                <input type="file" multiple class="form-file-input" id="nid">
+                                                                <input name="national_id" type="file" multiple class="form-file-input" id="nid">
                                                                 <label class="form-file-label" for="nid">Choose file</label>
                                                             </div>
                                                         </div>
@@ -185,51 +165,32 @@
                                                         <label class="form-label">Certificates</label>
                                                         <div class="form-control-wrap">
                                                             <div class="form-file">
-                                                                <input type="file" multiple class="form-file-input" id="certificates">
+                                                                <input name="certificate" type="file" multiple class="form-file-input" id="certificates">
                                                                 <label class="form-file-label" for="certificates">Choose files</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div><!--col-->
-                                                <div class="col-xxl-3 col-md-4">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Joining Date</label>
-                                                        <div class="form-control-wrap">
-                                                            <div class="form-icon form-icon-right">
-                                                                <em class="icon ni ni-calendar"></em>
-                                                            </div>
-                                                            <input type="text" class="form-control date-picker" data-date-format="yyyy-mm-dd" placeholder="yyyy-mm-dd">
-                                                        </div>
-                                                    </div>
-                                                </div><!--col-->
+                                                
                                                 <div class="col-xxl-3 col-md-4">
                                                     <div class="form-group">
                                                         <label class="form-label">Status</label>
                                                         <div class="form-control-wrap">
-                                                            <select class="form-select js-select2">
-                                                                <option value="default_option">Active</option>
-                                                                <option value="option_select_status">Inactive</option>
-                                                                <option value="option_select_status">Pending</option>
+                                                            <select name="status" class="form-select js-select2">
+                                                                <option value="">Status</option>
+                                                                <option value="Inactive">Inactive</option>
+                                                                <option value="Active">Active</option>
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </div><!--col-->
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label class="form-label">Short Biography</label>
-                                                        <div class="form-control-wrap">
-                                                            <div class="quill-basic">
-                                                                <p>Hello World!</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div><!--col-->
+                                                
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <button type="submit" class="btn btn-primary">Add Doctor/Nurse</button>
                                                     </div>
                                                 </div><!--col-->
-                                            </div><!--row-->
+                                            </form><!--row-->
                                         </div><!-- .card-inner-group -->
                                     </div><!-- .card -->
                                 </div><!-- .nk-block -->
