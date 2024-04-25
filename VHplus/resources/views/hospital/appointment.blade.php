@@ -138,7 +138,7 @@
                                                                                                         <label class="overline-title overline-title-alt">Doctor</label>
                                                                                                         <div class="form-control-wrap">
                                                                                                             <select class="form-select js-select2" data-placeholder="Select Doctor">
-                                                                                                                <option value="">Select Doctor</option>
+                                                                                                                <option value="">Patient Email</option>
                                                                                                                 <option value="option_select_consulant">Joe Larson</option>
                                                                                                                 <option value="option_select_consulant">Patrick Newman</option>
                                                                                                                 <option value="option_select_consulant">Newman Freeman</option>
@@ -225,6 +225,109 @@
                                                         <div class="nk-tb-col nk-tb-col-tools">&nbsp;</div>
                                                     </div><!-- .nk-tb-item -->
                                                     @foreach ($appointments as $item)
+                                                        <div class="modal fade" tabindex="-1" role="dialog" id="editAppointment">
+                                                            <div class="modal-dialog modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                                                                    <div class="modal-body modal-body-md">
+                                                                        <h5 class="modal-title">Edit Appointment</h5>
+                                                                        <form action="" class="mt-4">
+                                                                            <input type="hidden" name="id" value="{{ $item->id }}">
+
+                                                                            <div class="row g-gs">
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label class="form-label" for="name">Appointment Date</label>
+                                                                                        <div class="form-control-wrap">
+                                                                                            <input name="date" type="date" class="form-control">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div><!-- .col -->
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label class="form-label">Status</label>
+                                                                                        <div class="form-control-wrap">
+                                                                                            <select name="status" class="form-select js-select2" data-placeholder="Select Status">
+                                                                                                <option value="">Select</option>
+                                                                                                <option value="Approved">Approved</option>
+                                                                                                <option value="Pending">Pending</option>
+                                                                                                <option value="cancel">cancel</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div><!-- .col -->
+                                                                                <div class="col-12">
+                                                                                    <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+                                                                                        <li>
+                                                                                            <button data-bs-dismiss="modal" class="btn btn-primary">Update</button>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#" class="link link-light" data-bs-dismiss="modal">Cancel</a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div><!-- .col -->
+                                                                            </div>
+                                                                        </form>
+                                                                    </div><!-- .modal-body -->
+                                                                </div><!-- .modal-content -->
+                                                            </div><!-- .modal-dialog -->
+                                                        </div><!-- .modal -->
+                                                        <div class="modal fade" tabindex="-1" role="dialog" id="addAppointment">
+                                                            <div class="modal-dialog modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                                                                    <div class="modal-body modal-body-md">
+                                                                        <h5 class="modal-title">Add Appointment</h5>
+                                                                        <form action="{{ Route('hospital/appointment') }}" method="POST" class="mt-4">
+                                                                            @csrf
+                                                                            <div class="row g-gs">
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label class="form-label" for="name">Appointment Date</label>
+                                                                                        <div class="form-control-wrap">
+                                                                                            <input name="date" type="date" class="form-control">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div><!-- .col -->
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label class="form-label">Status</label>
+                                                                                        <div class="form-control-wrap">
+                                                                                            <select name="status" class="form-select js-select2" data-placeholder="Select Status">
+                                                                                                <option value="">Select</option>
+                                                                                                <option value="Approved">Approved</option>
+                                                                                                <option value="Pending">Pending</option>
+                                                                                                <option value="cancel">cancel</option>
+                                                                                            </select>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div><!-- .col -->
+                                                                                <div class="col-md-6">
+                                                                                    <div class="form-group">
+                                                                                        <label class="form-label" for="name">Patient Email</label>
+                                                                                        <div class="form-control-wrap">
+                                                                                            <input name="email" type="text" class="form-control">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div><!-- .col -->
+
+                                                                               
+                                                                                <div class="col-12">
+                                                                                    <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+                                                                                        <li>
+                                                                                            <button type="submit" class="btn btn-primary">Add Appointment</button>
+                                                                                        </li>
+                                                                                        <li>
+                                                                                            <a href="#" class="link link-light" data-bs-dismiss="modal">Cancel</a>
+                                                                                        </li>
+                                                                                    </ul>
+                                                                                </div><!-- .col -->
+                                                                            </div>
+                                                                        </form>
+                                                                    </div><!-- .modal-body -->
+                                                                </div><!-- .modal-content -->
+                                                            </div><!-- .modal-dialog -->
+                                                        </div><!-- .modal -->
                                                         <div class="nk-tb-item">
                                                             <div class="nk-tb-col nk-tb-col-check">
                                                                 <div class="custom-control custom-control-sm custom-checkbox notext">
@@ -244,7 +347,7 @@
                                                                                 if ($patient) {
                                                                                     echo $patient->name;
                                                                                 } else {
-                                                                                    echo "User Not Found";
+                                                                                    echo 'User Not Found';
                                                                                 }
                                                                             @endphp
                                                                             <span class="dot dot-info d-md-none ms-1"></span></span>
@@ -254,12 +357,12 @@
                                                             <div class="nk-tb-col tb-col-mb">
                                                                 <span class="tb-lead-sub">{{ date('d/m/Y', strtotime($item->appointment_date)) }}</span>
                                                             </div>
-                                                            
+
                                                             <div class="nk-tb-col tb-col-md">
-                                                                <span class="tb-status text-info">{{$item->status}}</span>
+                                                                <span class="tb-status text-info">{{ $item->status }}</span>
                                                                 <span data-bs-toggle="tooltip" title="Waiting at 18 Dec, 2019 01:02 PM" data-bs-placement="top"><em class="icon ni ni-info"></em></span>
                                                             </div>
-                                                            
+
                                                             <div class="nk-tb-col nk-tb-col-tools">
                                                                 <ul class="nk-tb-actions gx-1">
                                                                     <li class="nk-tb-action-hidden">
@@ -475,151 +578,9 @@
             </div><!-- .modla-dialog -->
         </div><!-- .modal -->
         <!-- Add Appoinment-->
-        <div class="modal fade" tabindex="-1" role="dialog" id="addAppointment">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
-                    <div class="modal-body modal-body-md">
-                        <h5 class="modal-title">Add Appointment</h5>
-                        <form action="{{ Route('hospital/appointment') }}" method="POST" class="mt-4">
-                            @csrf
-                            <div class="row g-gs">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="name">Patient name</label>
-                                        <div class="form-control-wrap">
-                                            <input name="name" type="text" class="form-control" id="name" placeholder="Name">
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label">Appointment Date</label>
-                                        <div class="form-control-wrap">
-                                            <div class="form-icon form-icon-right">
-                                                <em class="icon ni ni-calendar"></em>
-                                            </div>
-                                            <input name="date" type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label">Doctor</label>
-                                        <div class="form-control-wrap">
-                                            <select class="form-select js-select2" data-placeholder="Select Doctor">
-                                                <option value="">Select Doctor</option>
-                                                @foreach ($doctors as $doctor)
-                                                    <option value="doctor_id">Joe Larson</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label">Status</label>
-                                        <div class="form-control-wrap">
-                                            <select class="form-select js-select2" data-placeholder="Select Status">
-                                                <option value="">Select</option>
-                                                <option value="status_id">Apporve</option>
-
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
-                                <div class="col-12">
-                                    <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
-                                        <li>
-                                            <button type="submit" class="btn btn-primary">Add Appointment</button>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="link link-light" data-bs-dismiss="modal">Cancel</a>
-                                        </li>
-                                    </ul>
-                                </div><!-- .col -->
-                            </div>
-                        </form>
-                    </div><!-- .modal-body -->
-                </div><!-- .modal-content -->
-            </div><!-- .modal-dialog -->
-        </div><!-- .modal -->
         <!-- Edit Appoinment-->
-        <div class="modal fade" tabindex="-1" role="dialog" id="editAppointment">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
-                    <div class="modal-body modal-body-md">
-                        <h5 class="modal-title">Edit Appointment</h5>
-                        <form action="#" class="mt-4">
-                            <div class="row g-gs">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label" for="editName">Name</label>
-                                        <div class="form-control-wrap">
-                                            <input type="text" class="form-control" id="editName" placeholder="Name" value="Abu Bin Ishtiyak">
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label">Appointment Date</label>
-                                        <div class="form-control-wrap">
-                                            <div class="form-icon form-icon-right">
-                                                <em class="icon ni ni-calendar"></em>
-                                            </div>
-                                            <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" value="18/12/2020">
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label">Doctor</label>
-                                        <div class="form-control-wrap">
-                                            <select class="form-select js-select2" data-placeholder="Select Doctor">
-                                                <option value="">Select</option>
-                                                <option value="option_select_consulant">Joe Larson</option>
-                                                <option value="option_select_consulant">Janet Snyder</option>
-                                                <option value="option_select_consulant">Amelia Grant</option>
-                                                <option value="option_select_consulant">Debra Grant</option>
-                                                <option value="option_select_consulant">Snyder Debra</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="form-label">Status</label>
-                                        <div class="form-control-wrap">
-                                            <select class="form-select js-select2" data-placeholder="Select Status">
-                                                <option value="">Select</option>
-                                                <option value="option_select_status">Approved</option>
-                                                <option value="option_select_status">Pending</option>
-                                                <option value="option_select_status">cancel</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
-                                <div class="col-12">
-                                    <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
-                                        <li>
-                                            <button data-bs-dismiss="modal" class="btn btn-primary">Update</button>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="link link-light" data-bs-dismiss="modal">Cancel</a>
-                                        </li>
-                                    </ul>
-                                </div><!-- .col -->
-                            </div>
-                        </form>
-                    </div><!-- .modal-body -->
-                </div><!-- .modal-content -->
-            </div><!-- .modal-dialog -->
-        </div><!-- .modal -->
         <!-- JavaScript -->
         <script src="{{ asset('js/bundle.js') }}"></script>
 

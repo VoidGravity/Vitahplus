@@ -635,4 +635,17 @@ class HospitalController extends Controller
         $inventory_item->save();
         return view('hospital/inventory-items', compact('inventory', 'success', 'category', 'inventory'));
     }
+    public function storeAppointment(Request $request)
+    {
+        $appointment = new Appointment();
+        // getting the user email and then looking for patient id 
+        $user = User::where('email', $request->email)->first();
+        
+
+        $appointment->patient_id = $user->id;
+        $appointment->appointment_date = $request->date;
+        $appointment->status = $request->status;
+        $appointment->save();
+        return redirect()->back()->with('success', 'Appointment created successfully');
+    }
 }

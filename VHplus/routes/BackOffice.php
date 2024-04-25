@@ -2,7 +2,7 @@
 use App\Http\Controllers\HospitalController;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/hospital/appointment', [HospitalController::class, 'store'])->name('hospital/appointment');
+Route::post('/hospital/appointment', [HospitalController::class, 'storeAppointment'])->name('hospital/appointment');
 // crud /hospital/department
 Route::post('/hospital/department', [HospitalController::class, 'store'])->name('hospital/department');
 Route::post('/hospital/department/update', [HospitalController::class, 'update'])->name('hospital/department/update');
