@@ -251,12 +251,12 @@
                             </li> --}}
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->
-                    <li class="nk-menu-item">
+                    {{-- <li class="nk-menu-item">
                         <a href="{{route('hospital/user-profile')}}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-user-fill"></em></span>
                             <span class="nk-menu-text">User Profile</span>
                         </a>
-                    </li><!-- .nk-menu-item -->
+                    </li><!-- .nk-menu-item --> --}}
                     <li class="nk-menu-item">
                         <a href="{{route('hospital/settings')}}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-setting-fill"></em></span>

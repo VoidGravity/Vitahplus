@@ -648,4 +648,44 @@ class HospitalController extends Controller
         $appointment->save();
         return redirect()->back()->with('success', 'Appointment created successfully');
     }
+    public function UpdateAppointment(Request $request)
+    {
+        $appointment = Appointment::find($request->id);
+        if (!$appointment) {
+            return redirect()->back()->with('error', 'Appointment not found');
+        }
+        $appointment->appointment_date = $request->date;
+        $appointment->status = $request->status;
+        $appointment->save();
+        return redirect()->back()->with('success', 'Appointment updated successfully');
+    }
+    public function destroyAppointment(string $id)
+    {
+        $appointment = Appointment::find($id);
+        if (!$appointment) {
+            return redirect()->back()->with('error', 'Appointment not found');
+        }
+        $appointment->delete();
+        return redirect()->back()->with('success', 'Appointment deleted successfully');
+    }
+    public function AprouveAppointment(string $id)
+    {
+        $appointment = Appointment::find($id);
+        if (!$appointment) {
+            return redirect()->back()->with('error', 'Appointment not found');
+        }
+        $appointment->status = 'approved';
+        $appointment->save();
+        return redirect()->back()->with('success', 'Appointment approved successfully');
+    }
+    public function RejectAppointment(string $id)
+    {
+        $appointment = Appointment::find($id);
+        if (!$appointment) {
+            return redirect()->back()->with('error', 'Appointment not found');
+        }
+        $appointment->status = 'rejected';
+        $appointment->save();
+        return redirect()->back()->with('success', 'Appointment rejected successfully');
+    }
 }

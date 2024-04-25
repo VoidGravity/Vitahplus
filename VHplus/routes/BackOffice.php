@@ -3,6 +3,10 @@ use App\Http\Controllers\HospitalController;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/hospital/appointment', [HospitalController::class, 'storeAppointment'])->name('hospital/appointment');
+Route::post('/hospital/appointment/update', [HospitalController::class, 'UpdateAppointment'])->name('hospital/appointment');
+Route::get('/hospital/appointment/{id}', [HospitalController::class, 'destroyAppointment'])->name('hospital/appointment');
+Route::get('/hospital/appointment/AprouveAppointment/{id}', [HospitalController::class, 'AprouveAppointment'])->name('hospital/appointment');
+Route::get('/hospital/appointment/RejectAppointment/{id}', [HospitalController::class, 'RejectAppointment'])->name('hospital/appointment');
 // crud /hospital/department
 Route::post('/hospital/department', [HospitalController::class, 'store'])->name('hospital/department');
 Route::post('/hospital/department/update', [HospitalController::class, 'update'])->name('hospital/department/update');

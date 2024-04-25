@@ -126,7 +126,7 @@
                                                                                                         <select class="form-select js-select2">
                                                                                                             <option value="any">Any Status</option>
                                                                                                             <option value="visited">Visited</option>
-                                                                                                            <option value="canceled">Canceled</option>
+                                                                                                            <option value="rejected">rejected</option>
                                                                                                             <option value="waiting">Waiting</option>
                                                                                                             <option value="pending">Pending</option>
                                                                                                             <option value="deleted">Deleted</option>
@@ -225,15 +225,16 @@
                                                         <div class="nk-tb-col nk-tb-col-tools">&nbsp;</div>
                                                     </div><!-- .nk-tb-item -->
                                                     @foreach ($appointments as $item)
-                                                        <div class="modal fade" tabindex="-1" role="dialog" id="editAppointment">
+                                                    
+
+                                                        <div class="modal fade" tabindex="-1" role="dialog" id="editAppointment{{$item->id}}">
                                                             <div class="modal-dialog modal-lg" role="document">
                                                                 <div class="modal-content">
                                                                     <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
                                                                     <div class="modal-body modal-body-md">
                                                                         <h5 class="modal-title">Edit Appointment</h5>
-                                                                        <form action="" class="mt-4">
+                                                                        <form action="{{url('/hospital/appointment/update')}}" method="POST" class="mt-4">
                                                                             <input type="hidden" name="id" value="{{ $item->id }}">
-
                                                                             <div class="row g-gs">
                                                                                 <div class="col-md-6">
                                                                                     <div class="form-group">
@@ -251,7 +252,7 @@
                                                                                                 <option value="">Select</option>
                                                                                                 <option value="Approved">Approved</option>
                                                                                                 <option value="Pending">Pending</option>
-                                                                                                <option value="cancel">cancel</option>
+                                                                                                <option value="rejected">rejected</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -297,7 +298,7 @@
                                                                                                 <option value="">Select</option>
                                                                                                 <option value="Approved">Approved</option>
                                                                                                 <option value="Pending">Pending</option>
-                                                                                                <option value="cancel">cancel</option>
+                                                                                                <option value="rejected">rejected</option>
                                                                                             </select>
                                                                                         </div>
                                                                                     </div>
@@ -365,18 +366,14 @@
 
                                                             <div class="nk-tb-col nk-tb-col-tools">
                                                                 <ul class="nk-tb-actions gx-1">
+                                                                   
                                                                     <li class="nk-tb-action-hidden">
-                                                                        <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View">
-                                                                            <em class="icon ni ni-eye-fill"></em>
-                                                                        </a>
-                                                                    </li>
-                                                                    <li class="nk-tb-action-hidden">
-                                                                        <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve">
+                                                                        <a href="{{url('/hospital/appointment/AprouveAppointment/'.$item->id)}}" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve">
                                                                             <em class="icon ni ni-check-fill-c"></em>
                                                                         </a>
                                                                     </li>
                                                                     <li class="nk-tb-action-hidden">
-                                                                        <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject">
+                                                                        <a href="{{url('/hospital/appointment/RejectAppointment/'.$item->id)}}" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject">
                                                                             <em class="icon ni ni-cross-fill-c"></em>
                                                                         </a>
                                                                     </li>
@@ -385,8 +382,9 @@
                                                                             <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                                             <div class="dropdown-menu dropdown-menu-end">
                                                                                 <ul class="link-list-opt no-bdr">
-                                                                                    <li><a data-bs-toggle="modal" href="#editAppointment"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
+                                                                                    <li><a data-bs-toggle="modal" href="#editAppointment{{$item->id}}"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
+
+                                                                                    <li><a href="{{url('/hospital/appointment/'.$item->id)}}"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
                                                                                 </ul>
                                                                             </div>
                                                                         </div>
