@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class BirthReport extends Model
 {
     use HasFactory;
+    // abdeljbar : downsyndrom patient
+    // 
 }
