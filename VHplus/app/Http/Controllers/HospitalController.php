@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\BirthReport;
+use App\Models\BloodBank;
 use App\Models\Department;
 use App\Models\Doctors;
+use App\Models\InventoryItemReport;
+use App\Models\MedecineCategory;
 use App\Models\Prompt;
 use App\Models\Speciality;
 use App\Models\User;
@@ -157,10 +161,10 @@ class HospitalController extends Controller
     {
         $id = $request->query('id');
         $patient = User::find($id);
-    
+
         return view('hospital/patient-profile', compact('patient'));
     }
-    
+
 
     public function showHospitalSettingsMember()
     {
@@ -186,9 +190,9 @@ class HospitalController extends Controller
     {
         // gettign the the doctors and user (the doctor has a foregin key of users)
         $doctors = Doctors::with('user')->get();
+        $appointments = Appointment::all();
 
-
-        return view('hospital/appointment', compact('doctors'));
+        return view('hospital/appointment', compact('doctors', 'appointments'));
     }
 
     public function showHospitalPatientList()
@@ -218,17 +222,20 @@ class HospitalController extends Controller
     public function showHospitalBirthReport()
     {
         $birthReports = BirthReport::all();
-        return view('hospital/birth-report', compact('birthReports'));  
+        return view('hospital/birth-report', compact('birthReports'));
     }
 
     public function showHospitalBloodBank()
     {
-        return view('hospital/blood-bank');
+        $blood_banks = BloodBank::with('user')->get();
+        return view('hospital/blood-bank', compact('blood_banks'));
     }
 
     public function showHospitalInventoryItems()
     {
-        return view('hospital/inventory-items');
+        $inventory = InventoryItemReport::all();
+        $category = MedecineCategory::all();
+        return view('hospital/inventory-items', compact('inventory', 'category'));
     }
 
     public function showHospitalBedGroup()
@@ -321,7 +328,17 @@ class HospitalController extends Controller
             'prompt' => $text,
             'response' => $response->text()
         ]);
-        return redirect()->back();
+        $appointment = new Appointment();
+        $appointment->patient_id = $user->id;
+        // $appointment->name = $user->name;
+
+        $appointment->appointment_date = $startDate;
+        $appointment->status = 'pending';
+        if ($appointment->save()) {
+            return redirect()->back()->with('success', 'Appointment booked successfully');
+        } else {
+            return redirect()->back()->with('error', 'Appointment not booked');
+        }
     }
     public function ShowHospitalChat()
     {
@@ -521,8 +538,101 @@ class HospitalController extends Controller
         $birthReport_store->report = $request->report;
         $birthReport_store->date = $request->date;
         $birthReport_store->save();
-        
+
         return view('hospital/birth-report', compact('birthReports', 'success'));
-        
+    }
+    public function storeBlood(Request $request)
+    {
+        $success = 'Blood bank created successfully';
+        $error = 'User not found';
+        $warning = 'User not found';
+
+        $blood_banks = BloodBank::all();
+        $blood_bank = new BloodBank();
+        $blood_bank->donation_date = $request->donation_date;
+        // fidning user id 
+        $user = User::where('email', $request->email)->first();
+        if (!$user) {
+            return view('hospital/blood-bank', compact('blood_banks', 'warning'));
+        }
+        $blood_bank->user_id = $user->id;
+        $blood_bank->blood_group = $request->blood_group;
+        $blood_bank->save();
+
+        if (!$blood_bank) {
+            return view('hospital/blood-bank', compact('blood_banks', 'error'));
+        }
+
+        // using return with eror and compact 
+        return view('hospital/blood-bank', compact('blood_banks', 'success'));
+    }
+    public function updateBlood(Request $request)
+    {
+        // updating the date and blood group
+        $blood_banks = BloodBank::all();
+        $error = 'Blood bank not found';
+        $success = 'Blood bank updated successfully';
+        $blood_bank = BloodBank::find($request->id);
+        if (!$blood_bank) {
+            return view('hospital/blood-bank', compact('blood_banks', 'error'));
+        }
+        $blood_bank->donation_date = $request->donation_date;
+        $blood_bank->blood_group = $request->blood_group;
+        $blood_bank->save();
+        return view('hospital/blood-bank', compact('blood_banks', 'success'));
+    }
+    public function deleteBlood(string $id)
+    {
+        $blood_banks = BloodBank::all();
+        $error = 'Blood bank not found';
+        $success = 'Blood bank deleted successfully';
+        $blood_bank = BloodBank::find($id);
+        if (!$blood_bank) {
+            return view('hospital/blood-bank', compact('blood_banks', 'error'));
+        }
+        $blood_bank->delete();
+        return view('hospital/blood-bank', compact('blood_banks', 'success'));
+    }
+    public function updateInvetory(Request $request)
+    {
+        $inventory = InventoryItemReport::all();
+        $category = MedecineCategory::all();
+        $error = 'Inventory item not found';
+        $success = 'Inventory item updated successfully';
+        $inventory_item = InventoryItemReport::find($request->id);
+        if (!$inventory_item) {
+            return view('hospital/inventory-items', compact('inventory', 'error'));
+        }
+        $inventory_item->name = $request->name;
+        $inventory_item->category_id = $request->category_id;
+        $inventory_item->quantity = $request->quantity;
+        $inventory_item->save();
+        return view('hospital/inventory-items', compact('inventory', 'success', 'category', 'inventory'));
+    }
+    public function deleteInvontory(string $id)
+    {
+        $inventory = InventoryItemReport::all();
+        $category = MedecineCategory::all();
+        $error = 'Inventory item not found';
+        $success = 'Inventory item deleted successfully';
+        $inventory_item = InventoryItemReport::find($id);
+        if (!$inventory_item) {
+            return view('hospital/inventory-items', compact('inventory', 'error', 'category', 'inventory'));
+        }
+        $inventory_item->delete();
+        return view('hospital/inventory-items', compact('inventory', 'success', 'category', 'inventory'));
+    }
+    public function storeInventory(Request $request)
+    {
+        $inventory = InventoryItemReport::all();
+        $category = MedecineCategory::all();
+        $error = 'Inventory item not found';
+        $success = 'Inventory item created successfully';
+        $inventory_item = new InventoryItemReport();
+        $inventory_item->name = $request->name;
+        $inventory_item->category_id = $request->category_id;
+        $inventory_item->quantity = $request->quantity;
+        $inventory_item->save();
+        return view('hospital/inventory-items', compact('inventory', 'success', 'category', 'inventory'));
     }
 }

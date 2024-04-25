@@ -114,9 +114,9 @@
                             <li class="nk-menu-item">
                                 <a href="{{route('invoice-list')}}" class="nk-menu-link"><span class="nk-menu-text">Invoice List</span></a>
                             </li>
-                            <li class="nk-menu-item">
+                            {{-- <li class="nk-menu-item">
                                 <a href="{{route('invoice-details')}}" class="nk-menu-link"><span class="nk-menu-text">Invoice Details</span></a>
-                            </li>
+                            </li> --}}
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item has-sub">
@@ -209,9 +209,9 @@
                             <li class="nk-menu-item">
                                 <a href="{{route('hospital/invoice-list')}}" class="nk-menu-link"><span class="nk-menu-text">Invoice List</span></a>
                             </li>
-                            <li class="nk-menu-item">
+                            {{-- <li class="nk-menu-item">
                                 <a href="{{route('hospital/invoice-details')}}" class="nk-menu-link"><span class="nk-menu-text">Invoice Details</span></a>
-                            </li>
+                            </li> --}}
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item has-sub">
@@ -237,18 +237,18 @@
                             <span class="nk-menu-text">Misc Pages</span>
                         </a>
                         <ul class="nk-menu-sub">
-                            <li class="nk-menu-item">
+                            {{-- <li class="nk-menu-item">
                                 <a href="{{route('hospital/bed-group')}}" class="nk-menu-link"><span class="nk-menu-text">Bed Group</span></a>
-                            </li>
-                            <li class="nk-menu-item">
+                            </li> --}}
+                            {{-- <li class="nk-menu-item">
                                 <a href="{{route('hospital/bed-allotment')}}" class="nk-menu-link"><span class="nk-menu-text">Bed Allotment</span></a>
-                            </li>
+                            </li> --}}
                             <li class="nk-menu-item">
                                 <a href="{{route('hospital/department')}}" class="nk-menu-link"><span class="nk-menu-text">Department</span></a>
                             </li>
-                            <li class="nk-menu-item">
+                            {{-- <li class="nk-menu-item">
                                 <a href="{{route('hospital/death-report')}}" class="nk-menu-link"><span class="nk-menu-text">Death Report</span></a>
-                            </li>
+                            </li> --}}
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item">
@@ -393,9 +393,9 @@
                             <li class="nk-menu-item">
                                 <a href="{{route('invoice-list')}}" class="nk-menu-link"><span class="nk-menu-text">Invoices List</span></a>
                             </li>
-                            <li class="nk-menu-item">
+                            {{-- <li class="nk-menu-item">
                                 <a href="{{route('invoice-details')}}" class="nk-menu-link"><span class="nk-menu-text">Invoice Details</span></a>
-                            </li>
+                            </li> --}}
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->
                     <li class="nk-menu-item">

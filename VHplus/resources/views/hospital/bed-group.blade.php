@@ -184,7 +184,6 @@
                                                                 <label class="custom-control-label" for="uid"></label>
                                                             </div>
                                                         </div>
-                                                        <div class="nk-tb-col"><span class="sub-text">Icon</span></div>
                                                         <div class="nk-tb-col"><span class="sub-text">Group</span></div>
                                                         <div class="nk-tb-col tb-col-mb"><span class="sub-text">Capacity</span></div>
                                                         <div class="nk-tb-col tb-col-md w-max-250px"><span class="sub-text">Description</span></div>

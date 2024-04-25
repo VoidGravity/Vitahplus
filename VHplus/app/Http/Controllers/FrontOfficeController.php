@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Doctors;
 use Illuminate\Http\Request;
 
 class FrontOfficeController extends Controller
@@ -64,7 +65,8 @@ class FrontOfficeController extends Controller
 
     public function showFrontOfficeIndex()
     {
-        return view('frontOffice/index');
+        $doctors = Doctors::all();
+        return view('frontOffice/index',compact('doctors'));
     }
 
     public function showFrontOfficeAbout()

@@ -12,8 +12,7 @@
     <!-- Page Title  -->
     <title>Inventory Items | DashLite Admin Template</title>
     <!-- StyleSheets  -->
-    <link rel="stylesheet" href="{{asset('css/dashlite.css')}}">
-
+    <link rel="stylesheet" href="{{ asset('css/dashlite.css') }}">
 
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.2.3">
 </head>
@@ -27,7 +26,7 @@
             <!-- wrap @s -->
             <div class="nk-wrap ">
                 <!-- main header @s -->
-                                @include('inc.dash-navbar')
+                @include('inc.dash-navbar')
 
                 <!-- main header @e -->
                 <!-- content @s -->
@@ -55,7 +54,9 @@
                                                         <li class="item">
                                                             <div class="info">
                                                                 <div class="fs-14px fw-bold">Total Items</div>
-                                                                <div class="count">2,470</div>
+                                                                <div class="count">
+                                                                    {{ $inventory->count() }}
+                                                                </div>
                                                             </div>
                                                             <em class="icon bg-primary-dim ni ni-box"></em>
                                                         </li>
@@ -70,7 +71,12 @@
                                                         <li class="item">
                                                             <div class="info">
                                                                 <div class="fs-14px fw-bold">Total Equipments</div>
-                                                                <div class="count">607</div>
+                                                                <div class="count">
+                                                                    {{ $inventory->load('category')->filter(function ($item) {
+                                                                            return $item->category->name === 'equipment';
+                                                                        })->count() }}
+
+                                                                </div>
                                                             </div>
                                                             <em class="icon bg-info-dim ni ni-property-alt"></em>
                                                         </li>
@@ -85,7 +91,11 @@
                                                         <li class="item">
                                                             <div class="info">
                                                                 <div class="fs-14px fw-bold">Total Tools</div>
-                                                                <div class="count">653</div>
+                                                                <div class="count">
+                                                                    {{ $inventory->load('category')->filter(function ($item) {
+                                                                            return $item->category->name === 'tool';
+                                                                        })->count() }}
+                                                                </div>
                                                             </div>
                                                             <em class="icon bg-pink-dim ni ni-scissor"></em>
                                                         </li>
@@ -100,7 +110,9 @@
                                                         <li class="item">
                                                             <div class="info">
                                                                 <div class="fs-14px fw-bold">Medicine Categories</div>
-                                                                <div class="count">24</div>
+                                                                <div class="count">
+                                                                    {{ $category->count() }}
+                                                                </div>
                                                             </div>
                                                             <em class="icon bg-purple-dim ni ni-capsule"></em>
                                                         </li>
@@ -243,11 +255,7 @@
                                                                 </div>
                                                                 <div class="nk-tb-col"><span class="sub-text">Name</span></div>
                                                                 <div class="nk-tb-col tb-col-md"><span class="sub-text">Catrgory</span></div>
-                                                                <div class="nk-tb-col tb-col-lg"><span class="sub-text">Supplier</span></div>
-                                                                <div class="nk-tb-col tb-col-xxl"><span class="sub-text">Store</span></div>
-                                                                <div class="nk-tb-col tb-col-mb"><span class="sub-text">Available Quantity</span></div>
                                                                 <div class="nk-tb-col tb-col-md"><span class="sub-text">Total Quantity</span></div>
-                                                                <div class="nk-tb-col tb-col-md"><span class="sub-text">Total Issued</span></div>
                                                                 <div class="nk-tb-col"><span class="sub-text">Status</span></div>
                                                                 <div class="nk-tb-col nk-tb-col-tools">
                                                                     <ul class="nk-tb-actions gx-1 my-n1">
@@ -265,476 +273,113 @@
                                                                     </ul>
                                                                 </div>
                                                             </div><!-- .nk-tb-item -->
-                                                            <div class="nk-tb-item">
-                                                                <div class="nk-tb-col nk-tb-col-check">
-                                                                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                        <input type="checkbox" class="custom-control-input" id="uid1">
-                                                                        <label class="custom-control-label" for="uid1"></label>
+                                                            @foreach ($inventory as $item)
+                                                                <div class="modal fade" tabindex="-1" role="dialog" id="editItems">
+                                                                    <div class="modal-dialog modal-lg" role="document">
+                                                                        <div class="modal-content">
+                                                                            <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                                                                            <div class="modal-body modal-body-md">
+                                                                                <h5 class="modal-title">Update Items</h5>
+                                                                                <form action="{{url('/hospital/inventory-items/update')}}" method="POST" class="mt-4">
+                                                                                    @csrf
+                                                                                    <input type="hidden" name="id" value="{{ $item->id}}">
+                                                                                    <div class="row g-gs">
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-label" for="editName">Name</label>
+                                                                                                <div class="form-control-wrap">
+                                                                                                    <input name="name" type="text" class="form-control" id="editName" placeholder="Name" value="{{$item->name}}">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div><!-- .col -->
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-label">Category</label>
+                                                                                                <div class="form-control-wrap">
+                                                                                                    <select name="category_id" class="form-select js-select2" data-placeholder="Select Category">
+                                                                                                        <option value="">Select</option>
+                                                                                                        @foreach ($category as $cat)
+                                                                                                            <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                                                                                        @endforeach
+                                                                                                    </select>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div><!-- .col -->
+                                                                                       
+                                                                                        <div class="col-md-6">
+                                                                                            <div class="form-group">
+                                                                                                <label class="form-label" for="editTotalQuantity">Total Quantity</label>
+                                                                                                <div class="form-control-wrap">
+                                                                                                    <input name="quantity" type="text" class="form-control" id="editTotalQuantity" placeholder="Total Quantity" value="{{$item->quantity}}">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div><!-- .col -->
+                                                                                       
+                                                                                       
+                                                                                      
+                                                                                        <div class="col-12">
+                                                                                            <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+                                                                                                <li>
+                                                                                                    <button type="submit"  data-bs-dismiss="modal" class="btn btn-primary">Update Items</button>
+                                                                                                </li>
+                                                                                                <li>
+                                                                                                    <a href="#" data-bs-dismiss="modal" class="link link-light">Cancel</a>
+                                                                                                </li>
+                                                                                            </ul>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div><!-- .modal-body -->
+                                                                        </div><!-- .modal-content -->
+                                                                    </div><!-- .modal-dialog -->
+                                                                </div><!-- .modal -->
+                                                                <div class="nk-tb-item">
+                                                                    <div class="nk-tb-col nk-tb-col-check">
+                                                                        <div class="custom-control custom-control-sm custom-checkbox notext">
+                                                                            <input type="checkbox" class="custom-control-input" id="uid1">
+                                                                            <label class="custom-control-label" for="uid1"></label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="nk-tb-col">
+                                                                        <span>{{ $item->name }}</span>
+                                                                    </div>
+                                                                    <div class="nk-tb-col tb-col-md">
+                                                                        <span>{{ $item->category->name }}</span>
+                                                                    </div>
+
+                                                                    <div class="nk-tb-col tb-col-md">
+                                                                        <span>{{ $item->quantity }}</span>
+                                                                    </div>
+
+                                                                    <div class="nk-tb-col">
+                                                                        @if ($item->quantity > 0)
+                                                                            <span class="tb-status text-success">
+                                                                                Available
+                                                                            </span>
+                                                                        @else
+                                                                            <span class="tb-status text-danger">
+                                                                                Unavailable
+                                                                            </span>
+                                                                        @endif
+                                                                    </div>
+                                                                    <div class="nk-tb-col nk-tb-col-tools">
+                                                                        <ul class="nk-tb-actions gx-1">
+                                                                            <li>
+                                                                                <div class="drodown">
+                                                                                    <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                                                        <ul class="link-list-opt no-bdr">
+                                                                                            <li><a data-bs-toggle="modal" href="#editItems"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
+                                                                                            <li><a href="{{url('/hospital/inventory-items/'.$item->id)}}"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </li>
+                                                                        </ul>
                                                                     </div>
                                                                 </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span>Syringe</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>Equipements</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-lg">
-                                                                    <span>XYZ Supplier</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-xxl">
-                                                                    <span>Nio Store</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-mb">
-                                                                    <span>130</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>135</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>05</span>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span class="tb-status text-success">Available</span>
-                                                                </div>
-                                                                <div class="nk-tb-col nk-tb-col-tools">
-                                                                    <ul class="nk-tb-actions gx-1">
-                                                                        <li>
-                                                                            <div class="drodown">
-                                                                                <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                                <div class="dropdown-menu dropdown-menu-end">
-                                                                                    <ul class="link-list-opt no-bdr">
-                                                                                        <li><a data-bs-toggle="modal" href="#editItems"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                        <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div><!-- .nk-tb-item -->
-                                                            <div class="nk-tb-item">
-                                                                <div class="nk-tb-col nk-tb-col-check">
-                                                                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                        <input type="checkbox" class="custom-control-input" id="uid2">
-                                                                        <label class="custom-control-label" for="uid2"></label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span>Pharmacist Equipement</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>Equipements</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-lg">
-                                                                    <span>Medi Supplier</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-xxl">
-                                                                    <span>Nio Store</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-mb">
-                                                                    <span>90</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>110</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>20</span>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span class="tb-status text-success">Available</span>
-                                                                </div>
-                                                                <div class="nk-tb-col nk-tb-col-tools">
-                                                                    <ul class="nk-tb-actions gx-1">
-                                                                        <li>
-                                                                            <div class="drodown">
-                                                                                <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                                <div class="dropdown-menu dropdown-menu-end">
-                                                                                    <ul class="link-list-opt no-bdr">
-                                                                                        <li><a data-bs-toggle="modal" href="#editItems"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                        <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div><!-- .nk-tb-item -->
-                                                            <div class="nk-tb-item">
-                                                                <div class="nk-tb-col nk-tb-col-check">
-                                                                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                        <input type="checkbox" class="custom-control-input" id="uid3">
-                                                                        <label class="custom-control-label" for="uid3"></label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span>Dressing Cotton</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>Equipements</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-lg">
-                                                                    <span>Medi Supplier</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-xxl">
-                                                                    <span>Nio Store</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-mb">
-                                                                    <span>159</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>162</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>03</span>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span class="tb-status text-success">Available</span>
-                                                                </div>
-                                                                <div class="nk-tb-col nk-tb-col-tools">
-                                                                    <ul class="nk-tb-actions gx-1">
-                                                                        <li>
-                                                                            <div class="drodown">
-                                                                                <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                                <div class="dropdown-menu dropdown-menu-end">
-                                                                                    <ul class="link-list-opt no-bdr">
-                                                                                        <li><a data-bs-toggle="modal" href="#editItems"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                        <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div><!-- .nk-tb-item -->
-                                                            <div class="nk-tb-item">
-                                                                <div class="nk-tb-col nk-tb-col-check">
-                                                                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                        <input type="checkbox" class="custom-control-input" id="uid4">
-                                                                        <label class="custom-control-label" for="uid4"></label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span>Dissecting knife</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>Tools</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-lg">
-                                                                    <span>Medi Supplier</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-xxl">
-                                                                    <span>Nio Store</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-mb">
-                                                                    <span>50</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>56</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>06</span>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span class="tb-status text-success">Available</span>
-                                                                </div>
-                                                                <div class="nk-tb-col nk-tb-col-tools">
-                                                                    <ul class="nk-tb-actions gx-1">
-                                                                        <li>
-                                                                            <div class="drodown">
-                                                                                <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                                <div class="dropdown-menu dropdown-menu-end">
-                                                                                    <ul class="link-list-opt no-bdr">
-                                                                                        <li><a data-bs-toggle="modal" href="#editItems"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                        <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div><!-- .nk-tb-item -->
-                                                            <div class="nk-tb-item">
-                                                                <div class="nk-tb-col nk-tb-col-check">
-                                                                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                        <input type="checkbox" class="custom-control-input" id="uid5">
-                                                                        <label class="custom-control-label" for="uid5"></label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span>Forceps</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>Equipements</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-lg">
-                                                                    <span>XYZ Supplier</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-xxl">
-                                                                    <span>Nio Parma</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-mb">
-                                                                    <span>30</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>86</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>56</span>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span class="tb-status text-warning">Low</span>
-                                                                </div>
-                                                                <div class="nk-tb-col nk-tb-col-tools">
-                                                                    <ul class="nk-tb-actions gx-1">
-                                                                        <li>
-                                                                            <div class="drodown">
-                                                                                <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                                <div class="dropdown-menu dropdown-menu-end">
-                                                                                    <ul class="link-list-opt no-bdr">
-                                                                                        <li><a data-bs-toggle="modal" href="#editItems"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                        <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div><!-- .nk-tb-item -->
-                                                            <div class="nk-tb-item">
-                                                                <div class="nk-tb-col nk-tb-col-check">
-                                                                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                        <input type="checkbox" class="custom-control-input" id="uid6">
-                                                                        <label class="custom-control-label" for="uid6"></label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span>Paracetamol</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>Medicine</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-lg">
-                                                                    <span>Medi Supplier</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-xxl">
-                                                                    <span>Nio Parma</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-mb">
-                                                                    <span>350</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>420</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>70</span>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span class="tb-status text-success">Available</span>
-                                                                </div>
-                                                                <div class="nk-tb-col nk-tb-col-tools">
-                                                                    <ul class="nk-tb-actions gx-1">
-                                                                        <li>
-                                                                            <div class="drodown">
-                                                                                <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                                <div class="dropdown-menu dropdown-menu-end">
-                                                                                    <ul class="link-list-opt no-bdr">
-                                                                                        <li><a data-bs-toggle="modal" href="#editItems"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                        <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div><!-- .nk-tb-item -->
-                                                            <div class="nk-tb-item">
-                                                                <div class="nk-tb-col nk-tb-col-check">
-                                                                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                        <input type="checkbox" class="custom-control-input" id="uid7">
-                                                                        <label class="custom-control-label" for="uid7"></label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span>Pollen</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>Medicine</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-lg">
-                                                                    <span>Medi Supplier</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-xxl">
-                                                                    <span>Nio Parma</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-mb">
-                                                                    <span>550</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>650</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>100</span>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span class="tb-status text-success">Available</span>
-                                                                </div>
-                                                                <div class="nk-tb-col nk-tb-col-tools">
-                                                                    <ul class="nk-tb-actions gx-1">
-                                                                        <li>
-                                                                            <div class="drodown">
-                                                                                <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                                <div class="dropdown-menu dropdown-menu-end">
-                                                                                    <ul class="link-list-opt no-bdr">
-                                                                                        <li><a data-bs-toggle="modal" href="#editItems"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                        <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div><!-- .nk-tb-item -->
-                                                            <div class="nk-tb-item">
-                                                                <div class="nk-tb-col nk-tb-col-check">
-                                                                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                        <input type="checkbox" class="custom-control-input" id="uid8">
-                                                                        <label class="custom-control-label" for="uid8"></label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span>XPA XR</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>Medicine</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-lg">
-                                                                    <span>Medi Supplier</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-xxl">
-                                                                    <span>Nio Parma</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-mb">
-                                                                    <span>550</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>750</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>200</span>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span class="tb-status text-success">Available</span>
-                                                                </div>
-                                                                <div class="nk-tb-col nk-tb-col-tools">
-                                                                    <ul class="nk-tb-actions gx-1">
-                                                                        <li>
-                                                                            <div class="drodown">
-                                                                                <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                                <div class="dropdown-menu dropdown-menu-end">
-                                                                                    <ul class="link-list-opt no-bdr">
-                                                                                        <li><a data-bs-toggle="modal" href="#editItems"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                        <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div><!-- .nk-tb-item -->
-                                                            <div class="nk-tb-item">
-                                                                <div class="nk-tb-col nk-tb-col-check">
-                                                                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                        <input type="checkbox" class="custom-control-input" id="uid9">
-                                                                        <label class="custom-control-label" for="uid9"></label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span>Articulator</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>Tools</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-lg">
-                                                                    <span>XYZ Supplier</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-xxl">
-                                                                    <span>Nio Store</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-mb">
-                                                                    <span>00</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>00</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>00</span>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span class="tb-status text-danger">Unavailable</span>
-                                                                </div>
-                                                                <div class="nk-tb-col nk-tb-col-tools">
-                                                                    <ul class="nk-tb-actions gx-1">
-                                                                        <li>
-                                                                            <div class="drodown">
-                                                                                <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                                <div class="dropdown-menu dropdown-menu-end">
-                                                                                    <ul class="link-list-opt no-bdr">
-                                                                                        <li><a data-bs-toggle="modal" href="#editItems"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                        <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div><!-- .nk-tb-item -->
-                                                            <div class="nk-tb-item">
-                                                                <div class="nk-tb-col nk-tb-col-check">
-                                                                    <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                        <input type="checkbox" class="custom-control-input" id="uid10">
-                                                                        <label class="custom-control-label" for="uid10"></label>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span>Bone Chisel</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>Tools</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-lg">
-                                                                    <span>XYZ Supplier</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-xxl">
-                                                                    <span>Nio Store</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-mb">
-                                                                    <span>10</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>15</span>
-                                                                </div>
-                                                                <div class="nk-tb-col tb-col-md">
-                                                                    <span>5</span>
-                                                                </div>
-                                                                <div class="nk-tb-col">
-                                                                    <span class="tb-status text-warning">Low</span>
-                                                                </div>
-                                                                <div class="nk-tb-col nk-tb-col-tools">
-                                                                    <ul class="nk-tb-actions gx-1">
-                                                                        <li>
-                                                                            <div class="drodown">
-                                                                                <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                                <div class="dropdown-menu dropdown-menu-end">
-                                                                                    <ul class="link-list-opt no-bdr">
-                                                                                        <li><a data-bs-toggle="modal" href="#editItems"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                        <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                                    </ul>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div><!-- .nk-tb-item -->
+                                                            @endforeach
+
                                                         </div><!-- .nk-tb-list -->
                                                     </div><!-- .card-inner -->
                                                     <div class="card-inner">
@@ -808,109 +453,109 @@
                         <ul class="country-list text-center gy-2">
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/arg.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/arg.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Argentina</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/aus.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/aus.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Australia</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/bangladesh.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/bangladesh.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Bangladesh</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/canada.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/canada.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Canada <small>(English)</small></span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/china.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/china.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Centrafricaine</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/china.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/china.png') }}" alt="" class="country-flag">
                                     <span class="country-name">China</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/french.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/french.png') }}" alt="" class="country-flag">
                                     <span class="country-name">France</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/germany.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/germany.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Germany</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/iran.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/iran.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Iran</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/italy.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/italy.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Italy</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/mexico.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/mexico.png') }}" alt="" class="country-flag">
                                     <span class="country-name">México</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/philipine.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/philipine.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Philippines</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/portugal.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/portugal.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Portugal</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/s-africa.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/s-africa.png') }}" alt="" class="country-flag">
                                     <span class="country-name">South Africa</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/spanish.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/spanish.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Spain</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/switzerland.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/switzerland.png') }}" alt="" class="country-flag">
                                     <span class="country-name">Switzerland</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/uk.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/uk.png') }}" alt="" class="country-flag">
                                     <span class="country-name">United Kingdom</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/english.png')}}" alt="" class="country-flag">
+                                    <img src="{{ asset('images/flags/english.png') }}" alt="" class="country-flag">
                                     <span class="country-name">United State</span>
                                 </a>
                             </li>
@@ -927,13 +572,15 @@
                 <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
                 <div class="modal-body modal-body-md">
                     <h5 class="modal-title">Add Items</h5>
-                    <form action="#" class="mt-4">
+                    <form action="{{url('/hospital/inventory-items')}}" method="POST" class="mt-4">
+                        @csrf
+                        <input type="hidden" name="id">
                         <div class="row g-gs">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="form-label" for="name">Name</label>
+                                    <label class="form-label" for="editName">Name</label>
                                     <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="name" placeholder="Name">
+                                        <input name="name" type="text" class="form-control" id="editName" placeholder="Name">
                                     </div>
                                 </div>
                             </div><!-- .col -->
@@ -941,72 +588,31 @@
                                 <div class="form-group">
                                     <label class="form-label">Category</label>
                                     <div class="form-control-wrap">
-                                        <select class="form-select js-select2" data-placeholder="Select Category">
+                                        <select name="category_id" class="form-select js-select2" data-placeholder="Select Category">
                                             <option value="">Select</option>
-                                            <option value="option_select_department">Equipements</option>
-                                            <option value="option_select_department">Tools</option>
-                                            <option value="option_select_department">Medicine</option>
+                                            @foreach ($category as $cat)
+                                                <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                             </div><!-- .col -->
+                           
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="form-label" for="supplierName">Supplier</label>
+                                    <label class="form-label" for="editTotalQuantity">Total Quantity</label>
                                     <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="supplierName" placeholder="Supplier">
+                                        <input name="quantity" type="text" class="form-control" id="editTotalQuantity" placeholder="Total Quantity" >
                                     </div>
                                 </div>
                             </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="storeName">Store</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="storeName" placeholder="Store Name">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="totalQuantity">Total Quantity</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="totalQuantity" placeholder="Total Quantity">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="totalIssued">Total Issued</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="totalIssued" placeholder="Total Issued">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="availableQuantity">Available Quantity</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="availableQuantity" placeholder="Available Quantity">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Status</label>
-                                    <div class="form-control-wrap">
-                                        <select class="form-select js-select2" data-placeholder="Select Status">
-                                            <option value="">Select</option>
-                                            <option value="option_select_status">Available</option>
-                                            <option value="option_select_status">Low</option>
-                                            <option value="option_select_status">Unavailable</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
+                           
+                           
+                          
                             <div class="col-12">
                                 <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
                                     <li>
-                                        <a href="#" data-bs-dismiss="modal" class="btn btn-primary">Add Items</a>
+                                        <button type="submit"  data-bs-dismiss="modal" class="btn btn-primary">Update Items</button>
                                     </li>
                                     <li>
                                         <a href="#" data-bs-dismiss="modal" class="link link-light">Cancel</a>
@@ -1020,108 +626,11 @@
         </div><!-- .modal-dialog -->
     </div><!-- .modal -->
     <!-- Edit Items-->
-    <div class="modal fade" tabindex="-1" role="dialog" id="editItems">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
-                <div class="modal-body modal-body-md">
-                    <h5 class="modal-title">Update Items</h5>
-                    <form action="#" class="mt-4">
-                        <div class="row g-gs">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="editName">Name</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="editName" placeholder="Name" value="Syringe">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Category</label>
-                                    <div class="form-control-wrap">
-                                        <select class="form-select js-select2" data-placeholder="Select Category">
-                                            <option value="">Select</option>
-                                            <option value="option_select_department">Equipements</option>
-                                            <option value="option_select_department">Tools</option>
-                                            <option value="option_select_department">Medicine</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="editSupplierName">Supplier</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="editSupplierName" placeholder="Supplier" value="XYZ Supplier">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="editStoreName">Store</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="editStoreName" placeholder="Store Name" value="Nio Store">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="editTotalQuantity">Total Quantity</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="editTotalQuantity" placeholder="Total Quantity" value="135">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="editTotalIssued">Total Issued</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="editTotalIssued" placeholder="Total Issued" value="05">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="editAvailableQuantity">Available Quantity</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="editAvailableQuantity" placeholder="Available Quantity" value="130">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Status</label>
-                                    <div class="form-control-wrap">
-                                        <select class="form-select js-select2" data-placeholder="Select Status">
-                                            <option value="">Select</option>
-                                            <option value="option_select_status">Available</option>
-                                            <option value="option_select_status">Low</option>
-                                            <option value="option_select_status">Unavailable</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-12">
-                                <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
-                                    <li>
-                                        <a href="#" data-bs-dismiss="modal" class="btn btn-primary">Update Items</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" data-bs-dismiss="modal" class="link link-light">Cancel</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </form>
-                </div><!-- .modal-body -->
-            </div><!-- .modal-content -->
-        </div><!-- .modal-dialog -->
-    </div><!-- .modal -->
+
     <!-- JavaScript -->
-     <script src="{{asset('js/bundle.js')}}"></script>
-    
-    <script src="{{asset('js/scripts.js')}}"></script>
+    <script src="{{ asset('js/bundle.js') }}"></script>
+
+    <script src="{{ asset('js/scripts.js') }}"></script>
 </body>
 
 </html>

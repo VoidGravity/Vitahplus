@@ -18,7 +18,15 @@ Route::post('/hospital/patient-list', [HospitalController::class, 'showHospitalP
 Route::get('/hospital/patient-profile/{id}', [HospitalController::class, 'showHospitalPatientProfile'])->name('hospital/patient-profile');
 // birth report 
 Route::post('/hospital/birth-report', [HospitalController::class, 'storeBirth'])->name('hospital/birth-report');
+// blood 
+Route::post('/hospital/blood-bank', [HospitalController::class, 'storeBlood'])->name('hospital/blood-bank');
 
+Route::post('/hospital/blood-bank/update', [HospitalController::class, 'updateBlood'])->name('hospital/blood-bank');
+Route::GET('/hospital/blood-bank/{id}', [HospitalController::class, 'deleteBlood'])->name('hospital/blood-bank');
+// report 
+Route::post('/hospital/inventory-items/update', [HospitalController::class, 'updateInvetory'])->name('hospital/inventory-items');
+Route::post('/hospital/inventory-items', [HospitalController::class, 'storeInventory'])->name('hospital/inventory-items');
+Route::get('/hospital/inventory-items/{id}', [HospitalController::class, 'deleteInvontory'])->name('hospital/inventory-items');
 
 // chat 
 Route::group(['middleware' => 'web'], function () {

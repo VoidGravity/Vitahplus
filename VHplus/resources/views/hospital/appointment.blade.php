@@ -12,8 +12,7 @@
     <!-- Page Title  -->
     <title>Appointment List | DashLite Admin Template</title>
     <!-- StyleSheets  -->
-    <link rel="stylesheet" href="{{asset('css/dashlite.css')}}">
-
+    <link rel="stylesheet" href="{{ asset('css/dashlite.css') }}">
 
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.2.3">
 </head>
@@ -221,1119 +220,410 @@
                                                             </div>
                                                         </div>
                                                         <div class="nk-tb-col"><span>Patient</span></div>
-                                                        <div class="nk-tb-col tb-col-mb"><span>Department</span></div>
-                                                        <div class="nk-tb-col tb-col-md"><span>Doctor</span></div>
-                                                        <div class="nk-tb-col tb-col-lg"><span>Serial No</span></div>
-                                                        <div class="nk-tb-col tb-col-xxl"><span>Mobile No</span></div>
                                                         <div class="nk-tb-col tb-col-lg"><span>Date</span></div>
                                                         <div class="nk-tb-col tb-col-md"><span>Status</span></div>
-                                                        <div class="nk-tb-col tb-col-xxl"><span>Created By</span></div>
                                                         <div class="nk-tb-col nk-tb-col-tools">&nbsp;</div>
                                                     </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid1">
-                                                                <label class="custom-control-label" for="uid1"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-primary-dim">
-                                                                    <span>A</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Abu Isthiyak <span class="dot dot-info d-md-none ms-1"></span></span>
+                                                    @foreach ($appointments as $item)
+                                                        <div class="nk-tb-item">
+                                                            <div class="nk-tb-col nk-tb-col-check">
+                                                                <div class="custom-control custom-control-sm custom-checkbox notext">
+                                                                    <input type="checkbox" class="custom-control-input" id="uid1">
+                                                                    <label class="custom-control-label" for="uid1"></label>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span class="tb-lead-sub">Gastroenterology</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-primary-dim">
-                                                                    <img src="{{asset('images/avatar/a-sm.jpg')}}" alt="">
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Joe Larson</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>05</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+811 847-4958</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span class="tb-date">18/12/2020</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-status text-info">Waiting</span>
-                                                            <span data-bs-toggle="tooltip" title="Waiting at 18 Dec, 2019 01:02 PM" data-bs-placement="top"><em class="icon ni ni-info"></em></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>Janet Snyder</span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View">
-                                                                        <em class="icon ni ni-eye-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve">
-                                                                        <em class="icon ni ni-check-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject">
-                                                                        <em class="icon ni ni-cross-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a data-bs-toggle="modal" href="#editAppointment"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                            </ul>
-                                                                        </div>
+                                                            <div class="nk-tb-col">
+                                                                <div class="user-card">
+                                                                    <div class="user-avatar sm bg-primary-dim">
+                                                                        <span>A</span>
                                                                     </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid2">
-                                                                <label class="custom-control-label" for="uid2"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-orange-dim">
-                                                                    <span>A</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Amelia Grant <span class="dot dot-gray d-md-none ms-1"></span></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span class="tb-lead-sub">Medicine</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-primary-dim">
-                                                                    <img src="{{asset('images/avatar/b-sm.jpg')}}" alt="">
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Patrick Newman</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>10</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+124 394-1787</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span class="tb-date">12/02/2021</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-status text-grey">Visited</span>
-                                                            <span data-bs-toggle="tooltip" title="Visited at 11 Fab, 2022 01:02 PM" data-bs-placement="top"><em class="icon ni ni-info"></em></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>Ernesto Vargas</span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View">
-                                                                        <em class="icon ni ni-eye-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve">
-                                                                        <em class="icon ni ni-check-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject">
-                                                                        <em class="icon ni ni-cross-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a data-bs-toggle="modal" href="#editAppointment"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                            </ul>
-                                                                        </div>
+                                                                    <div class="user-info">
+                                                                        <span class="tb-lead">
+                                                                            @php
+                                                                                $patient = App\Models\User::find($item->patient_id);
+                                                                                if ($patient) {
+                                                                                    echo $patient->name;
+                                                                                } else {
+                                                                                    echo "User Not Found";
+                                                                                }
+                                                                            @endphp
+                                                                            <span class="dot dot-info d-md-none ms-1"></span></span>
                                                                     </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid3">
-                                                                <label class="custom-control-label" for="uid3"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-purple-dim">
-                                                                    <span>K</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Kristen Hawkins <span class="dot dot-gray d-md-none ms-1"></span></span>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span class="tb-lead-sub">Orthopaedics</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-primary-dim">
-                                                                    <img src="{{asset('images/avatar/c-sm.jpg')}}" alt="">
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Emma Walker</span>
-                                                                </div>
+                                                            <div class="nk-tb-col tb-col-mb">
+                                                                <span class="tb-lead-sub">{{ date('d/m/Y', strtotime($item->appointment_date)) }}</span>
                                                             </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>02</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+168 603-2320</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span class="tb-date">12/03/2021</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-status text-grey">Visited</span>
-                                                            <span data-bs-toggle="tooltip" title="Visited at 11 Jun, 2021 01:02 PM" data-bs-placement="top"><em class="icon ni ni-info"></em></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>Janet Snyder</span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View">
-                                                                        <em class="icon ni ni-eye-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve">
-                                                                        <em class="icon ni ni-check-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject">
-                                                                        <em class="icon ni ni-cross-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a data-bs-toggle="modal" href="#editAppointment"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                            </ul>
+                                                            
+                                                            <div class="nk-tb-col tb-col-md">
+                                                                <span class="tb-status text-info">{{$item->status}}</span>
+                                                                <span data-bs-toggle="tooltip" title="Waiting at 18 Dec, 2019 01:02 PM" data-bs-placement="top"><em class="icon ni ni-info"></em></span>
+                                                            </div>
+                                                            
+                                                            <div class="nk-tb-col nk-tb-col-tools">
+                                                                <ul class="nk-tb-actions gx-1">
+                                                                    <li class="nk-tb-action-hidden">
+                                                                        <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View">
+                                                                            <em class="icon ni ni-eye-fill"></em>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="nk-tb-action-hidden">
+                                                                        <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve">
+                                                                            <em class="icon ni ni-check-fill-c"></em>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li class="nk-tb-action-hidden">
+                                                                        <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject">
+                                                                            <em class="icon ni ni-cross-fill-c"></em>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="drodown">
+                                                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
+                                                                            <div class="dropdown-menu dropdown-menu-end">
+                                                                                <ul class="link-list-opt no-bdr">
+                                                                                    <li><a data-bs-toggle="modal" href="#editAppointment"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
+                                                                                    <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
+                                                                                </ul>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid4">
-                                                                <label class="custom-control-label" for="uid4"></label>
+                                                                    </li>
+                                                                </ul>
                                                             </div>
                                                         </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-purple-dim">
-                                                                    <span>T</span>
+                                                    @endforeach
+                                                </div><!-- .card-inner -->
+                                                <div class="card-inner">
+                                                    <div class="nk-block-between-md g-3">
+                                                        <div class="g">
+                                                            <ul class="pagination justify-content-center justify-content-md-start">
+                                                                <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                                <li class="page-item"><span class="page-link"><em class="icon ni ni-more-h"></em></span></li>
+                                                                <li class="page-item"><a class="page-link" href="#">6</a></li>
+                                                                <li class="page-item"><a class="page-link" href="#">7</a></li>
+                                                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                                            </ul><!-- .pagination -->
+                                                        </div>
+                                                        <div class="g">
+                                                            <div class="pagination-goto d-flex justify-content-center justify-content-md-start gx-3">
+                                                                <div>Page</div>
+                                                                <div>
+                                                                    <select class="form-select js-select2" data-search="on" data-dropdown="xs center">
+                                                                        <option value="page-1">1</option>
+                                                                        <option value="page-2">2</option>
+                                                                        <option value="page-4">4</option>
+                                                                        <option value="page-5">5</option>
+                                                                        <option value="page-6">6</option>
+                                                                        <option value="page-7">7</option>
+                                                                        <option value="page-8">8</option>
+                                                                        <option value="page-9">9</option>
+                                                                        <option value="page-10">10</option>
+                                                                        <option value="page-11">11</option>
+                                                                        <option value="page-12">12</option>
+                                                                        <option value="page-13">13</option>
+                                                                        <option value="page-14">14</option>
+                                                                        <option value="page-15">15</option>
+                                                                        <option value="page-16">16</option>
+                                                                        <option value="page-17">17</option>
+                                                                        <option value="page-18">18</option>
+                                                                        <option value="page-19">19</option>
+                                                                        <option value="page-20">20</option>
+                                                                    </select>
                                                                 </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Tommy Vasquez <span class="dot dot-danger d-md-none ms-1"></span></span>
-                                                                </div>
+                                                                <div>OF 102</div>
                                                             </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span class="tb-lead-sub">Cardiology</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-primary-dim">
-                                                                    <img src="{{asset('images/avatar/d-sm.jpg')}}" alt="">
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Jane Montgomery</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>15</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+439 271-5360</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span class="tb-date">12/04/2021</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-status text-danger">Canceled</span>
-                                                            <span data-bs-toggle="tooltip" title="Canceled at 11 Jul, 2021 04:05 PM" data-bs-placement="top"><em class="icon ni ni-info"></em></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>Ernesto Vargas</span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View">
-                                                                        <em class="icon ni ni-eye-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve">
-                                                                        <em class="icon ni ni-check-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject">
-                                                                        <em class="icon ni ni-cross-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a data-bs-toggle="modal" href="#editAppointment"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid5">
-                                                                <label class="custom-control-label" for="uid5"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-teal-dim">
-                                                                    <span>A</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Alejandro Haynes <span class="dot dot-info d-md-none ms-1"></span></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span class="tb-lead-sub">Orthopaedics</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-primary-dim">
-                                                                    <img src="{{asset('images/avatar/c-sm.jpg')}}" alt="">
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Emma Walker</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>11</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+639 130-3150</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span class="tb-date">12/05/2021</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-status text-info">Waiting</span>
-                                                            <span data-bs-toggle="tooltip" title="Waiting at 10 May, 2021 04:05 PM" data-bs-placement="top"><em class="icon ni ni-info"></em></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>Janet Snyder</span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View">
-                                                                        <em class="icon ni ni-eye-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve">
-                                                                        <em class="icon ni ni-check-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject">
-                                                                        <em class="icon ni ni-cross-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a data-bs-toggle="modal" href="#editAppointment"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid6">
-                                                                <label class="custom-control-label" for="uid6"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-success-dim">
-                                                                    <span>B</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Brooke Harmon <span class="dot dot-gray d-md-none ms-1"></span></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span class="tb-lead-sub">Orthopaedics</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-primary-dim">
-                                                                    <img src="{{asset('images/avatar/c-sm.jpg')}}" alt="">
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Emma Walker</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>12</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+963 309-1706</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span class="tb-date">12/05/2021</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-status text-grey">Visited</span>
-                                                            <span data-bs-toggle="tooltip" title="Visited at 10 May, 2021 04:05 PM" data-bs-placement="top"><em class="icon ni ni-info"></em></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>Janet Snyder</span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View">
-                                                                        <em class="icon ni ni-eye-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve">
-                                                                        <em class="icon ni ni-check-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject">
-                                                                        <em class="icon ni ni-cross-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a data-bs-toggle="modal" href="#editAppointment"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid7">
-                                                                <label class="custom-control-label" for="uid7"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-gray-dim">
-                                                                    <span>T</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Trevor Miller <span class="dot dot-gray d-md-none ms-1"></span></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span class="tb-lead-sub">Gastroenterology</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-primary-dim">
-                                                                    <img src="{{asset('images/avatar/a-sm.jpg')}}" alt="">
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Joe Larson</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>13</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+811 985-4846</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span class="tb-date">12/05/2021</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-status text-grey">Visited</span>
-                                                            <span data-bs-toggle="tooltip" title="Visited at 10 May, 2021 04:05 PM" data-bs-placement="top"><em class="icon ni ni-info"></em></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>Ernesto Vargas</span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View">
-                                                                        <em class="icon ni ni-eye-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve">
-                                                                        <em class="icon ni ni-check-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject">
-                                                                        <em class="icon ni ni-cross-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a data-bs-toggle="modal" href="#editAppointment"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid8">
-                                                                <label class="custom-control-label" for="uid8"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-danger-dim">
-                                                                    <span>L</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Lonnie Ferguson <span class="dot dot-info d-md-none ms-1"></span></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span class="tb-lead-sub">Orthopaedics</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-primary-dim">
-                                                                    <img src="{{asset('images/avatar/c-sm.jpg')}}" alt="">
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Emma Walker</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>14</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+942 238-4474</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span class="tb-date">12/05/2021</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-status text-info">Waiting</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>Janet Snyder</span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View">
-                                                                        <em class="icon ni ni-eye-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve">
-                                                                        <em class="icon ni ni-check-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject">
-                                                                        <em class="icon ni ni-cross-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a data-bs-toggle="modal" href="#editAppointment"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid9">
-                                                                <label class="custom-control-label" for="uid9"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-teal-dim">
-                                                                    <span>M</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Mack Kennedy <span class="dot dot-gray d-md-none ms-1"></span></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span class="tb-lead-sub">Medicine</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-primary-dim">
-                                                                    <img src="{{asset('images/avatar/b-sm.jpg')}}" alt="">
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Patrick Newman</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>19</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+123 447-2384</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span class="tb-date">12/02/2021</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-status text-grey">Visited</span>
-                                                            <span data-bs-toggle="tooltip" title="Visited at 10 Fab, 2021 04:05 PM" data-bs-placement="top"><em class="icon ni ni-info"></em></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>Ernesto Vargas</span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View">
-                                                                        <em class="icon ni ni-eye-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve">
-                                                                        <em class="icon ni ni-check-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject">
-                                                                        <em class="icon ni ni-cross-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a data-bs-toggle="modal" href="#editAppointment"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                    <div class="nk-tb-item">
-                                                        <div class="nk-tb-col nk-tb-col-check">
-                                                            <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                                <input type="checkbox" class="custom-control-input" id="uid10">
-                                                                <label class="custom-control-label" for="uid10"></label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-warning-dim">
-                                                                    <span>I</span>
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Inez Wilkerson <span class="dot dot-gray d-md-none ms-1"></span></span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-mb">
-                                                            <span class="tb-lead-sub">Medicine</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <div class="user-card">
-                                                                <div class="user-avatar sm bg-primary-dim">
-                                                                    <img src="{{asset('images/avatar/b-sm.jpg')}}" alt="">
-                                                                </div>
-                                                                <div class="user-info">
-                                                                    <span class="tb-lead">Patrick Newman</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span>20</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>+463 471-7173</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-lg">
-                                                            <span class="tb-date">12/02/2021</span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-md">
-                                                            <span class="tb-status text-grey">Visited</span>
-                                                            <span data-bs-toggle="tooltip" title="Visited at 10 Fab, 2021 04:05 PM" data-bs-placement="top"><em class="icon ni ni-info"></em></span>
-                                                        </div>
-                                                        <div class="nk-tb-col tb-col-xxl">
-                                                            <span>Ernesto Vargas</span>
-                                                        </div>
-                                                        <div class="nk-tb-col nk-tb-col-tools">
-                                                            <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Quick View">
-                                                                        <em class="icon ni ni-eye-fill"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Approve">
-                                                                        <em class="icon ni ni-check-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="nk-tb-action-hidden">
-                                                                    <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Reject">
-                                                                        <em class="icon ni ni-cross-fill-c"></em>
-                                                                    </a>
-                                                                </li>
-                                                                <li>
-                                                                    <div class="drodown">
-                                                                        <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                                        <div class="dropdown-menu dropdown-menu-end">
-                                                                            <ul class="link-list-opt no-bdr">
-                                                                                <li><a data-bs-toggle="modal" href="#editAppointment"><em class="icon ni ni-edit"></em><span>Edit</span></a></li>
-                                                                                <li><a href="#"><em class="icon ni ni-trash"></em><span>Delete</span></a></li>
-                                                                            </ul>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div><!-- .nk-tb-item -->
-                                                </div>
-                                            </div><!-- .card-inner -->
-                                            <div class="card-inner">
-                                                <div class="nk-block-between-md g-3">
-                                                    <div class="g">
-                                                        <ul class="pagination justify-content-center justify-content-md-start">
-                                                            <li class="page-item"><a class="page-link" href="#">Prev</a></li>
-                                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                                            <li class="page-item"><span class="page-link"><em class="icon ni ni-more-h"></em></span></li>
-                                                            <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                                            <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                                        </ul><!-- .pagination -->
-                                                    </div>
-                                                    <div class="g">
-                                                        <div class="pagination-goto d-flex justify-content-center justify-content-md-start gx-3">
-                                                            <div>Page</div>
-                                                            <div>
-                                                                <select class="form-select js-select2" data-search="on" data-dropdown="xs center">
-                                                                    <option value="page-1">1</option>
-                                                                    <option value="page-2">2</option>
-                                                                    <option value="page-4">4</option>
-                                                                    <option value="page-5">5</option>
-                                                                    <option value="page-6">6</option>
-                                                                    <option value="page-7">7</option>
-                                                                    <option value="page-8">8</option>
-                                                                    <option value="page-9">9</option>
-                                                                    <option value="page-10">10</option>
-                                                                    <option value="page-11">11</option>
-                                                                    <option value="page-12">12</option>
-                                                                    <option value="page-13">13</option>
-                                                                    <option value="page-14">14</option>
-                                                                    <option value="page-15">15</option>
-                                                                    <option value="page-16">16</option>
-                                                                    <option value="page-17">17</option>
-                                                                    <option value="page-18">18</option>
-                                                                    <option value="page-19">19</option>
-                                                                    <option value="page-20">20</option>
-                                                                </select>
-                                                            </div>
-                                                            <div>OF 102</div>
-                                                        </div>
-                                                    </div><!-- .pagination-goto -->
-                                                </div><!-- .nk-block-between -->
-                                            </div><!-- .card-inner -->
-                                        </div><!-- .card-inner-group -->
-                                    </div><!-- .card -->
-                                </div><!-- .nk-block -->
+                                                        </div><!-- .pagination-goto -->
+                                                    </div><!-- .nk-block-between -->
+                                                </div><!-- .card-inner -->
+                                            </div><!-- .card-inner-group -->
+                                        </div><!-- .card -->
+                                    </div><!-- .nk-block -->
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <!-- content @e -->
                 </div>
-                <!-- content @e -->
+                <!-- wrap @e -->
             </div>
-            <!-- wrap @e -->
+            <!-- main @e -->
         </div>
-        <!-- main @e -->
-    </div>
-    <!-- app-root @e -->
-    <!-- select region modal -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="region">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
-                <div class="modal-body modal-body-md">
-                    <h5 class="title mb-4">Select Your Country</h5>
-                    <div class="nk-country-region">
-                        <ul class="country-list text-center gy-2">
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/arg.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Argentina</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/aus.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Australia</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/bangladesh.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Bangladesh</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/canada.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Canada <small>(English)</small></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/china.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Centrafricaine</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/china.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">China</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/french.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">France</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/germany.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Germany</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/iran.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Iran</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/italy.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Italy</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/mexico.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">México</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/philipine.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Philippines</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/portugal.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Portugal</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/s-africa.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">South Africa</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/spanish.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Spain</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/switzerland.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">Switzerland</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/uk.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">United Kingdom</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" class="country-item">
-                                    <img src="{{asset('images/flags/english.png')}}" alt="" class="country-flag">
-                                    <span class="country-name">United State</span>
-                                </a>
-                            </li>
-                        </ul>
+        <!-- app-root @e -->
+        <!-- select region modal -->
+        <div class="modal fade" tabindex="-1" role="dialog" id="region">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                    <div class="modal-body modal-body-md">
+                        <h5 class="title mb-4">Select Your Country</h5>
+                        <div class="nk-country-region">
+                            <ul class="country-list text-center gy-2">
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/arg.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Argentina</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/aus.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Australia</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/bangladesh.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Bangladesh</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/canada.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Canada <small>(English)</small></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/china.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Centrafricaine</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/china.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">China</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/french.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">France</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/germany.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Germany</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/iran.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Iran</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/italy.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Italy</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/mexico.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">México</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/philipine.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Philippines</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/portugal.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Portugal</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/s-africa.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">South Africa</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/spanish.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Spain</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/switzerland.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">Switzerland</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/uk.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">United Kingdom</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="country-item">
+                                        <img src="{{ asset('images/flags/english.png') }}" alt="" class="country-flag">
+                                        <span class="country-name">United State</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            </div><!-- .modal-content -->
-        </div><!-- .modla-dialog -->
-    </div><!-- .modal -->
-    <!-- Add Appoinment-->
-    <div class="modal fade" tabindex="-1" role="dialog" id="addAppointment">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
-                <div class="modal-body modal-body-md">
-                    <h5 class="modal-title">Add Appointment</h5>
-                    <form action="{{Route('hospital/appointment')}}" method="POST" class="mt-4">
-                        @csrf
-                        <div class="row g-gs">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="name">Patient name</label>
-                                    <div class="form-control-wrap">
-                                        <input name="name" type="text" class="form-control" id="name" placeholder="Name">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                           
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Appointment Date</label>
-                                    <div class="form-control-wrap">
-                                        <div class="form-icon form-icon-right">
-                                            <em class="icon ni ni-calendar"></em>
+                </div><!-- .modal-content -->
+            </div><!-- .modla-dialog -->
+        </div><!-- .modal -->
+        <!-- Add Appoinment-->
+        <div class="modal fade" tabindex="-1" role="dialog" id="addAppointment">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                    <div class="modal-body modal-body-md">
+                        <h5 class="modal-title">Add Appointment</h5>
+                        <form action="{{ Route('hospital/appointment') }}" method="POST" class="mt-4">
+                            @csrf
+                            <div class="row g-gs">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="name">Patient name</label>
+                                        <div class="form-control-wrap">
+                                            <input name="name" type="text" class="form-control" id="name" placeholder="Name">
                                         </div>
-                                        <input name="date" type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
                                     </div>
-                                </div>
-                            </div><!-- .col -->
-                           
-                            
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Doctor</label>
-                                    <div class="form-control-wrap">
-                                        <select class="form-select js-select2" data-placeholder="Select Doctor">
-                                            <option value="">Select Doctor</option>
-                                            @foreach($doctors as $doctor)
-                                            <option value="doctor_id">Joe Larson</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Status</label>
-                                    <div class="form-control-wrap">
-                                        <select class="form-select js-select2" data-placeholder="Select Status">
-                                            <option value="">Select</option>
-                                            <option value="status_id">Apporve</option>
-                                           
-                                        </select>
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-12">
-                                <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
-                                    <li>
-                                        <button type="submit" class="btn btn-primary">Add Appointment</button>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="link link-light" data-bs-dismiss="modal">Cancel</a>
-                                    </li>
-                                </ul>
-                            </div><!-- .col -->
-                        </div>
-                    </form>
-                </div><!-- .modal-body -->
-            </div><!-- .modal-content -->
-        </div><!-- .modal-dialog -->
-    </div><!-- .modal -->
-    <!-- Edit Appoinment-->
-    <div class="modal fade" tabindex="-1" role="dialog" id="editAppointment">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
-                <div class="modal-body modal-body-md">
-                    <h5 class="modal-title">Edit Appointment</h5>
-                    <form action="#" class="mt-4">
-                        <div class="row g-gs">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label" for="editName">Name</label>
-                                    <div class="form-control-wrap">
-                                        <input type="text" class="form-control" id="editName" placeholder="Name" value="Abu Bin Ishtiyak">
-                                    </div>
-                                </div>
-                            </div><!-- .col -->
-                      
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Appointment Date</label>
-                                    <div class="form-control-wrap">
-                                        <div class="form-icon form-icon-right">
-                                            <em class="icon ni ni-calendar"></em>
+                                </div><!-- .col -->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Appointment Date</label>
+                                        <div class="form-control-wrap">
+                                            <div class="form-icon form-icon-right">
+                                                <em class="icon ni ni-calendar"></em>
+                                            </div>
+                                            <input name="date" type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy">
                                         </div>
-                                        <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" value="18/12/2020">
                                     </div>
-                                </div>
-                            </div><!-- .col -->
-                       
-                            
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Doctor</label>
-                                    <div class="form-control-wrap">
-                                        <select class="form-select js-select2" data-placeholder="Select Doctor">
-                                            <option value="">Select</option>
-                                            <option value="option_select_consulant">Joe Larson</option>
-                                            <option value="option_select_consulant">Janet Snyder</option>
-                                            <option value="option_select_consulant">Amelia Grant</option>
-                                            <option value="option_select_consulant">Debra Grant</option>
-                                            <option value="option_select_consulant">Snyder Debra</option>
-                                        </select>
+                                </div><!-- .col -->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Doctor</label>
+                                        <div class="form-control-wrap">
+                                            <select class="form-select js-select2" data-placeholder="Select Doctor">
+                                                <option value="">Select Doctor</option>
+                                                @foreach ($doctors as $doctor)
+                                                    <option value="doctor_id">Joe Larson</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="form-label">Status</label>
-                                    <div class="form-control-wrap">
-                                        <select class="form-select js-select2" data-placeholder="Select Status">
-                                            <option value="">Select</option>
-                                            <option value="option_select_status">Approved</option>
-                                            <option value="option_select_status">Pending</option>
-                                            <option value="option_select_status">cancel</option>
-                                        </select>
+                                </div><!-- .col -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Status</label>
+                                        <div class="form-control-wrap">
+                                            <select class="form-select js-select2" data-placeholder="Select Status">
+                                                <option value="">Select</option>
+                                                <option value="status_id">Apporve</option>
+
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- .col -->
-                            <div class="col-12">
-                                <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
-                                    <li>
-                                        <button data-bs-dismiss="modal" class="btn btn-primary">Update</button>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="link link-light" data-bs-dismiss="modal">Cancel</a>
-                                    </li>
-                                </ul>
-                            </div><!-- .col -->
-                        </div>
-                    </form>
-                </div><!-- .modal-body -->
-            </div><!-- .modal-content -->
-        </div><!-- .modal-dialog -->
-    </div><!-- .modal -->
-    <!-- JavaScript -->
-     <script src="{{asset('js/bundle.js')}}"></script>
-    
-    <script src="{{asset('js/scripts.js')}}"></script>
+                                </div><!-- .col -->
+                                <div class="col-12">
+                                    <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+                                        <li>
+                                            <button type="submit" class="btn btn-primary">Add Appointment</button>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="link link-light" data-bs-dismiss="modal">Cancel</a>
+                                        </li>
+                                    </ul>
+                                </div><!-- .col -->
+                            </div>
+                        </form>
+                    </div><!-- .modal-body -->
+                </div><!-- .modal-content -->
+            </div><!-- .modal-dialog -->
+        </div><!-- .modal -->
+        <!-- Edit Appoinment-->
+        <div class="modal fade" tabindex="-1" role="dialog" id="editAppointment">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                    <div class="modal-body modal-body-md">
+                        <h5 class="modal-title">Edit Appointment</h5>
+                        <form action="#" class="mt-4">
+                            <div class="row g-gs">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label" for="editName">Name</label>
+                                        <div class="form-control-wrap">
+                                            <input type="text" class="form-control" id="editName" placeholder="Name" value="Abu Bin Ishtiyak">
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Appointment Date</label>
+                                        <div class="form-control-wrap">
+                                            <div class="form-icon form-icon-right">
+                                                <em class="icon ni ni-calendar"></em>
+                                            </div>
+                                            <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" value="18/12/2020">
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Doctor</label>
+                                        <div class="form-control-wrap">
+                                            <select class="form-select js-select2" data-placeholder="Select Doctor">
+                                                <option value="">Select</option>
+                                                <option value="option_select_consulant">Joe Larson</option>
+                                                <option value="option_select_consulant">Janet Snyder</option>
+                                                <option value="option_select_consulant">Amelia Grant</option>
+                                                <option value="option_select_consulant">Debra Grant</option>
+                                                <option value="option_select_consulant">Snyder Debra</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="form-label">Status</label>
+                                        <div class="form-control-wrap">
+                                            <select class="form-select js-select2" data-placeholder="Select Status">
+                                                <option value="">Select</option>
+                                                <option value="option_select_status">Approved</option>
+                                                <option value="option_select_status">Pending</option>
+                                                <option value="option_select_status">cancel</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div><!-- .col -->
+                                <div class="col-12">
+                                    <ul class="align-center flex-wrap flex-sm-nowrap gx-4 gy-2">
+                                        <li>
+                                            <button data-bs-dismiss="modal" class="btn btn-primary">Update</button>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="link link-light" data-bs-dismiss="modal">Cancel</a>
+                                        </li>
+                                    </ul>
+                                </div><!-- .col -->
+                            </div>
+                        </form>
+                    </div><!-- .modal-body -->
+                </div><!-- .modal-content -->
+            </div><!-- .modal-dialog -->
+        </div><!-- .modal -->
+        <!-- JavaScript -->
+        <script src="{{ asset('js/bundle.js') }}"></script>
+
+        <script src="{{ asset('js/scripts.js') }}"></script>
 </body>
 
 </html>

@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\MedecineCategory;
 use App\Models\User;
+use Dflydev\DotAccessData\Data;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,8 +18,9 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
         $this->call([
             SpecialitySeeder::class,
-            DepartmentSeeder::class
-
+            DepartmentSeeder::class,
+            MedicineInventorySeeder::class,
+            // MedicineCategorySeeder::class,
 
         ]);
 

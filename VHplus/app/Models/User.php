@@ -31,6 +31,11 @@ class User extends Authenticatable
     {
         return $this->hasOne(Doctors::class);
     }
+    // each user can be in many blood banks
+    public function bloodBanks()
+    {
+        return $this->hasMany(BloodBank::class);
+    }
     
 
     /**

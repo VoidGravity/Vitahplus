@@ -20,6 +20,7 @@
 
 <body class="nk-body ui-rounder npc-default has-sidebar ">
     <div class="nk-app-root">
+
         @include('inc.dash-sidebar')
 
         <!-- main @s -->
