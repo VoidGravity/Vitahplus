@@ -94,7 +94,7 @@
                                                             </tr>
                                                             <tr>
                                                                 <td class="tb-col-os">Mozilla on Window</td>
-                                                                <td class="tb-col-ip"><span class="sub-text">86.188.154.225</span></td>
+                                                                <td cl  ass="tb-col-ip"><span class="sub-text">86.188.154.225</span></td>
                                                                 <td class="tb-col-time"><span class="sub-text">11:34 PM</span></td>
                                                                 <td class="tb-col-time"><span class="sub-text"><span class="badge bg-success ms-0">Updated</span></span></td>
                                                                 <td class="tb-col-action"><a href="#" class="link-cross me-sm-n1"><em class="icon ni ni-cross"></em></a></td>
@@ -141,7 +141,7 @@
                                                     </div><!-- .card-inner -->
                                                     <div class="card-inner p-0">
                                                         <ul class="link-list-menu">
-                                                            <li><a href="{{route('hospital/settings')}}"><em class="icon ni ni-user-fill-c"></em><span>General</span></a></li>
+                                                             {{-- <li><a href="{{route('hospital/settings')}}"><em class="icon ni ni-user-fill-c"></em><span>General</span></a></li> --}}
                                                             <li><a href="{{route('hospital/settings-member')}}"><em class="icon ni ni-bell-fill"></em><span>Users</span></a></li>
                                                             <li><a href="{{route('hospital/settings-email')}}"><em class="icon ni ni-lock-alt-fill"></em><span>E-mail</span></a></li>
                                                             <li><a href="{{route('hospital/settings-security')}}"><em class="icon ni ni-shield-star-fill"></em><span>Security</span></a></li>

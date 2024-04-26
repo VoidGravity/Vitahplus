@@ -168,7 +168,8 @@ class HospitalController extends Controller
 
     public function showHospitalSettingsMember()
     {
-        return view('hospital/settings-member');
+        $doctors = Doctors::all();
+        return view('hospital/settings-member',compact('doctors'));
     }
 
     public function showHospitalSettingsEmail()
@@ -687,5 +688,16 @@ class HospitalController extends Controller
         $appointment->status = 'rejected';
         $appointment->save();
         return redirect()->back()->with('success', 'Appointment rejected successfully');
+    }
+    public function updateRole(Request $request)
+    {
+        $doctor = Doctors::find($request->doctor_id);
+        if (!$doctor) { 
+            dd($request->doctor_id);
+            return redirect()->back()->with('error', 'User not found');
+        }
+        $doctor->role = $request->role;
+        $doctor->save();
+        return redirect()->back()->with('success', 'Role updated successfully');
     }
 }

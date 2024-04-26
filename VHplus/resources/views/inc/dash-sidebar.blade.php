@@ -99,7 +99,7 @@
                             </li>
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->
-                    <li class="nk-menu-item has-sub">
+                    {{-- <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-coin-alt-fill"></em></span>
                             <span class="nk-menu-text">Finance</span>
@@ -118,7 +118,7 @@
                                 <a href="{{route('invoice-details')}}" class="nk-menu-link"><span class="nk-menu-text">Invoice Details</span></a>
                             </li> --}}
                         </ul><!-- .nk-menu-sub -->
-                    </li><!-- .nk-menu-item -->
+                    </li><!-- .nk-menu-item --> --}}
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-activity-round-fill"></em></span>
@@ -153,12 +153,12 @@
             <div class="nk-menu-content menu-active" data-content="navHospital">
                 <h5 class="title">Hospital Manegment</h5>
                 <ul class="nk-menu">
-                    <li class="nk-menu-item">
+                    {{-- <li class="nk-menu-item">
                         <a href="{{route('hospital/index')}}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-dashboard-fill"></em></span>
                             <span class="nk-menu-text">Dashboard</span>
                         </a>
-                    </li><!-- .nk-menu-item -->
+                    </li><!-- .nk-menu-item --> --}}
                     <li class="nk-menu-item">
                         <a href="{{route('hospital/appointment')}}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-note-add-fill"></em></span>
@@ -194,7 +194,7 @@
                             </li>
                         </ul><!-- .nk-menu-sub -->
                     </li><!-- .nk-menu-item -->
-                    <li class="nk-menu-item has-sub">
+                    {{-- <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-coin-alt-fill"></em></span>
                             <span class="nk-menu-text">Finance</span>
@@ -209,11 +209,12 @@
                             <li class="nk-menu-item">
                                 <a href="{{route('hospital/invoice-list')}}" class="nk-menu-link"><span class="nk-menu-text">Invoice List</span></a>
                             </li>
-                            {{-- <li class="nk-menu-item">
+                            <li class="nk-menu-item">
                                 <a href="{{route('hospital/invoice-details')}}" class="nk-menu-link"><span class="nk-menu-text">Invoice Details</span></a>
-                            </li> --}}
+                            </li>
                         </ul><!-- .nk-menu-sub -->
-                    </li><!-- .nk-menu-item -->
+                    </li> --}}
+                    <!-- .nk-menu-item -->
                     <li class="nk-menu-item has-sub">
                         <a href="#" class="nk-menu-link nk-menu-toggle">
                             <span class="nk-menu-icon"><em class="icon ni ni-activity-round-fill"></em></span>
@@ -258,7 +259,7 @@
                         </a>
                     </li><!-- .nk-menu-item --> --}}
                     <li class="nk-menu-item">
-                        <a href="{{route('hospital/settings')}}" class="nk-menu-link">
+                        <a href="{{route('hospital/settings-member')}}" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-setting-fill"></em></span>
                             <span class="nk-menu-text">Setting</span>
                         </a>

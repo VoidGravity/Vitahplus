@@ -15,6 +15,8 @@ Route::get('/hospital/department/{id}', [HospitalController::class, 'destroy'])-
 Route::post('/hospital/doctor-nurse-add', [HospitalController::class, 'storeDoctore'])->name('hospital/doctor-nurse-add');
 Route::post('/hospital/doctor-nurse-add/update', [HospitalController::class, 'updateDoctor'])->name('hospital/doctor-nurse-add/update');
 Route::get('/hospital/doctor-nurse-add/{id}', [HospitalController::class, 'destroyDoctor'])->name('hospital/doctor-nurse-add');
+Route::post('/hospital/settings/role', [HospitalController::class, 'updateRole'])->name('hospital/settings');
+
 //User crud 
 
 Route::post('/hospital/patient-add', [HospitalController::class, 'storeUser'])->name('hospital/patient-add');

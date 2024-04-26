@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('Doctor_image')->nullable();
             $table->string('national_id')->nullable();
             $table->string('certificate')->nullable();
+            $table->enum('role', ['admin', 'doctor','nurse'])->default('doctor');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
