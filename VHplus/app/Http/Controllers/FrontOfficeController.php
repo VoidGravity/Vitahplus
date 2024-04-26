@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Doctors;
+use App\Models\Prompt;
 use Illuminate\Http\Request;
 
 class FrontOfficeController extends Controller
@@ -96,7 +97,9 @@ class FrontOfficeController extends Controller
 
     public function showFrontOfficeAppointment()
     {
-        return view('frontOffice/appointment');
+        $userId = auth()->user()->id;
+        $prompts = Prompt::where('user_id', $userId)->get();
+        return view('frontOffice/appointment',compact('prompts'));
     }
 
     public function showFrontOfficeContact()

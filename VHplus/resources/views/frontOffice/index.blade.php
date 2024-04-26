@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DentCare - Dental Clinic Website Template</title>
+    <title>Hplus - Hospital Website</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -51,34 +51,14 @@
     <!-- Spinner End -->
 
 
-    <!-- Topbar Start -->
-    <div class="container-fluid bg-light ps-5 pe-0 d-none d-lg-block">
-        <div class="row gx-0">
-            <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
-                <div class="d-inline-flex align-items-center">
-                    <small class="py-2"><i class="far fa-clock text-primary me-2"></i>Opening Hours: Mon - Tues : 6.00
-                        am - 10.00 pm, Sunday Closed </small>
-                </div>
-            </div>
-            <div class="col-md-6 text-center text-lg-end">
-                <div class="position-relative d-inline-flex align-items-center bg-primary text-white top-shape px-5">
-                    <div class="me-3 pe-3 border-end py-2">
-                        <p class="m-0"><i class="fa fa-envelope-open me-2"></i>info@example.com</p>
-                    </div>
-                    <div class="py-2">
-                        <p class="m-0"><i class="fa fa-phone-alt me-2"></i>+012 345 6789</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
-
+    
 
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
         <a href="{{ route('frontOffice/index') }}" class="navbar-brand p-0">
-            <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>DentCare</h1>
+            <h1 class="m-0 text-primary">
+                <img src="{{asset('images/logo.png')}}" width="150px" alt="">
+            </h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -86,24 +66,22 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
                 <a href="{{ route('frontOffice/index') }}" class="nav-item nav-link active">Home</a>
-                <a href="{{ route('frontOffice/about') }}" class="nav-item nav-link">About</a>
-                <a href="{{ route('frontOffice/service') }}" class="nav-item nav-link">Service</a>
+                {{-- <a href="{{ route('frontOffice/about') }}" class="nav-item nav-link">About</a> --}}
+                {{-- <a href="{{ route('frontOffice/service') }}" class="nav-item nav-link">Service</a> --}}
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    {{-- <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a> --}}
                     <div class="dropdown-menu m-0">
-                        <a href="{{ route('frontOffice/price') }}" class="dropdown-item">Pricing Plan</a>
-                        <a href="{{ route('frontOffice/team') }}" class="dropdown-item">Our Doctors</a>
-                        <a href="{{ route('frontOffice/testimonial') }}" class="dropdown-item">Testimonial</a>
+                        {{-- <a href="{{ route('frontOffice/price') }}" class="dropdown-item">Pricing Plan</a> --}}
+                        {{-- <a href="{{ route('frontOffice/team') }}" class="dropdown-item">Our Doctors</a> --}}
+                        {{-- <a href="{{ route('frontOffice/testimonial') }}" class="dropdown-item">Testimonial</a> --}}
                         <a href="{{ route('frontOffice/appointment') }}" class="dropdown-item">Appointment</a>
                     </div>
                 </div>
-                <a href="{{ route('frontOffice/contact') }}" class="nav-item nav-link">Contact</a>
+                {{-- <a href="{{ route('frontOffice/contact') }}" class="nav-item nav-link">Contact</a> --}}
                 <a href="{{ route('auth/login') }}" class="nav-item nav-link">Login</a>
                 <a href="{{ route('auth/register') }}" class="nav-item nav-link">Register</a>
             </div>
-            <button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i
-                    class="fa fa-search"></i></button>
-            <a href="{{ route('frontOffice/appointment') }}" class="btn btn-primary py-2 px-4 ms-3">Appointment</a>
+            <a href="{{ route('frontOffice/appointment') }}" class="btn btn-primary py-2 px-4 ms-3">Chat with H+</a>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -138,14 +116,12 @@
                     <img class="w-100" src="{{ asset('img/carousel-1.jpg') }}" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Keep Your Teeth Healthy
-                            </h5>
-                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Take The Best Quality Dental
-                                Treatment</h1>
+                          
+                            <h1 class="display-1 text-white mb-md-4 animated zoomIn"> Elevating Healthcare Excellence</h1>
                             <a href="{{ route('frontOffice/appointment') }}"
-                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Appointment</a>
-                            <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact
-                                Us</a>
+                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Chat With H+</a>
+                            {{-- <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact
+                                Us</a> --}}
                         </div>
                     </div>
                 </div>
@@ -153,14 +129,13 @@
                     <img class="w-100" src="{{ asset('img/carousel-2.jpg') }}" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Keep Your Teeth Healthy
+                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Hplus
                             </h5>
-                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Take The Best Quality Dental
-                                Treatment</h1>
+                            <h1 class="display-1 text-white mb-md-4 animated zoomIn">Empowering Health, Enriching Lives: HPlus Hospital</h1>
                             <a href="{{ route('frontOffice/appointment') }}"
-                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Appointment</a>
-                            <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact
-                                Us</a>
+                                class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">AI Assistance</a>
+                            {{-- <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact
+                                Us</a> --}}
                         </div>
                     </div>
                 </div>
@@ -190,13 +165,10 @@
                 <div class="col-lg-7">
                     <div class="section-title mb-4">
                         <h5 class="position-relative d-inline-block text-primary text-uppercase">About Us</h5>
-                        <h1 class="display-5 mb-0">The World's Best Dental Clinic That You Can Trust</h1>
+                        <h1 class="display-5 mb-0">The World's Best Hospital That You Can Trust</h1>
                     </div>
-                    <h4 class="text-body fst-italic mb-4">Diam dolor diam ipsum sit. Clita erat ipsum et lorem stet no
-                        lorem sit clita duo justo magna dolore</h4>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
-                        amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor eirmod magna dolore erat amet</p>
+                    <h4 class="text-body fst-italic mb-4">Experience the pinnacle of medical care and trust at HPlus Hospital – where expertise meets compassion, ensuring your well-being every step of the way.</h4>
+                    <p class="mb-4">HPlus Hospital is renowned as the world's best healthcare institution where trust meets excellence. Our expert medical professionals, cutting-edge technology, and compassionate care converge to ensure your well-being and recovery are paramount priorities. With us, experience a journey of healing and confidence, knowing you're in the safest hands</p>
                     <div class="row g-3">
                         <div class="col-sm-6 wow zoomIn" data-wow-delay="0.3s">
                             <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>Award Winning</h5>
@@ -209,7 +181,7 @@
                         </div>
                     </div>
                     <a href="{{ route('frontOffice/appointment') }}"
-                        class="btn btn-primary py-3 px-5 mt-4 wow zoomIn" data-wow-delay="0.6s">Make Appointment</a>
+                        class="btn btn-primary py-3 px-5 mt-4 wow zoomIn" data-wow-delay="0.6s">Chat with our AI assistance</a>
                 </div>
                 <div class="col-lg-5" style="min-height: 500px;">
                     <div class="position-relative h-100">
@@ -229,12 +201,9 @@
             <div class="row gx-5">
                 <div class="col-lg-6 py-5">
                     <div class="py-5">
-                        <h1 class="display-5 text-white mb-4">We Are A Certified and Award Winning Dental Clinic You
+                        <h1 class="display-5 text-white mb-4">We Are A Certified and Award Winning Hospital You
                             Can Trust</h1>
-                        <p class="text-white mb-0">Eirmod sed tempor lorem ut dolores. Aliquyam sit sadipscing kasd
-                            ipsum. Dolor ea et dolore et at sea ea at dolor, justo ipsum duo rebum sea invidunt
-                            voluptua. Eos vero eos vero ea et dolore eirmod et. Dolores diam duo invidunt lorem. Elitr
-                            ut dolores magna sit. Sea dolore sanctus sed et. Takimata takimata sanctus sed.</p>
+                        <p class="text-white mb-0">Your Trusted Choice in Healthcare. Book Your Appointment Today with our Certified and Award-Winning HPlus Hospital</p>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -304,9 +273,9 @@
                 <div class="col-lg-4 wow slideInUp" data-wow-delay="0.1s">
                     <div class="section-title bg-light rounded h-100 p-5">
                         <h5 class="position-relative d-inline-block text-primary text-uppercase">Our Doctors</h5>
-                        <h1 class="display-6 mb-4">Meet Our Certified & Experienced Dentist</h1>
+                        <h1 class="display-6 mb-4">Meet Our Doctors & AI Assistance</h1>
                         <a href="{{ route('frontOffice/appointment') }}"
-                            class="btn btn-primary py-3 px-5">Appointment</a>
+                            class="btn btn-primary py-3 px-5">Chat with H+</a>
                     </div>
                 </div>
                 @foreach($doctors as $item)
@@ -319,7 +288,7 @@
                             {{--  --}}
                         </div>
                         <div class="team-text position-relative bg-light text-center rounded-bottom p-4 pt-5">
-                            <h4 class="mb-2">{{$item->name}}</h4>
+                            <h4 class="mb-2">{{$item->user->name}}</h4>
                             <p class="text-primary mb-0">{{$item->speciality->name}}</p>
                         </div>
                     </div>
@@ -396,16 +365,10 @@
         <div class="container">
             <div class="row g-0">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-md-0">&copy; <a class="text-white border-bottom" href="#">Your Site Name</a>.
+                    <p class="mb-md-0">&copy; <a class="text-white border-bottom" href="#">hplus</a>.
                         All Rights Reserved.</p>
                 </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <p class="mb-0">Designed by <a class="text-white border-bottom"
-                            href="https://htmlcodex.com">HTML Codex</a><br>
-                        Distributed by <a class="text-white border-bottom"
-                            href="https://themewagon.com">ThemeWagon</a>
-                    </p>
-                </div>
+                
             </div>
         </div>
     </div>
