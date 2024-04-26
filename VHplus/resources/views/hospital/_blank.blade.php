@@ -12,7 +12,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Blank - Layout | DashLite Admin Template</title>
+    <title>Blank - Layout | Hplus Admin Template</title>
     <!-- StyleSheets  -->
     {{-- <link rel="stylesheet" href="{{ asset('css/dashlite.css') }}"> --}}
     @vite(['resources/css/dashlite.css','resources/js/script.js','resources/js/bundle.js'])

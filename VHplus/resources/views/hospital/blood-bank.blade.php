@@ -10,7 +10,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Blood Bank | DashLite Admin Template</title>
+    <title>Blood Bank | Hplus Admin Template</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{ asset('css/dashlite.css') }}">
 

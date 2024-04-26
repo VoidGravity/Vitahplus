@@ -10,7 +10,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Doctors / Nurse List | DashLite Admin Template</title>
+    <title>Doctors / Nurse List | Hplus Admin Template</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{ asset('css/dashlite.css') }}">
 

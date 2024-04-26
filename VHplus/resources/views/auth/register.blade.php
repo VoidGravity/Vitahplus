@@ -10,7 +10,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Registration | DashLite Admin Template</title>
+    <title>Registration | Hplus Admin Template</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{asset('css/dashlite.css')}}">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.2.3">
@@ -40,7 +40,7 @@
                                     <div class="nk-block-head-content">
                                         <h5 class="nk-block-title">Register</h5>
                                         <div class="nk-block-des">
-                                            <p>Create New Dashlite Account</p>
+                                            <p>Create New Hplus Account</p>
                                         </div>
                                     </div>
                                 </div><!-- .nk-block-head -->
@@ -71,7 +71,7 @@
                                     <div class="form-group">
                                         <div class="custom-control custom-control-xs custom-checkbox">
                                             <input type="checkbox" class="custom-control-input" id="checkbox">
-                                            <label class="custom-control-label" for="checkbox">I agree to Dashlite <a tabindex="-1" href="#">Privacy Policy</a> &amp; <a tabindex="-1" href="#"> Terms.</a></label>
+                                            <label class="custom-control-label" for="checkbox">I agree to Hplus <a tabindex="-1" href="#">Privacy Policy</a> &amp; <a tabindex="-1" href="#"> Terms.</a></label>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -134,7 +134,7 @@
                                     </ul><!-- nav -->
                                 </div>
                                 <div class="mt-3">
-                                    <p>&copy; 2023 DashLite. All Rights Reserved.</p>
+                                    <p>&copy; 2023 Hplus. All Rights Reserved.</p>
                                 </div>
                             </div><!-- nk-block -->
                         </div><!-- nk-split-content -->
@@ -147,7 +147,7 @@
                                                 <img class="round" src="{{asset('images/slides/promo-a.png')}}" srcset="./images/slides/promo-a2x.png 2x" alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
+                                                <h4>Hplus</h4>
                                                 <p>You can start to create your products easily with its user-friendly design & most completed responsive layout.</p>
                                             </div>
                                         </div>
@@ -158,7 +158,7 @@
                                                 <img class="round" src="{{asset('images/slides/promo-b.png')}}" srcset="./images/slides/promo-b2x.png 2x" alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
+                                                <h4>Hplus</h4>
                                                 <p>You can start to create your products easily with its user-friendly design & most completed responsive layout.</p>
                                             </div>
                                         </div>
@@ -169,7 +169,7 @@
                                                 <img class="round" src="{{asset('images/slides/promo-c.png')}}" srcset="./images/slides/promo-c2x.png 2x" alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
+                                                <h4>Hplus</h4>
                                                 <p>You can start to create your products easily with its user-friendly design & most completed responsive layout.</p>
                                             </div>
                                         </div>

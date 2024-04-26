@@ -10,7 +10,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Setting | DashLite Admin Template</title>
+    <title>Setting | Hplus Admin Template</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{ asset('css/dashlite.css') }}">
 
@@ -41,7 +41,10 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light shadow-sm px-5 py-3 py-lg-0">
         <a href="{{ route('frontOffice/index') }}" class="navbar-brand p-0">
-            <h1 class="m-0 text-primary"><i class="fa fa-tooth me-2"></i>DentCare</h1>
+            <h1 class="m-0 text-primary">
+                <img src="{{asset('images/logo.png')}}" width="150px" alt="">
+                
+            </h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>

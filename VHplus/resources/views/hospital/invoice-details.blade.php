@@ -10,7 +10,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Invoice Details | DashLite Admin Template</title>
+    <title>Invoice Details | Hplus Admin Template</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{asset('css/dashlite.css')}}">
 
@@ -95,7 +95,7 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td>24108054</td>
-                                                                <td>Dashlite - Conceptual App Dashboard - Regular License</td>
+                                                                <td>Hplus - Conceptual App Dashboard - Regular License</td>
                                                                 <td>$40.00</td>
                                                                 <td>5</td>
                                                                 <td>$200.00</td>

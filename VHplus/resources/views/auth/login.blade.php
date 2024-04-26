@@ -10,7 +10,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Login | DashLite Admin Template</title>
+    <title>Login | Hplus Admin Template</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{asset('css/dashlite.css')}}">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.2.3">
@@ -158,7 +158,7 @@
                                                 <img class="round" src="{{asset('images/slides/promo-a.png')}}" srcset="./images/slides/promo-a2x.png 2x" alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
+                                                <h4>Hplus</h4>
                                                 <p>You can start to create your products easily with its user-friendly design & most completed responsive layout.</p>
                                             </div>
                                         </div>
@@ -169,7 +169,7 @@
                                                 <img class="round" src="{{asset('images/slides/promo-b.png')}}" srcset="./images/slides/promo-b2x.png 2x" alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
+                                                <h4>Hplus</h4>
                                                 <p>You can start to create your products easily with its user-friendly design & most completed responsive layout.</p>
                                             </div>
                                         </div>
@@ -180,7 +180,7 @@
                                                 <img class="round" src="{{asset('images/slides/promo-c.png')}}" srcset="./images/slides/promo-c2x.png 2x" alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
-                                                <h4>Dashlite</h4>
+                                                <h4>Hplus</h4>
                                                 <p>You can start to create your products easily with its user-friendly design & most completed responsive layout.</p>
                                             </div>
                                         </div>

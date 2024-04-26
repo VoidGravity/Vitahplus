@@ -10,7 +10,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Setting | DashLite Admin Template</title>
+    <title>Setting | Hplus Admin Template</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{asset('css/dashlite.css')}}">
 
@@ -62,7 +62,7 @@
                                                             <div class="col-lg-7">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" class="form-control" id="site-name" value="Dashlite">
+                                                                        <input type="text" class="form-control" id="site-name" value="Hplus">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -92,7 +92,7 @@
                                                             <div class="col-lg-7">
                                                                 <div class="form-group">
                                                                     <div class="form-control-wrap">
-                                                                        <input type="text" class="form-control" id="site-copyright" value="&copy; 2023, DashLite. All Rights Reserved.">
+                                                                        <input type="text" class="form-control" id="site-copyright" value="&copy; 2023, Hplus. All Rights Reserved.">
                                                                     </div>
                                                                 </div>
                                                             </div>

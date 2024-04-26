@@ -78,7 +78,11 @@
                     </div>
                 </div>
                 {{-- <a href="{{ route('frontOffice/contact') }}" class="nav-item nav-link">Contact</a> --}}
+                @if(Auth::check())
+                <a href="{{ route('auth/logout') }}" class="nav-item nav-link">Logout</a>
+                @else
                 <a href="{{ route('auth/login') }}" class="nav-item nav-link">Login</a>
+                @endif
                 <a href="{{ route('auth/register') }}" class="nav-item nav-link">Register</a>
             </div>
             <a href="{{ route('frontOffice/appointment') }}" class="btn btn-primary py-2 px-4 ms-3">Chat with H+</a>
@@ -129,8 +133,7 @@
                     <img class="w-100" src="{{ asset('img/carousel-2.jpg') }}" alt="Image">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
-                            <h5 class="text-white text-uppercase mb-3 animated slideInDown">Hplus
-                            </h5>
+                           
                             <h1 class="display-1 text-white mb-md-4 animated zoomIn">Empowering Health, Enriching Lives: HPlus Hospital</h1>
                             <a href="{{ route('frontOffice/appointment') }}"
                                 class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">AI Assistance</a>
@@ -210,48 +213,29 @@
                     <div class="appointment-form h-100 d-flex flex-column justify-content-center text-center p-5 wow zoomIn"
                         data-wow-delay="0.6s">
                         <h1 class="text-white mb-4">Make Appointment</h1>
+                        <h4 class="text-warning mb-4">
+                            @if(!Auth::check())
+                            <i class="bi bi-exclamation-triangle"></i>
+                            Please Log In to Make an Appointment
+                            @endif
+
+
+
+                        </h4>
                         <form>
                             <div class="row g-3">
+                                
                                 <div class="col-12 col-sm-6">
-                                    <select class="form-select bg-light border-0" style="height: 55px;">
-                                        <option selected>Select A Service</option>
-                                        <option value="1">Service 1</option>
-                                        <option value="2">Service 2</option>
-                                        <option value="3">Service 3</option>
-                                    </select>
+                                    <input type="date" name="date" class="form-control bg-light border-0"
+                                        style="height: 55px;">
                                 </div>
+                                
                                 <div class="col-12 col-sm-6">
-                                    <select class="form-select bg-light border-0" style="height: 55px;">
-                                        <option selected>Select Doctor</option>
-                                        <option value="1">Doctor 1</option>
-                                        <option value="2">Doctor 2</option>
-                                        <option value="3">Doctor 3</option>
-                                    </select>
+                                        <input name="note" type="text"
+                                            class="form-control bg-light border-0"
+                                            placeholder="Your Note" style="height: 55px;">
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control bg-light border-0"
-                                        placeholder="Your Name" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control bg-light border-0"
-                                        placeholder="Your Email" style="height: 55px;">
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text"
-                                            class="form-control bg-light border-0 datetimepicker-input"
-                                            placeholder="Appointment Date" data-target="#date1"
-                                            data-toggle="datetimepicker" style="height: 55px;">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <div class="time" id="time1" data-target-input="nearest">
-                                        <input type="text"
-                                            class="form-control bg-light border-0 datetimepicker-input"
-                                            placeholder="Appointment Time" data-target="#time1"
-                                            data-toggle="datetimepicker" style="height: 55px;">
-                                    </div>
-                                </div>
+                                
                                 <div class="col-12">
                                     <button class="btn btn-dark w-100 py-3" type="submit">Make Appointment</button>
                                 </div>
@@ -315,46 +299,32 @@
                         <a class="text-light mb-2" href="#"><i
                                 class="bi bi-arrow-right text-primary me-2"></i>Home</a>
                         <a class="text-light mb-2" href="#"><i
-                                class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
-                        <a class="text-light mb-2" href="#"><i
-                                class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                        <a class="text-light mb-2" href="#"><i
-                                class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
-                        <a class="text-light" href="#"><i
-                                class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                                class="bi bi-arrow-right text-primary me-2"></i>Hplus ai assitance</a>
+                        
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-white mb-4">Popular Links</h3>
                     <div class="d-flex flex-column justify-content-start">
                         <a class="text-light mb-2" href="#"><i
-                                class="bi bi-arrow-right text-primary me-2"></i>Home</a>
-                        <a class="text-light mb-2" href="#"><i
-                                class="bi bi-arrow-right text-primary me-2"></i>About Us</a>
-                        <a class="text-light mb-2" href="#"><i
-                                class="bi bi-arrow-right text-primary me-2"></i>Our Services</a>
-                        <a class="text-light mb-2" href="#"><i
-                                class="bi bi-arrow-right text-primary me-2"></i>Latest Blog</a>
-                        <a class="text-light" href="#"><i
-                                class="bi bi-arrow-right text-primary me-2"></i>Contact Us</a>
+                                class="bi bi-arrow-right text-primary me-2"></i>Hplus Ai assitance</a>
+                        
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-white mb-4">Get In Touch</h3>
-                    <p class="mb-2"><i class="bi bi-geo-alt text-primary me-2"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="bi bi-envelope-open text-primary me-2"></i>info@example.com</p>
                     <p class="mb-0"><i class="bi bi-telephone text-primary me-2"></i>+012 345 67890</p>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-white mb-4">Follow Us</h3>
                     <div class="d-flex">
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="#"><i
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://twitter.com/VEZEETA_Egypt"><i
                                 class="fab fa-twitter fw-normal"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="#"><i
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://www.facebook.com/Vezeeta/"><i
                                 class="fab fa-facebook-f fw-normal"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="#"><i
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded me-2" href="https://www.linkedin.com/company/vezeeta/"><i
                                 class="fab fa-linkedin-in fw-normal"></i></a>
-                        <a class="btn btn-lg btn-primary btn-lg-square rounded" href="#"><i
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded" href="https://www.instagram.com/vezeeta/?hl=en"><i
                                 class="fab fa-instagram fw-normal"></i></a>
                     </div>
                 </div>
