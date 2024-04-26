@@ -16,9 +16,9 @@
             </div><!-- .nk-header-news -->
             <div class="nk-header-tools">
                 <ul class="nk-quick-nav">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a data-bs-toggle="modal" href="#region" class="nk-quick-nav-icon"><em class="icon ni ni-globe"></em></a>
-                    </li>
+                    </li> --}}
                     <li class="dropdown chats-dropdown hide-mb-xs">
                         <a href="{{Route('hospital/chat')}}" class="dropdown-toggle nk-quick-nav-icon" >
                             <div class="icon-status icon-status-na"><em class="icon ni ni-comments"></em></div>
@@ -50,7 +50,7 @@
                                             </div>
                                         </a>
                                     </li><!-- .chat-item -->
-                                    <li class="chat-item is-unread">
+                                    {{-- <li class="chat-item is-unread">
                                         <a class="chat-link" href="#">
                                             <div class="chat-media user-avatar bg-pink">
                                                 <span>AB</span>
@@ -69,7 +69,7 @@
                                                 </div>
                                             </div>
                                         </a>
-                                    </li><!-- .chat-item -->
+                                    </li><!-- .chat-item --> --}}
                                     <li class="chat-item">
                                         <a class="chat-link" href="#">
                                             <div class="chat-media user-avatar">
@@ -153,7 +153,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="dropdown notification-dropdown">
+                    {{-- <li class="dropdown notification-dropdown">
                         <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
                             <div class="icon-status icon-status-info"><em class="icon ni ni-bell"></em></div>
                         </a>
@@ -224,8 +224,8 @@
                                 <a href="#">View All</a>
                             </div>
                         </div>
-                    </li>
-                    <li class="dropdown language-dropdown d-none d-sm-block me-n1">
+                    </li> --}}
+                    {{-- <li class="dropdown language-dropdown d-none d-sm-block me-n1">
                         <a href="#" class="dropdown-toggle nk-quick-nav-icon" data-bs-toggle="dropdown">
                             <div class="quick-icon border border-light">
                                 <img class="icon" src="{{asset('images/flags/english-sq.png')}}" alt="">
@@ -259,7 +259,7 @@
                                 </li>
                             </ul>
                         </div>
-                    </li><!-- .dropdown -->
+                    </li><!-- .dropdown --> --}}
                     <li class="dropdown user-dropdown">
                         <a href="#" class="dropdown-toggle me-n1" data-bs-toggle="dropdown">
                             <div class="user-toggle">
@@ -269,7 +269,7 @@
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-end">
-                            <div class="dropdown-inner user-card-wrap bg-lighter">
+                            {{-- <div class="dropdown-inner user-card-wrap bg-lighter">
                                 <div class="user-card">
                                     <div class="user-avatar">
                                         <span>AB</span>
@@ -279,13 +279,13 @@
                                         <span class="sub-text">info@softnio.com</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="dropdown-inner">
                                 <ul class="link-list">
-                                    <li><a href="{{route('hospital/user-profile')}}"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
-                                    <li><a href="{{route('hospital/settings')}}"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
-                                    <li><a href="{{route('hospital/settings-account-log')}}"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li>
-                                    <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li>
+                                    {{-- <li><a href="{{route('hospital/user-profile')}}"><em class="icon ni ni-user-alt"></em><span>View Profile</span></a></li> --}}
+                                    <li><a href="{{route('hospital/settings-member')}}"><em class="icon ni ni-setting-alt"></em><span>Account Setting</span></a></li>
+                                    {{-- <li><a href="{{route('hospital/settings-account-log')}}"><em class="icon ni ni-activity-alt"></em><span>Login Activity</span></a></li> --}}
+                                    {{-- <li><a class="dark-switch" href="#"><em class="icon ni ni-moon"></em><span>Dark Mode</span></a></li> --}}
                                 </ul>
                             </div>
                             <div class="dropdown-inner">

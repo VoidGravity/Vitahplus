@@ -86,12 +86,12 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-0">
                 <a href="{{ route('frontOffice/index') }}" class="nav-item nav-link">Home</a>
-                <a href="{{ route('frontOffice/about') }}" class="nav-item nav-link active">About</a>
+                <a href="{{ route('frontOffice/about') }}" class="nav-item nav-link">About</a>
                 <a href="{{ route('frontOffice/service') }}" class="nav-item nav-link">Service</a>
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu m-0">
-                        <a href="{{ route('frontOffice/price') }}" class="dropdown-item">Pricing Plan</a>
+                        <a href="{{ route('frontOffice/price') }}" class="dropdown-item active">Pricing Plan</a>
                         <a href="{{ route('frontOffice/team') }}" class="dropdown-item">Our Dentist</a>
                         <a href="{{ route('frontOffice/testimonial') }}" class="dropdown-item">Testimonial</a>
                         <a href="{{ route('frontOffice/appointment') }}" class="dropdown-item">Appointment</a>
@@ -134,69 +134,110 @@
     <div class="container-fluid bg-primary py-5 hero-header mb-5">
         <div class="row py-3">
             <div class="col-12 text-center">
-                <h1 class="display-3 text-white animated zoomIn">About Us</h1>
+                <h1 class="display-3 text-white animated zoomIn">Pricing</h1>
                 <a href="" class="h4 text-white">Home</a>
                 <i class="far fa-circle text-white px-2"></i>
-                <a href="" class="h4 text-white">About</a>
+                <a href="" class="h4 text-white">Pricing</a>
             </div>
         </div>
     </div>
     <!-- Hero End -->
 
 
-    <!-- About Start -->
+    <!-- Pricing Start -->
     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
             <div class="row g-5">
-                <div class="col-lg-7">
+                <div class="col-lg-5">
                     <div class="section-title mb-4">
-                        <h5 class="position-relative d-inline-block text-primary text-uppercase">About Us</h5>
-                        <h1 class="display-5 mb-0">The World's Best Dental Clinic That You Can Trust</h1>
+                        <h5 class="position-relative d-inline-block text-primary text-uppercase">Pricing Plan</h5>
+                        <h1 class="display-5 mb-0">We Offer Fair Prices for Dental Treatment</h1>
                     </div>
-                    <h4 class="text-body fst-italic mb-4">Diam dolor diam ipsum sit. Clita erat ipsum et lorem stet no
-                        lorem sit clita duo justo magna dolore</h4>
                     <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
                         amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore lorem sit. Sanctus
-                        clita duo justo et tempor eirmod magna dolore erat amet</p>
-                    <div class="row g-3">
-                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.3s">
-                            <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>Award Winning</h5>
-                            <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>Professional Staff
-                            </h5>
-                        </div>
-                        <div class="col-sm-6 wow zoomIn" data-wow-delay="0.6s">
-                            <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>24/7 Opened</h5>
-                            <h5 class="mb-3"><i class="fa fa-check-circle text-primary me-3"></i>Fair Prices</h5>
-                        </div>
-                    </div>
-                    <a href="{{ route('frontOffice/appointment') }}"
-                        class="btn btn-primary py-3 px-5 mt-4 wow zoomIn" data-wow-delay="0.6s">Make Appointment</a>
+                        clita duo justo eirmod magna dolore erat amet</p>
+                    <h5 class="text-uppercase text-primary wow fadeInUp" data-wow-delay="0.3s">Call for Appointment
+                    </h5>
+                    <h1 class="wow fadeInUp" data-wow-delay="0.6s">+012 345 6789</h1>
                 </div>
-                <div class="col-lg-5" style="min-height: 500px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute w-100 h-100 rounded wow zoomIn" data-wow-delay="0.9s"
-                            src="{{ asset('img/about.jpg') }}" style="object-fit: cover;">
+                <div class="col-lg-7">
+                    <div class="owl-carousel price-carousel wow zoomIn" data-wow-delay="0.9s">
+                        <div class="price-item pb-4">
+                            <div class="position-relative">
+                                <img class="img-fluid rounded-top" src="{{ asset('img/price-1.jpg') }}"
+                                    alt="">
+                                <div class="d-flex align-items-center justify-content-center bg-light rounded pt-2 px-3 position-absolute top-100 start-50 translate-middle"
+                                    style="z-index: 2;">
+                                    <h2 class="text-primary m-0">$35</h2>
+                                </div>
+                            </div>
+                            <div class="position-relative text-center bg-light border-bottom border-primary py-5 p-4">
+                                <h4>Teeth Whitening</h4>
+                                <hr class="text-primary w-50 mx-auto mt-0">
+                                <div class="d-flex justify-content-between mb-3"><span>Modern Equipment</span><i
+                                        class="fa fa-check text-primary pt-1"></i></div>
+                                <div class="d-flex justify-content-between mb-3"><span>Professional Dentist</span><i
+                                        class="fa fa-check text-primary pt-1"></i></div>
+                                <div class="d-flex justify-content-between mb-2"><span>24/7 Call Support</span><i
+                                        class="fa fa-check text-primary pt-1"></i></div>
+                                <a href="{{ route('frontOffice/appointment') }}"
+                                    class="btn btn-primary py-2 px-4 position-absolute top-100 start-50 translate-middle">Appointment</a>
+                            </div>
+                        </div>
+                        <div class="price-item pb-4">
+                            <div class="position-relative">
+                                <img class="img-fluid rounded-top" src="{{ asset('img/price-2.jpg') }}"
+                                    alt="">
+                                <div class="d-flex align-items-center justify-content-center bg-light rounded pt-2 px-3 position-absolute top-100 start-50 translate-middle"
+                                    style="z-index: 2;">
+                                    <h2 class="text-primary m-0">$49</h2>
+                                </div>
+                            </div>
+                            <div class="position-relative text-center bg-light border-bottom border-primary py-5 p-4">
+                                <h4>Dental Implant</h4>
+                                <hr class="text-primary w-50 mx-auto mt-0">
+                                <div class="d-flex justify-content-between mb-3"><span>Modern Equipment</span><i
+                                        class="fa fa-check text-primary pt-1"></i></div>
+                                <div class="d-flex justify-content-between mb-3"><span>Professional Dentist</span><i
+                                        class="fa fa-check text-primary pt-1"></i></div>
+                                <div class="d-flex justify-content-between mb-2"><span>24/7 Call Support</span><i
+                                        class="fa fa-check text-primary pt-1"></i></div>
+                                <a href="{{ route('frontOffice/appointment') }}"
+                                    class="btn btn-primary py-2 px-4 position-absolute top-100 start-50 translate-middle">Appointment</a>
+                            </div>
+                        </div>
+                        <div class="price-item pb-4">
+                            <div class="position-relative">
+                                <img class="img-fluid rounded-top" src="{{ asset('img/price-3.jpg') }}"
+                                    alt="">
+                                <div class="d-flex align-items-center justify-content-center bg-light rounded pt-2 px-3 position-absolute top-100 start-50 translate-middle"
+                                    style="z-index: 2;">
+                                    <h2 class="text-primary m-0">$99</h2>
+                                </div>
+                            </div>
+                            <div class="position-relative text-center bg-light border-bottom border-primary py-5 p-4">
+                                <h4>Root Canal</h4>
+                                <hr class="text-primary w-50 mx-auto mt-0">
+                                <div class="d-flex justify-content-between mb-3"><span>Modern Equipment</span><i
+                                        class="fa fa-check text-primary pt-1"></i></div>
+                                <div class="d-flex justify-content-between mb-3"><span>Professional Dentist</span><i
+                                        class="fa fa-check text-primary pt-1"></i></div>
+                                <div class="d-flex justify-content-between mb-2"><span>24/7 Call Support</span><i
+                                        class="fa fa-check text-primary pt-1"></i></div>
+                                <a href="{{ route('frontOffice/appointment') }}"
+                                    class="btn btn-primary py-2 px-4 position-absolute top-100 start-50 translate-middle">Appointment</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- About End -->
+    <!-- Pricing End -->
 
 
     <!-- Newsletter Start -->
-    <div class="container-fluid position-relative pt-5 wow fadeInUp" data-wow-delay="0.1s" style="z-index: 1;">
-        <div class="container">
-            <div class="bg-primary p-5">
-                <form class="mx-auto" style="max-width: 600px;">
-                    <div class="input-group">
-                        <input type="text" class="form-control border-white p-3" placeholder="Your Email">
-                        <button class="btn btn-dark px-4">Sign Up</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+     
     <!-- Newsletter End -->
 
 
