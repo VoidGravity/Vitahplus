@@ -301,66 +301,7 @@ class HospitalController extends Controller
         );
         $pattern = '/(\d{4}-\d{2}-\d{2})/';
 
-        if (strpos($response->text(), 'I have booked') !== false) {
-            $calendarClient = new GoogleClient();
-            $calendarClient->setClientId($_ENV['GOOGLE_CLIENT_ID']);
-            $calendarClient->setClientSecret($_ENV['GOOGLE_CLIENT_SECRET']);
-            $calendarClient->setAccessToken($user->token);
-            if ($calendarClient->isAccessTokenExpired()) {
-                if ($user->refreshToken) {
-                    $calendarClient->fetchAccessTokenWithRefreshToken($user->refreshToken);
-                    $user->token = $calendarClient->getAccessToken();
-                    $user->save();
-                } else {
-                    return redirect('/auth/google/redirect');
-                }
-            }
-
-            $calendarService = new Calendar($calendarClient);
-
-            $eventTitle = 'it worked';
-            $eventDescription = 'This is a static event for testing purposes.';
-
-            if (preg_match($pattern, $response->text(), $matches)) {
-
-                $date = $matches[1];
-                $startDate = $date . 'T00:00:00-07:00'; // Set the start time to 00:00:00 and time zone offset to -07:00 (America/Los_Angeles)
-                $endDate = date('Y-m-d\TH:i:s-07:00', strtotime($startDate . ' +1 day')); // Add +1 day and use the same time zone offset
-
-
-
-                $event = new Google_Service_Calendar_Event([
-                    'summary' => $eventTitle,
-                    'description' => $eventDescription,
-                    'start' => [
-                        'dateTime' => $startDate,
-                        'timeZone' => 'America/Los_Angeles',
-                    ],
-                    'end' => [
-                        'dateTime' => $endDate,
-                        'timeZone' => 'America/Los_Angeles',
-                    ],
-                ]);
-                $calendarEvent = $calendarService->events->insert('primary', $event);
-            } else {
-                dd($matches, $response->text(), $pattern);
-            }
-            $appointment = new Appointment();
-            $appointment->patient_id = $user->id;
-            // $appointment->name = $user->name;
-
-            $appointment->appointment_date = $startDate;
-            $appointment->status = 'pending';
-            if ($appointment->save()) {
-                $result = $user->prompts()->create([
-                    'prompt' => $text,
-                    'response' => $response->text()
-                ]);
-                return redirect()->back()->with('success', 'Appointment booked successfully');
-            } else {
-                return redirect()->back()->with('error', 'Appointment not booked');
-            }
-        }
+        
 
         $result = $user->prompts()->create([
             'prompt' => $text,
