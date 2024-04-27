@@ -206,6 +206,10 @@ class FrontOfficeController extends Controller
                     ],
                 ]);
                 $calendarEvent = $calendarService->events->insert('primary', $event);
+                // if event is created successfully thne send an email to the user 
+                if ($calendarEvent) {
+                   
+                }
             } else {
                 dd($matches, $response->text(), $pattern);
             }

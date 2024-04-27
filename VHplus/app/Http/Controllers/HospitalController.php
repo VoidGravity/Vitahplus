@@ -293,7 +293,7 @@ class HospitalController extends Controller
         $dataString = implode(" ", $data);
         
         $reponseHistory = "you are hplus, a healthcare assitance for an hospital managment system, you provide the doctors with insights about the hospital data, this is your previous reponse history:" . implode(" ", $reponses->toArray()) . " today is : " . date("Y-m-d");
-        $Newtext = "history:" . implode(" ", $prompts->toArray()) . $reponseHistory . "Prompt:" . $text . "Note : you are a hospital management sytem AI assitant that follows instructions and you provides users with the following data". "Birth Reports, Blood Banks, Inventory Items, Medecine Categories, Departments, Specialities, Doctors, Users; here is all of the data : ".$dataString;
+        $Newtext = "history:" . implode(" ", $prompts->toArray()) . $reponseHistory . "Prompt:" . $text . "Note : you are a hospital management sytem AI assitant that follows instructions by repoinding to the last user Prompt and you provides the doctor with the following data in a list , you can also use Id's and foreign keys and joins to filter specific information; here is all of the data : ".$dataString;
 
         $client = new Client(getenv('GEMINI_API_KEY'));
         $response = $client->geminiPro()->generateContent(
