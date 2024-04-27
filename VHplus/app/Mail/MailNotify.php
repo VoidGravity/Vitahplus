@@ -17,9 +17,11 @@ class MailNotify extends Mailable
      * Create a new message instance.
      */
     public $status;
-    public function __construct($status)
+    public $date;
+    public function __construct($status,$date)
     {
         $this->status=$status;
+        $this->date=$date;
     }
 
     /**

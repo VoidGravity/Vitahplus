@@ -651,11 +651,11 @@ class HospitalController extends Controller
         $appointment->status = 'approved';
 
         if ($appointment->save()){
-            // send email to the user
             $user = User::find($appointment->patient_id);
             $email = $user->email;
             $status = 'approved';
-            Mail::to($email)->send(new MailNotify($status));
+            $date = $appointment->appointment_date;
+            Mail::to($email)->send(new MailNotify($status,$date));
         }
         return redirect()->back()->with('success', 'Appointment approved successfully');
     }
@@ -666,7 +666,13 @@ class HospitalController extends Controller
             return redirect()->back()->with('error', 'Appointment not found');
         }
         $appointment->status = 'rejected';
-        $appointment->save();
+        if ($appointment->save()){
+            $user = User::find($appointment->patient_id);
+            $email = $user->email;
+            $status = 'rejected';
+            $date = $appointment->appointment_date;
+            Mail::to($email)->send(new MailNotify($status,$date));
+        }
         return redirect()->back()->with('success', 'Appointment rejected successfully');
     }
     public function updateRole(Request $request)
