@@ -218,24 +218,19 @@
                             <i class="bi bi-exclamation-triangle"></i>
                             Please Log In to Make an Appointment
                             @endif
-
-
-
                         </h4>
-                        <form>
+                        <form action="{{url('/frontOffice/index/appointment')}}" method="POST" >
+                            @csrf
                             <div class="row g-3">
-                                
                                 <div class="col-12 col-sm-6">
                                     <input type="date" name="date" class="form-control bg-light border-0"
                                         style="height: 55px;">
                                 </div>
-                                
                                 <div class="col-12 col-sm-6">
                                         <input name="note" type="text"
                                             class="form-control bg-light border-0"
                                             placeholder="Your Note" style="height: 55px;">
                                 </div>
-                                
                                 <div class="col-12">
                                     <button class="btn btn-dark w-100 py-3" type="submit">Make Appointment</button>
                                 </div>

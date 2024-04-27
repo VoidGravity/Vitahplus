@@ -37,5 +37,5 @@ Route::get('/hospital/inventory-items/{id}', [HospitalController::class, 'delete
 // chat 
 Route::group(['middleware' => 'web'], function () {
     Route::post('/hospital/chat', [HospitalController::class, 'geminiChatBot'])->name('hospital/chat');
-    Route::get('/hospital/callendar', [HospitalController::class, 'callendar'])->name('hospital/callendar');
+    // Route::get('/hospital/callendar', [HospitalController::class, 'callendar'])->name('hospital/callendar');
 });

@@ -157,7 +157,7 @@
                                     <div class="simplebar-scrollbar" style="height: 164px; transform: translate3d(0px, 86px, 0px); display: block;"></div>
                                 </div>
                             </div>
-                            <form action="/hospital/chat" method="POST" class="nk-chat-editor">
+                            <form action="/hospital/FrontChat" method="POST" class="nk-chat-editor">
                                 @csrf
                                 {{-- <div class="nk-chat-editor-upload  ms-n1"><a href="#" class="btn btn-sm btn-icon btn-trigger text-primary toggle-opt" data-target="chat-upload"><em class="icon ni ni-plus-circle-fill"></em></a>
                                     <div class="chat-upload-option" data-content="chat-upload">

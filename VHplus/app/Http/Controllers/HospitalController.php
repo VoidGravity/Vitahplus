@@ -169,7 +169,7 @@ class HospitalController extends Controller
     public function showHospitalSettingsMember()
     {
         $doctors = Doctors::all();
-        return view('hospital/settings-member',compact('doctors'));
+        return view('hospital/settings-member', compact('doctors'));
     }
 
     public function showHospitalSettingsEmail()
@@ -323,23 +323,31 @@ class HospitalController extends Controller
             } else {
                 dd($matches, $response->text(), $pattern);
             }
+            $appointment = new Appointment();
+            $appointment->patient_id = $user->id;
+            // $appointment->name = $user->name;
+
+            $appointment->appointment_date = $startDate;
+            $appointment->status = 'pending';
+            if ($appointment->save()) {
+                $result = $user->prompts()->create([
+                    'prompt' => $text,
+                    'response' => $response->text()
+                ]);
+                return redirect()->back()->with('success', 'Appointment booked successfully');
+            } else {
+                return redirect()->back()->with('error', 'Appointment not booked');
+            }
         }
 
         $result = $user->prompts()->create([
             'prompt' => $text,
             'response' => $response->text()
         ]);
-        $appointment = new Appointment();
-        $appointment->patient_id = $user->id;
-        // $appointment->name = $user->name;
 
-        $appointment->appointment_date = $startDate;
-        $appointment->status = 'pending';
-        if ($appointment->save()) {
-            return redirect()->back()->with('success', 'Appointment booked successfully');
-        } else {
-            return redirect()->back()->with('error', 'Appointment not booked');
-        }
+        return redirect()->back()->with('success', 'Prompt generated successfully');    
+
+       
     }
     public function ShowHospitalChat()
     {
@@ -641,7 +649,7 @@ class HospitalController extends Controller
         $appointment = new Appointment();
         // getting the user email and then looking for patient id 
         $user = User::where('email', $request->email)->first();
-        
+
 
         $appointment->patient_id = $user->id;
         $appointment->appointment_date = $request->date;
@@ -692,7 +700,7 @@ class HospitalController extends Controller
     public function updateRole(Request $request)
     {
         $doctor = Doctors::find($request->doctor_id);
-        if (!$doctor) { 
+        if (!$doctor) {
             dd($request->doctor_id);
             return redirect()->back()->with('error', 'User not found');
         }
