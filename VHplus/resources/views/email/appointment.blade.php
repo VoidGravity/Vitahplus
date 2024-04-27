@@ -13,7 +13,6 @@
     <p>
         Your appointment has been {{ $status }}.
     </p>
-    Your appointment has been {{ $status }}.
     {{ config('app.name') }}
 
 </body>
