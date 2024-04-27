@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Doctors;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -28,6 +29,10 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
+            'Gender' => $this->faker->randomElement(['1', '0']),
+            'doctors_id' => $this->faker->randomElement([null,Doctors::factory()]),
+            'weight' => $this->faker->randomElement(['100kg','50kg','75kg']),
+            'height' => $this->faker->randomElement(['1.7m', '1.6m', '1.8m']),
             'remember_token' => Str::random(10),
         ];
     }

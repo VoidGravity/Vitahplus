@@ -7,6 +7,7 @@ use App\Models\User;
 use Dflydev\DotAccessData\Data;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use PhpParser\Comment\Doc;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,10 +18,12 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
         $this->call([
-            SpecialitySeeder::class,
-            DepartmentSeeder::class,
+            // SpecialitySeeder::class,
+            // DepartmentSeeder::class,
             MedicineInventorySeeder::class,
-            // MedicineCategorySeeder::class,
+            UserSeeder::class,
+
+
 
         ]);
 
