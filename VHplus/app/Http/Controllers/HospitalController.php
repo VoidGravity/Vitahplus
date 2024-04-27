@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\MailNotify;
 use App\Models\Appointment;
 use App\Models\BirthReport;
 use App\Models\BloodBank;
@@ -22,6 +23,7 @@ use Google\Service\Calendar;
 use Google\Service\Calendar\Event as Google_Service_Calendar_Event;;
 
 use Google\Client as GoogleClient;
+use Illuminate\Support\Facades\Mail;
 
 class HospitalController extends Controller
 {
@@ -647,7 +649,14 @@ class HospitalController extends Controller
             return redirect()->back()->with('error', 'Appointment not found');
         }
         $appointment->status = 'approved';
-        $appointment->save();
+
+        if ($appointment->save()){
+            // send email to the user
+            $user = User::find($appointment->patient_id);
+            $email = $user->email;
+            $status = 'approved';
+            Mail::to($email)->send(new MailNotify($status));
+        }
         return redirect()->back()->with('success', 'Appointment approved successfully');
     }
     public function RejectAppointment(string $id)

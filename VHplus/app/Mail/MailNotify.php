@@ -19,7 +19,7 @@ class MailNotify extends Mailable
     public $status;
     public function __construct($status)
     {
-        $this->status=$status
+        $this->status=$status;
     }
 
     /**
@@ -28,7 +28,7 @@ class MailNotify extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Mail Notify',
+            subject: 'Appointment Confirmation : VItaHplus',
         );
     }
 
