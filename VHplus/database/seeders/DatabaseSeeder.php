@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             // SpecialitySeeder::class,
             // DepartmentSeeder::class,
+            MedicineCategorySeeder::class,
             MedicineInventorySeeder::class,
             UserSeeder::class,
 

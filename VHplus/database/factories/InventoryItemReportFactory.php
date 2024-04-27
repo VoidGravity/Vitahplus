@@ -24,7 +24,7 @@ class InventoryItemReportFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-            'category_id' => MedecineCategory::factory(),
+            'category_id' => $this->faker->randomElement(MedecineCategory::all()->pluck('id')->toArray()),
             'quantity' => $this->faker->numberBetween(1, 444),
         ];
     }
