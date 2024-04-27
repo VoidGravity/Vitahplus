@@ -269,9 +269,31 @@ class HospitalController extends Controller
         $text = $request->prompt;
         $prompts = Prompt::where('user_id', $user->id)->pluck('prompt');
         $reponses = Prompt::where('user_id', $user->id)->pluck('response');
-
-        $reponseHistory = "you are hplus, a healthcare assitance and you provide healthcare advice but if it's somthing hard you tell him to book a meeting with our doctos, this is your previous reponse history:" . implode(" ", $reponses->toArray()) . " If user wants to book a meeting , you tell him that meeting was booked successfully and you provided the date and time. and you tell him that he will recieve an email once the booking is confirmed by the doctor, example : I have booked you another appointment for 2024-04-22, Always specify the exact date and avoid using relative terms such as tomorrow" . "today is : " . date("Y-m-d");
-        $Newtext = "history:" . implode(" ", $prompts->toArray()) . $reponseHistory . "Prompt:" . $text . "Note : you are a doctor assitant that follows instructions and decides either the user will book an appointment wiht our doctors or if he is okay and just need not to be scared ,only repond the the Prompt and use history if user asks you about somthing you don't know. Remember that you always say when you book an appointment : I have booked you another appointment for (and then you specify the exact date)";
+        // data 
+        $birthReports = BirthReport::all();
+        $blood_banks = BloodBank::all();
+        $inventory = InventoryItemReport::all();
+        $category = MedecineCategory::all();
+        $departments = Department::all();
+        $speciality = Speciality::all();
+        $doctors = Doctors::all();
+        $Users = User::all();
+        // making all the retrives data into one called data
+        $data = [
+            'birthReports' => $birthReports,
+            'blood_banks' => $blood_banks,
+            'inventory' => $inventory,
+            'category' => $category,
+            'departments' => $departments,
+            'speciality' => $speciality,
+            'doctors' => $doctors,
+            'Users' => $Users
+        ];
+        // making data into a string 
+        $dataString = implode(" ", $data);
+        
+        $reponseHistory = "you are hplus, a healthcare assitance for an hospital managment system, you provide the doctors with insights about the hospital data, this is your previous reponse history:" . implode(" ", $reponses->toArray()) . " today is : " . date("Y-m-d");
+        $Newtext = "history:" . implode(" ", $prompts->toArray()) . $reponseHistory . "Prompt:" . $text . "Note : you are a hospital management sytem AI assitant that follows instructions and you provides users with the following data". "Birth Reports, Blood Banks, Inventory Items, Medecine Categories, Departments, Specialities, Doctors, Users; here is all of the data : ".$dataString;
 
         $client = new Client(getenv('GEMINI_API_KEY'));
         $response = $client->geminiPro()->generateContent(
