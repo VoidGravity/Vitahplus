@@ -38,7 +38,8 @@ class MailNotify extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'email.appointment',
+            with: ['status' => $this->status]
         );
     }
 
