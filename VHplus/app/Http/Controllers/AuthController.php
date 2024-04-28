@@ -1,10 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Mail\PasswordResetMail;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -36,6 +39,7 @@ class AuthController extends Controller
         // dd($email);
         $token = md5($email);
         $user = DB::table('users')->where('email', $email)->first();
+        dd($user);
         if ($user) {
             DB::table('password_resets')->insert([
                 'email' => $email,

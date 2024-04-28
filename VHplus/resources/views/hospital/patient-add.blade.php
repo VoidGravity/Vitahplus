@@ -120,7 +120,7 @@
                                                 <div class="d-flex justify-content-end">
 
                                                         <div class="form-group">
-                                                            <button type="submit" class="btn btn-primary">Add Doctor/Nurse</button>
+                                                            <button type="submit" class="btn btn-primary">Add Patient</button>
                                                         </div>
                                                 </div>
                                             </div>

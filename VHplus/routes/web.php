@@ -30,11 +30,14 @@ use App\Http\Controllers\BlankController;
 use App\Http\Controllers\PagesController;
 
 
-
+Route::post('auth/resetpassword', [AuthController::class, 'AuthResetPassword'])->name('password.email');
 Route::get('/auth/register', [AuthController::class, 'showAuthRegister'])->name('auth/register');
 Route::get('/auth/login', [AuthController::class, 'showAuthLogin'])->name('auth/login');
 Route::get('/auth/logout', [AuthController::class, 'showAuthLogout'])->name('auth/logout');
 Route::get('/frontOffice/index', [FrontOfficeController::class, 'showFrontOfficeIndex'])->name('frontOffice/index');
+Route::get('auth/forgot-password', [AuthController::class, 'showAuthForgotPassword'])->name('auth.forgot-password');
+Route::get('password/reset/{token}', [AuthController::class, 'showResetForm'])->name('password.reset');
+Route::post('password/update', [AuthController::class, 'resetPassword'])->name('password.update');
 
 Route::middleware(['admin'])->group(function () {
     Route::get('/frontOffice/appointment', [FrontOfficeController::class, 'showFrontOfficeAppointment'])->name('frontOffice/appointment');
@@ -56,6 +59,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/hospital/invoice-print', [HospitalController::class, 'showHospitalInvoicePrint'])->name('hospital/invoice-print');
     Route::get('/hospital/patient-add', [HospitalController::class, 'showHospitalPatientAdd'])->name('hospital/patient-add');
     Route::get('/hospital/patient-profile/{id}', [HospitalController::class, 'showHospitalPatientProfile'])->name('hospital/patient-profile');
+    Route::get('/hospital/patient-profile', [HospitalController::class, 'showHospitalPatientProfile'])->name('hospital/patient-profile');
     Route::get('/hospital/settings-member', [HospitalController::class, 'showHospitalSettingsMember'])->name('hospital/settings-member');
     Route::get('/hospital/settings-email', [HospitalController::class, 'showHospitalSettingsEmail'])->name('hospital/settings-email');
     Route::get('/hospital/settings-security', [HospitalController::class, 'showHospitalSettingsSecurity'])->name('hospital/settings-security');
@@ -137,8 +141,6 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/pages/errors/504-classic', [PagesController::class, 'showPagesErrors504Classic'])->name('pages/errors/504-classic');
     Route::get('/pages/errors/404-s1', [PagesController::class, 'showPagesErrors404S1'])->name('pages/errors/404-s1');
     Route::get('/pages/errors/504-s1', [PagesController::class, 'showPagesErrors504S1'])->name('pages/errors/504-s1');
-    Route::get('auth/forgot-password', [AuthController::class, 'showAuthForgotPassword'])->name('auth.forgot-password');
-    Route::get('password/reset/{token}', [AuthController::class, 'showResetForm'])->name('password.reset');
     Route::get('auth/auth-success', [AuthController::class, 'authSuccess'])->name('auth/auth-success');
     Route::get('/hospital/chat', [HospitalController::class, 'ShowHospitalChat'])->name('hospital/chat');
 });

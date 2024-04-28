@@ -1,4 +1,5 @@
 <?php 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HospitalController;
 use Illuminate\Support\Facades\Route;
 

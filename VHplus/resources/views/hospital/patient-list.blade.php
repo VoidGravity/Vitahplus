@@ -14,7 +14,6 @@
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{asset('css/dashlite.css')}}">
 
-
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.2.3">
 </head>
 
@@ -27,7 +26,7 @@
             <!-- wrap @s -->
             <div class="nk-wrap ">
                 <!-- main header @s -->
-                                @include('inc.dash-navbar')
+                @include('inc.dash-navbar')
 
                 <!-- main header @e -->
                 <!-- content @s -->
@@ -265,6 +264,7 @@
                                                         <div class="nk-tb-col tb-col-xxl">
                                                             <span>{{@$item->created_at}}</span>
                                                         </div>
+
                                                         {{-- <div class="nk-tb-col tb-col-mb">
                                                             <ul class="list-inline list-download">
                                                                 <li>Reports<a href="#" class="popup"><em class="icon ni ni-download"></em></a></li>
@@ -287,7 +287,7 @@
                                                                         <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                                         <div class="dropdown-menu dropdown-menu-end">
                                                                             <ul class="link-list-opt no-bdr">
-                                                                                <li><a href="{{ url('hospital/patient-profile'.$item->id}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
+                                                                                <li><a href="{{ url('hospital/patient-profile', ['id' => $item->id])}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
                                                                                 {{-- <li><a data-bs-toggle="modal" href="#editInPatient"><em class="icon ni ni-edit"></em><span>Edit</span></a></li> --}}
                                                                             </ul>
                                                                         </div>
