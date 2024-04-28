@@ -46,6 +46,7 @@ class DepartmentFactory extends Factory
                 'Surgery (various subspecialties like general surgery, neurosurgery, orthopedic surgery, etc.)',
                 'Urology',
             ]),
+            'description' => $this->faker->sentence(),
         ];
     }
 }

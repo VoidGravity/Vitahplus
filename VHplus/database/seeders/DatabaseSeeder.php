@@ -22,7 +22,9 @@ class DatabaseSeeder extends Seeder
             // DepartmentSeeder::class,
             MedicineCategorySeeder::class,
             MedicineInventorySeeder::class,
+            birth_reportSeeder::class,
             UserSeeder::class,
+            BloodBankSeeder::class,
 
 
 

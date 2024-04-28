@@ -14,11 +14,15 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        $adminDoctor = \App\Models\Doctors::factory()->create([
+            'role' => 'admin',
+        ]);
         $admin = new User();
         $admin->name = 'admin';
         $admin->email = 'admin@gmail.com';
         $admin->password = Hash::make('admin');
-        
+        // fk for an admin doctor 
+        $admin->doctors_id = $adminDoctor->id;       
 
         $admin->save();
         User::factory()->count(10)->create();
