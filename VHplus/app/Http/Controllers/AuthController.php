@@ -172,7 +172,7 @@ class AuthController extends Controller
         // Pass the raw password to auth()->attempt()
         if (auth()->attempt(['email' => $request->email, 'password' => $request->password])) {
             // Authentication passed...
-            return redirect()->route('Evento/index');
+            return redirect()->route('hospital/appointment');
         }
 
         // If authentication fails, you might want to return back with an error message
@@ -204,7 +204,7 @@ class AuthController extends Controller
         auth()->login($user);
 
         // Redirect to a specific route after registration
-        return redirect()->route('Evento/index');
+        return redirect()->route('hospital/appointment');
     }
 
     public function showAuthLogout()

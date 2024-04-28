@@ -82,8 +82,8 @@
                 <a href="{{ route('auth/logout') }}" class="nav-item nav-link">Logout</a>
                 @else
                 <a href="{{ route('auth/login') }}" class="nav-item nav-link">Login</a>
-                @endif
                 <a href="{{ route('auth/register') }}" class="nav-item nav-link">Register</a>
+                @endif
             </div>
             <a href="{{ route('frontOffice/appointment') }}" class="btn btn-primary py-2 px-4 ms-3">Chat with H+</a>
         </div>
