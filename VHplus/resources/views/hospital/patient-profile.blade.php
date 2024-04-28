@@ -48,7 +48,7 @@
                                                     <li class="nav-item">
                                                         <a class="nav-link active" data-bs-toggle="tab" href="#tabItem1"><em class="icon ni ni-user-circle-fill"></em><span>Personal information</span></a>
                                                     </li>
-                                                    <li class="nav-item">
+                                                    {{-- <li class="nav-item">
                                                         <a class="nav-link" data-bs-toggle="tab" href="#tabItem2"><em class="icon ni ni-property"></em><span>Diagnosis</span></a>
                                                     </li>
                                                     <li class="nav-item">
@@ -59,7 +59,7 @@
                                                     </li>
                                                     <li class="nav-item">
                                                         <a class="nav-link" data-bs-toggle="tab" href="#tabItem5"><em class="icon ni ni-wallet-in"></em><span>Payment</span> </a>
-                                                    </li>
+                                                    </li> --}}
                                                 </ul>
                                                 <div class="card-inner">
                                                     <div class="tab-content">
@@ -69,11 +69,11 @@
                                                                     <h6 class="title">Personal Information</h6>
                                                                     <p>Patients personal information.</p>
                                                                 </div><!-- .nk-block-head -->
-                                                                <div class="nk-block">
+                                                                {{-- <div class="nk-block">
                                                                     <a class="btn btn-white btn-icon btn-outline-light" data-bs-toggle="modal" href="#editPersonal">
                                                                         <em class="icon ni ni-edit"></em>
                                                                     </a>
-                                                                </div>
+                                                                </div> --}}
                                                             </div><!-- .nk-block-between  -->
                                                             <div class="nk-block">
                                                                 <div class="profile-ud-list">
@@ -624,28 +624,7 @@
                                                             <li><a href="#" class="btn btn-trigger btn-icon"><em class="icon ni ni-bookmark"></em></a></li>
                                                         </ul>
                                                     </div><!-- .card-inner --> --}}
-                                                    <div class="card-inner">
-                                                        <div class="row text-center">
-                                                            <div class="col-4">
-                                                                <div class="profile-stats">
-                                                                    <span class="amount">$2123</span>
-                                                                    <span class="sub-text">Total Bill</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <div class="profile-stats">
-                                                                    <span class="amount">$200</span>
-                                                                    <span class="sub-text">Paid</span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <div class="profile-stats">
-                                                                    <span class="amount">$1923</span>
-                                                                    <span class="sub-text">Due</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div><!-- .card-inner -->
+                                                    
                                                     <div class="card-inner">
                                                         <h6 class="overline-title-alt mb-2">Additional</h6>
                                                         <div class="row g-3">
@@ -969,7 +948,7 @@
         </div><!-- .modal-dialog -->
     </div><!-- .modal -->
     <!-- Add Diagnosis  Info-->
-    <div class="modal fade" tabindex="-1" role="dialog" id="addDiagnosis">
+    {{-- <div class="modal fade" tabindex="-1" role="dialog" id="addDiagnosis">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
@@ -1274,7 +1253,7 @@
                 </div><!-- .modal-body -->
             </div><!-- .modal-content -->
         </div><!-- .modal-dialog -->
-    </div><!-- .modal -->
+    </div><!-- .modal --> --}}
     <!-- JavaScript -->
      <script src="{{asset('js/bundle.js')}}"></script>
     

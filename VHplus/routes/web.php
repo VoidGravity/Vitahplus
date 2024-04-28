@@ -50,7 +50,7 @@ Route::get('/hospital/invoice-details', [HospitalController::class, 'showHospita
 Route::get('/hospital/invoice-list', [HospitalController::class, 'showHospitalInvoiceList'])->name('hospital/invoice-list');
 Route::get('/hospital/invoice-print', [HospitalController::class, 'showHospitalInvoicePrint'])->name('hospital/invoice-print');
 Route::get('/hospital/patient-add', [HospitalController::class, 'showHospitalPatientAdd'])->name('hospital/patient-add');
-Route::get('/hospital/patient-profile', [HospitalController::class, 'showHospitalPatientProfile'])->name('hospital/patient-profile');
+Route::get('/hospital/patient-profile/{id}', [HospitalController::class, 'showHospitalPatientProfile'])->name('hospital/patient-profile');
 Route::get('/hospital/settings-member', [HospitalController::class, 'showHospitalSettingsMember'])->name('hospital/settings-member');
 Route::get('/hospital/settings-email', [HospitalController::class, 'showHospitalSettingsEmail'])->name('hospital/settings-email');
 Route::get('/hospital/settings-security', [HospitalController::class, 'showHospitalSettingsSecurity'])->name('hospital/settings-security');

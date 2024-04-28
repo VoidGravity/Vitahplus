@@ -159,9 +159,8 @@ class HospitalController extends Controller
         return view('hospital/patient-add');
     }
 
-    public function showHospitalPatientProfile(Request $request)
+    public function showHospitalPatientProfile(Request $request, $id)
     {
-        $id = $request->query('id');
         $patient = User::find($id);
 
         return view('hospital/patient-profile', compact('patient'));

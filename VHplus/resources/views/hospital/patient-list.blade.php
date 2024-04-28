@@ -201,7 +201,7 @@
                                                         <div class="nk-tb-col tb-col-mb"><span class="sub-text">height</span></div>
                                                         <div class="nk-tb-col tb-col-md"><span class="sub-text">weight</span></div>
                                                         <div class="nk-tb-col tb-col-xxl"><span class="sub-text">Admit Date</span></div>
-                                                        <div class="nk-tb-col tb-col-xxl"><span class="sub-text">Reports</span></div>
+                                                        {{-- <div class="nk-tb-col tb-col-xxl"><span class="sub-text">Reports</span></div> --}}
                                                         <div class="nk-tb-col nk-tb-col-tools">
                                                             <ul class="nk-tb-actions gx-1 my-n1">
                                                                 <li>
@@ -265,14 +265,14 @@
                                                         <div class="nk-tb-col tb-col-xxl">
                                                             <span>{{@$item->created_at}}</span>
                                                         </div>
-                                                        <div class="nk-tb-col tb-col-mb">
+                                                        {{-- <div class="nk-tb-col tb-col-mb">
                                                             <ul class="list-inline list-download">
                                                                 <li>Reports<a href="#" class="popup"><em class="icon ni ni-download"></em></a></li>
                                                             </ul>
-                                                        </div>
+                                                        </div> --}}
                                                         <div class="nk-tb-col nk-tb-col-tools">
                                                             <ul class="nk-tb-actions gx-1">
-                                                                <li class="nk-tb-action-hidden">
+                                                                {{-- <li class="nk-tb-action-hidden">
                                                                     <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Send Email">
                                                                         <em class="icon ni ni-mail-fill"></em>
                                                                     </a>
@@ -281,13 +281,13 @@
                                                                     <a href="#" class="btn btn-trigger btn-icon" data-bs-toggle="tooltip" data-bs-placement="top" title="Move To Discharged">
                                                                         <em class="icon ni ni-curve-up-right"></em>
                                                                     </a>
-                                                                </li>
+                                                                </li> --}}
                                                                 <li>
                                                                     <div class="drodown">
                                                                         <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
                                                                         <div class="dropdown-menu dropdown-menu-end">
                                                                             <ul class="link-list-opt no-bdr">
-                                                                                <li><a href="{{ url('hospital/patient-profile', ['id' => $item->id]) }}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
+                                                                                <li><a href="{{ url('hospital/patient-profile'.$item->id}}"><em class="icon ni ni-eye"></em><span>View Details</span></a></li>
                                                                                 {{-- <li><a data-bs-toggle="modal" href="#editInPatient"><em class="icon ni ni-edit"></em><span>Edit</span></a></li> --}}
                                                                             </ul>
                                                                         </div>
