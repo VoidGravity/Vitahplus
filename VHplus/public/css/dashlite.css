@@ -15924,7 +15924,7 @@ a:hover .btn-trigger:before {
   width: 100%;
 }
 .card-title-group {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   position: relative;
@@ -34623,6 +34623,7 @@ body.toggle-shown {
 }
 @media (min-width: 576px) {
   .card-tools-toggle {
+    
     z-index: 9;
   }
   .card-tools-toggle .toggle-wrap .toggle {

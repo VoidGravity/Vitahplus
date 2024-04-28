@@ -38,14 +38,7 @@
                                     <div class="nk-block-between g-3">
                                         <div class="nk-block-head-content">
                                             <h3 class="nk-block-title page-title">Appointment List</h3>
-                                            <div class="nk-block-des text-soft d-none d-md-inline-flex">
-                                                <ul class="breadcrumb breadcrumb-pipe">
-                                                    <li class="breadcrumb-item active"><a href="#">Today's Total (150)</a></li>
-                                                    <li class="breadcrumb-item "><a href="#">Visited (47)</a></li>
-                                                    <li class="breadcrumb-item"><a href="#">Waiting (12)</a></li>
-                                                    <li class="breadcrumb-item "><a href="#">Canceled (1)</a></li>
-                                                </ul>
-                                            </div>
+                                            
                                         </div>
                                         <div class="nk-block-head-content">
                                             <a data-bs-toggle="modal" href="#addAppointment" class="btn btn-icon btn-primary d-md-none"><em class="icon ni ni-plus"></em></a>
