@@ -209,7 +209,7 @@
                                                         </div>
                                                         <div class="user-card user-card-s2">
                                                             <div class="user-avatar lg bg-primary">
-                                                                <img src="{{ asset('images/avatar/c-sm.jpg') }}" alt="">
+                                                                <img src="{{ asset('images/'.$item->Doctor_image) }}" alt="">
                                                             </div>
                                                             <div class="user-info">
                                                                 <h6>{{@$item->user->name}}</h6>

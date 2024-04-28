@@ -39,7 +39,6 @@ class AuthController extends Controller
         // dd($email);
         $token = md5($email);
         $user = DB::table('users')->where('email', $email)->first();
-        dd($user);
         if ($user) {
             DB::table('password_resets')->insert([
                 'email' => $email,
