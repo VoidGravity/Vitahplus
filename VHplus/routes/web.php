@@ -39,7 +39,7 @@ Route::get('auth/forgot-password', [AuthController::class, 'showAuthForgotPasswo
 Route::get('password/reset/{token}', [AuthController::class, 'showResetForm'])->name('password.reset');
 Route::post('password/update', [AuthController::class, 'resetPassword'])->name('password.update');
 
-// Route::middleware(['admin'])->group(function () {
+Route::middleware(['admin'])->group(function () {
     Route::get('/frontOffice/appointment', [FrontOfficeController::class, 'showFrontOfficeAppointment'])->name('frontOffice/appointment');
     
     Route::get('/frontOffice/about', [FrontOfficeController::class, 'showFrontOfficeAbout'])->name('frontOffice/about');
@@ -142,6 +142,6 @@ Route::post('password/update', [AuthController::class, 'resetPassword'])->name('
     Route::get('/pages/errors/504-s1', [PagesController::class, 'showPagesErrors504S1'])->name('pages/errors/504-s1');
     Route::get('auth/auth-success', [AuthController::class, 'authSuccess'])->name('auth/auth-success');
     Route::get('/hospital/chat', [HospitalController::class, 'ShowHospitalChat'])->name('hospital/chat');
-// });
+});
 
 

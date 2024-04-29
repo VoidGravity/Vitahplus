@@ -36,7 +36,11 @@ class admin
                 return $next($request);
             }
         } else {
-            return redirect('/frontOffice/index');
+            if ($request->is('frontOffice/appointment')) {
+                return $next($request);
+            } else {
+                return redirect('/frontOffice/index');
+            }
         }
 
         return $next($request);
