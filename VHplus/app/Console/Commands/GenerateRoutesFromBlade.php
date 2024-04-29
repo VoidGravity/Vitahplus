@@ -21,14 +21,11 @@ class GenerateRoutesFromBlade extends Command
         $finder = new Finder();
         $routeNames = [];
 
-        // Search for blade files in the resources/views directory
         $finder->files()->in(resource_path('views'))->name('*.blade.php');
 
         foreach ($finder as $file) {
-            // Read the content of the file
             $content = file_get_contents($file->getRealPath());
 
-            // Match all instances of route() calls
             preg_match_all('/route\([\'"]([^\'"]+)[\'"]\)/', $content, $matches);
 
             foreach ($matches[1] as $routeName) {
@@ -36,12 +33,10 @@ class GenerateRoutesFromBlade extends Command
             }
         }
 
-        // Remove duplicates
         $routeNames = array_unique($routeNames);
         $controllerNames = [];
 
         foreach ($routeNames as $routeName) {
-            // if routeName has /
             if (strpos($routeName, '/') !== false) {
                 $controllerName = Str::studly(Str::before($routeName, '/'));
             } else {
@@ -49,48 +44,46 @@ class GenerateRoutesFromBlade extends Command
             }
             
 
-            // $controllerName = Str::studly(Str::before(Str::after($routeName, '/'), '-'));
-
-            // $controllerName = Str::studly(Str::before($routeName, '/'));
             $methodName = 'show' . Str::studly(str_replace('/', '_', $routeName)); // Replace '/' with '_'
             $controllerClass = $controllerName . 'Controller';
         
-            // Store the controller name for later use
+            // Store the controler name for later use
             $controllerNames[] = $controllerClass;
         
-            // Generate the route definition
+            // Generate th route definition
             $routeDefinition = "Route::get('/$routeName', [$controllerClass::class, '$methodName'])->name('$routeName');\n";
         
-            // Path to the web.php file
+            // Pathto the web.php file
             $webFilePath = base_path('routes/web.php');
         
-            // Append the route definition to web.php
+            // Append te route definition to web.php
             file_put_contents($webFilePath, $routeDefinition, FILE_APPEND);
         }
         
-        // Remove duplicate controller names
+        // Remove dupicate controller names
         $controllerNames = array_unique($controllerNames);
         
-        // Generate `use` statements
+        // Generate `us` statements
         $useStatements = "<?php\n\n";
         $useStatements .= "use Illuminate\\Support\\Facades\\Route;\n"; // Add the Route facade
         foreach ($controllerNames as $controllerName) {
             $useStatements .= "use App\\Http\\Controllers\\{$controllerName};\n";
         }
         
-        // Read the existing content of web.php
+        // Read the eisting content of web.php
         $existingContent = file_get_contents($webFilePath);
         
-        // Combine `use` statements and existing content
+        // Combine `use` statements and existing conent
         $newContent = $useStatements . "\n" . $existingContent;
         
-        // Write to web.php
+        // Write toweb.php
         file_put_contents($webFilePath, $newContent);
                 
 
         // TODO: Generate route definitions based on found route names
         // and append to the routes/web.php file. This part of the code
         // depends on your specific requirements and routing structure. (DOne , lsgooooooooooooooooooo)
+        // niiiiiiiiiiiiiice
 
         return 0;
     }
